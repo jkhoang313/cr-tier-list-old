@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import TierListDisplay from './TierListDisplay.js';
-import CardsContainer from './CardsContainer.js';
+import TierListContainer from './tierList/TierListContainer.js';
+import CardPoolContainer from './tierList/CardPoolContainer.js';
 
 class App extends Component {
   render() {
     return (
       <main>
-        <TierListDisplay />
-        <CardsContainer />
+        <TierListContainer />
+        <CardPoolContainer />
       </main>
     );
   };

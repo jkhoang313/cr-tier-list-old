@@ -1,0 +1,6 @@
+.card {
+  display: inline-block;
+  width: 100px; }
+  .card .card-image {
+    height: 100px;
+    width: 80px; }
