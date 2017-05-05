@@ -3,19 +3,21 @@ import { connect } from 'react-redux'
 
 import Tier from './Tier'
 
-class TierListDisplay extends Component {
+class TierListContainer extends Component {
   renderTiers() {
-    const { tiers } = this.props;
+    const { tiers } = this.props.tierList;
 
-    return tiers.map((tier) => {
-      return <Tier tier={tier}/>;
+    return tiers.map((tier, index) => {
+      return <Tier tier={tier} key={index}/>;
     });
   };
 
   render() {
+    const { name } = this.props.tierList;
+
     return (
       <div className="tier-list-container">
-        <h1>Tier List</h1>
+        <h1>{name}</h1>
         { this.renderTiers() }
       </div>
     );
@@ -24,8 +26,8 @@ class TierListDisplay extends Component {
 
 function mapStateToProps(state) {
   return {
-    tiers: state.tierList.tiers
+    tierList: state.tierList
   }
 }
 
-export default connect(mapStateToProps)(TierListDisplay)
+export default connect(mapStateToProps)(TierListContainer)

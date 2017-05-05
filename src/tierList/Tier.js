@@ -10,7 +10,10 @@ class Tier extends Component {
 
     return (
       <div className="tier">
-        <h2>{title}</h2>
+        <h5>{title} - {cards.length} cards</h5>
+        <h6>Description: {description}</h6>
+        <CardsContainer cards={cards}/>
+        <h6>Notes: {notes}</h6>
       </div>
     )
   };

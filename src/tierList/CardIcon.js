@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactTooltip from 'react-tooltip'
 
 import { cards } from '../helpers/cards';
 import './CardIcon.css';
@@ -10,8 +11,15 @@ export default class CardIcon extends Component {
 
     return (
       <div className="card">
-        <h2>{card.elixirCost}</h2>
-        <img src={card.image} className="card-image" alt={card.name}/>
+        <ReactTooltip
+          id="card-description"
+          type="info"/>
+        <img
+          src={card.image}
+          className="card-image"
+          alt={card.name}
+          data-for="card-description"
+          data-tip="Card Description"/>
       </div>
     );
   };

@@ -1,10 +1,12 @@
 export default function(state={
+  id: '1',
+  name: "Clyde's Tier List",
   tiers: [
     {
       title: "S-tier",
       description: "The best cards in the game",
       notes: "Bomber just reached S tier!",
-      cards: ["Bomber"]
+      cards: ["Bomber", "Bowler", "Bomb Tower"]
     },
     {
       title: "A-tier",

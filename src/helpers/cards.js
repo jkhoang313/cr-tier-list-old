@@ -4,6 +4,8 @@ import Balloon from "../../public/images/Balloon.png"
 import BarbarianHut from "../../public/images/BarbarianHut.png"
 import Barbarians from "../../public/images/Barbarians.png"
 import Bomber from "../../public/images/Bomber.png"
+import BombTower from "../../public/images/BombTower.png"
+import Bowler from "../../public/images/Bowler.png"
 import Goblins from "../../public/images/Goblins.png"
 
 export const cards = {
@@ -36,6 +38,16 @@ export const cards = {
     name: "Bomber",
     image: Bomber,
     elixirCost: 3
+  },
+  "Bomb Tower": {
+    name: "Bomb Tower",
+    image: BombTower,
+    elixirCost: 5
+  },
+  "Bowler": {
+    name: "Bowler",
+    image: Bowler,
+    elixirCost: 5
   },
   "Goblins": {
     name: "Goblins",
