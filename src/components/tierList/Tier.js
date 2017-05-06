@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import CardsContainer from './CardsContainer'
-import './Tier.css';
 
 class Tier extends Component {
   render() {

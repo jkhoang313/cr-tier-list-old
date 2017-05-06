@@ -7,6 +7,7 @@ import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers';
 import App from './components/App';
 
+import './stylesheets/main.scss'
 import './index.css';
 
 const store = createStore(rootReducer, applyMiddleware(promiseMiddleware));

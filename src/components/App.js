@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 import TierListContainer from './tierList/TierListContainer.js';
 import CardPoolContainer from './tierList/CardPoolContainer.js';
