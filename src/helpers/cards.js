@@ -1,16 +1,21 @@
 import Archers from "../../public/images/Archers.png"
 import Arrows from "../../public/images/Arrows.png"
 import Balloon from "../../public/images/Balloon.png"
+import Bandit from "../../public/images/Bandit.png"
 import BarbarianHut from "../../public/images/BarbarianHut.png"
 import Barbarians from "../../public/images/Barbarians.png"
+import BattleRam from "../../public/images/BattleRam.png"
 import Bomber from "../../public/images/Bomber.png"
 import BombTower from "../../public/images/BombTower.png"
 import Bowler from "../../public/images/Bowler.png"
 import Cannon from "../../public/images/Cannon.png"
 import Clone from "../../public/images/Clone.png"
 import DarkPrince from "../../public/images/DarkPrince.png"
+import DartGoblin from "../../public/images/DartGoblin.png"
+import ElectroWizard from "../../public/images/ElectroWizard.png"
 import EliteBarbarians from "../../public/images/EliteBarbarians.png"
 import ElixirCollector from "../../public/images/ElixirCollector.png"
+import Executioner from "../../public/images/Executioner.png"
 import Fireball from "../../public/images/Fireball.png"
 import FireSpirits from "../../public/images/FireSpirits.png"
 import Freeze from "../../public/images/Freeze.png"
@@ -18,11 +23,13 @@ import Furnace from "../../public/images/Furnace.png"
 import Giant from "../../public/images/Giant.png"
 import GiantSkeleton from "../../public/images/GiantSkeleton.png"
 import GoblinBarrel from "../../public/images/GoblinBarrel.png"
+import GoblinGang from "../../public/images/GoblinGang.png"
 import GoblinHut from "../../public/images/GoblinHut.png"
 import Goblins from "../../public/images/Goblins.png"
 import Golem from "../../public/images/Golem.png"
 import Graveyard from "../../public/images/Graveyard.png"
 import Guards from "../../public/images/Guards.png"
+import Heal from "../../public/images/Heal.png"
 import HogRider from "../../public/images/HogRider.png"
 import IceGolem from "../../public/images/IceGolem.png"
 import IceSpirit from "../../public/images/IceSpirit.png"
@@ -79,6 +86,11 @@ export const cards = {
     image: Balloon,
     elixirCost: 5
   },
+  "Bandit": {
+    name: "Bandit",
+    image: Bandit,
+    elixirCost: 5
+  },
   "Barbarian Hut": {
     name: "Barbarian Hut",
     image: BarbarianHut,
@@ -87,6 +99,11 @@ export const cards = {
   "Barbarians": {
     name: "Barbarians",
     image: Barbarians,
+    elixirCost: 5
+  },
+  "Battle Ram": {
+    name: "Battle Ram",
+    image: BattleRam,
     elixirCost: 5
   },
   "Bomber": {
@@ -114,19 +131,34 @@ export const cards = {
     image: Clone,
     elixirCost: 3
   },
-  "DarkPrince": {
-    name: "DarkPrince",
+  "Dark Prince": {
+    name: "Dark Prince",
     image: DarkPrince,
     elixirCost: 4
   },
-  "EliteBarbarians": {
-    name: "EliteBarbarians",
+  "Dart Goblin": {
+    name: "Dart Goblin",
+    image: DartGoblin,
+    elixirCost: 4
+  },
+  "Electro Wizard": {
+    name: "Electro Wizard",
+    image: ElectroWizard,
+    elixirCost: 4
+  },
+  "Elite Barbarians": {
+    name: "Elite Barbarians",
     image: EliteBarbarians,
     elixirCost: 6
   },
-  "ElixirCollector": {
-    name: "ElixirCollector",
+  "Elixir Collector": {
+    name: "Elixir Collector",
     image: ElixirCollector,
+    elixirCost: 6
+  },
+  "Executioner": {
+    name: "Executioner",
+    image: Executioner,
     elixirCost: 6
   },
   "Fireball": {
@@ -134,8 +166,8 @@ export const cards = {
     image: Fireball,
     elixirCost: 4
   },
-  "FireSpirits": {
-    name: "FireSpirits",
+  "Fire Spirits": {
+    name: "Fire Spirits",
     image: FireSpirits,
     elixirCost: 2
   },
@@ -154,18 +186,23 @@ export const cards = {
     image: Giant,
     elixirCost: 5
   },
-  "GiantSkeleton": {
-    name: "GiantSkeleton",
+  "Giant Skeleton": {
+    name: "Giant Skeleton",
     image: GiantSkeleton,
     elixirCost: 6
   },
-  "GoblinBarrel": {
-    name: "GoblinBarrel",
+  "Goblin Barrel": {
+    name: "Goblin Barrel",
     image: GoblinBarrel,
     elixirCost: 3
   },
-  "GoblinHut": {
-    name: "GoblinHut",
+  "Goblin Gang": {
+    name: "Goblin Gang",
+    image: GoblinGang,
+    elixirCost: 3
+  },
+  "Goblin Hut": {
+    name: "Goblin Hut",
     image: GoblinHut,
     elixirCost: 3
   },
@@ -189,33 +226,38 @@ export const cards = {
     image: Guards,
     elixirCost: 3
   },
-  "HogRider": {
-    name: "HogRider",
+  "Heal": {
+    name: "Heal",
+    image: Heal,
+    elixirCost: 3
+  },
+  "Hog Rider": {
+    name: "Hog Rider",
     image: HogRider,
     elixirCost: 4
   },
-  "IceGolem": {
-    name: "IceGolem",
+  "Ice Golem": {
+    name: "Ice Golem",
     image: IceGolem,
     elixirCost: 2
   },
-  "IceSpirit": {
-    name: "IceSpirit",
+  "Ice Spirit": {
+    name: "Ice Spirit",
     image: IceSpirit,
     elixirCost: 1
   },
-  "IceWizard": {
-    name: "IceWizard",
+  "Ice Wizard": {
+    name: "Ice Wizard",
     image: IceWizard,
     elixirCost: 3
   },
-  "InfernoDragon": {
-    name: "InfernoDragon",
+  "Inferno Dragon": {
+    name: "Inferno Dragon",
     image: InfernoDragon,
     elixirCost: 4
   },
-  "InfernoTower": {
-    name: "InfernoTower",
+  "Inferno Tower": {
+    name: "Inferno Tower",
     image: InfernoTower,
     elixirCost: 5
   },
@@ -224,8 +266,8 @@ export const cards = {
     image: Knight,
     elixirCost: 3
   },
-  "LavaHound": {
-    name: "LavaHound",
+  "Lava Hound": {
+    name: "Lava Hound",
     image: LavaHound,
     elixirCost: 7
   },
@@ -239,8 +281,8 @@ export const cards = {
     image: Lumberjack,
     elixirCost: 4
   },
-  "MegaMinion": {
-    name: "MegaMinion",
+  "Mega Minion": {
+    name: "Mega Minion",
     image: MegaMinion,
     elixirCost: 3
   },
@@ -249,8 +291,8 @@ export const cards = {
     image: Miner,
     elixirCost: 3
   },
-  "MinionHorde": {
-    name: "MinionHorde",
+  "Minion Horde": {
+    name: "Minion Horde",
     image: MinionHorde,
     elixirCost: 5
   },
@@ -259,8 +301,8 @@ export const cards = {
     image: Minions,
     elixirCost: 3
   },
-  "MiniPEKKA": {
-    name: "MiniPEKKA",
+  "Mini PEKKA": {
+    name: "Mini PEKKA",
     image: MiniPEKKA,
     elixirCost: 4
   },
@@ -309,13 +351,13 @@ export const cards = {
     image: Rocket,
     elixirCost: 6
   },
-  "RoyalGiant": {
-    name: "RoyalGiant",
+  "Royal Giant": {
+    name: "Royal Giant",
     image: RoyalGiant,
     elixirCost: 6
   },
-  "SkeletonArmy": {
-    name: "SkeletonArmy",
+  "Skeleton Army": {
+    name: "Skeleton Army",
     image: SkeletonArmy,
     elixirCost: 3
   },
@@ -329,8 +371,8 @@ export const cards = {
     image: Sparky,
     elixirCost: 6
   },
-  "SpearGoblins": {
-    name: "SpearGoblins",
+  "Spear Goblins": {
+    name: "Spear Goblins",
     image: SpearGoblins,
     elixirCost: 2
   },
@@ -339,13 +381,13 @@ export const cards = {
     image: Tesla,
     elixirCost: 4
   },
-  "TheLog": {
-    name: "TheLog",
+  "The Log": {
+    name: "The Log",
     image: TheLog,
     elixirCost: 2
   },
-  "ThreeMusketeers": {
-    name: "ThreeMusketeers",
+  "Three Musketeers": {
+    name: "Three Musketeers",
     image: ThreeMusketeers,
     elixirCost: 9
   },

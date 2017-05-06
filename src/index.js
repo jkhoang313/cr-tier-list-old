@@ -5,7 +5,7 @@ import promiseMiddleware from 'redux-promise';
 import { createStore, applyMiddleware } from 'redux'
 
 import rootReducer from './reducers';
-import App from './App';
+import App from './components/App';
 
 import './index.css';
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactTooltip from 'react-tooltip'
 
-import { cards } from '../helpers/cards';
+import { cards } from '../../helpers/cards';
 import './CardIcon.css';
 
 export default class CardIcon extends Component {
