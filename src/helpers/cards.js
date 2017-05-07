@@ -74,356 +74,498 @@ export const cards = {
   "Archers": {
     name: "Archers",
     image: Archers,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 3
   },
   "Arrows": {
     name: "Arrows",
     image: Arrows,
+    type: "Spell",
+    rarity: "Common",
     elixirCost: 3
   },
   "Balloon": {
     name: "Balloon",
     image: Balloon,
+    type: "Troop",
+    rarity: "Epic",
     elixirCost: 5
   },
   "Bandit": {
     name: "Bandit",
     image: Bandit,
+    type: "Troop",
+    rarity: "Legendary",
     elixirCost: 5
   },
   "Barbarian Hut": {
     name: "Barbarian Hut",
     image: BarbarianHut,
+    type: "Building",
+    rarity: "Rare",
     elixirCost: 7
   },
   "Barbarians": {
     name: "Barbarians",
     image: Barbarians,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 5
   },
   "Battle Ram": {
     name: "Battle Ram",
     image: BattleRam,
+    type: "Troop",
+    rarity: "Rare",
     elixirCost: 5
   },
   "Bomber": {
     name: "Bomber",
     image: Bomber,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 3
   },
   "Bomb Tower": {
     name: "Bomb Tower",
     image: BombTower,
+    type: "Building",
+    rarity: "Rare",
     elixirCost: 5
   },
   "Bowler": {
     name: "Bowler",
     image: Bowler,
+    type: "Troop",
+    rarity: "Epic",
     elixirCost: 5
   },
   "Cannon": {
     name: "Cannon",
     image: Cannon,
+    type: "Building",
+    rarity: "Common",
     elixirCost: 3
   },
   "Clone": {
     name: "Clone",
     image: Clone,
+    type: "Spell",
+    rarity: "Epic",
     elixirCost: 3
   },
   "Dark Prince": {
     name: "Dark Prince",
     image: DarkPrince,
+    type: "Troop",
+    rarity: "Epic",
     elixirCost: 4
   },
   "Dart Goblin": {
     name: "Dart Goblin",
     image: DartGoblin,
+    type: "Troop",
+    rarity: "Rare",
     elixirCost: 4
   },
   "Electro Wizard": {
     name: "Electro Wizard",
     image: ElectroWizard,
+    type: "Troop",
+    rarity: "Legendary",
     elixirCost: 4
   },
   "Elite Barbarians": {
     name: "Elite Barbarians",
     image: EliteBarbarians,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 6
   },
   "Elixir Collector": {
     name: "Elixir Collector",
     image: ElixirCollector,
+    type: "Building",
+    rarity: "Rare",
     elixirCost: 6
   },
   "Executioner": {
     name: "Executioner",
     image: Executioner,
+    type: "Troop",
+    rarity: "Epic",
     elixirCost: 6
   },
   "Fireball": {
     name: "Fireball",
     image: Fireball,
+    type: "Spell",
+    rarity: "Rare",
     elixirCost: 4
   },
   "Fire Spirits": {
     name: "Fire Spirits",
     image: FireSpirits,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 2
   },
   "Freeze": {
     name: "Freeze",
     image: Freeze,
+    type: "Spell",
+    rarity: "Epic",
     elixirCost: 4
   },
   "Furnace": {
     name: "Furnace",
     image: Furnace,
+    type: "Building",
+    rarity: "Rare",
     elixirCost: 4
   },
   "Giant": {
     name: "Giant",
     image: Giant,
+    type: "Troop",
+    rarity: "Rare",
     elixirCost: 5
   },
   "Giant Skeleton": {
     name: "Giant Skeleton",
     image: GiantSkeleton,
+    type: "Troop",
+    rarity: "Epic",
     elixirCost: 6
   },
   "Goblin Barrel": {
     name: "Goblin Barrel",
     image: GoblinBarrel,
+    type: "Spell",
+    rarity: "Epic",
     elixirCost: 3
   },
   "Goblin Gang": {
     name: "Goblin Gang",
     image: GoblinGang,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 3
   },
   "Goblin Hut": {
     name: "Goblin Hut",
     image: GoblinHut,
+    type: "Building",
+    rarity: "Rare",
     elixirCost: 3
   },
   "Goblins": {
     name: "Goblins",
     image: Goblins,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 2
   },
   "Golem": {
     name: "Golem",
     image: Golem,
+    type: "Troop",
+    rarity: "Epic",
     elixirCost: 8
   },
   "Graveyard": {
     name: "Graveyard",
     image: Graveyard,
+    type: "Spell",
+    rarity: "Legendary",
     elixirCost: 5
   },
   "Guards": {
     name: "Guards",
     image: Guards,
+    type: "Troop",
+    rarity: "Epic",
     elixirCost: 3
   },
   "Heal": {
     name: "Heal",
     image: Heal,
+    type: "Spell",
+    rarity: "Rare",
     elixirCost: 3
   },
   "Hog Rider": {
     name: "Hog Rider",
     image: HogRider,
+    type: "Troop",
+    rarity: "Rare",
     elixirCost: 4
   },
   "Ice Golem": {
     name: "Ice Golem",
     image: IceGolem,
+    type: "Troop",
+    rarity: "Rare",
     elixirCost: 2
   },
   "Ice Spirit": {
     name: "Ice Spirit",
     image: IceSpirit,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 1
   },
   "Ice Wizard": {
     name: "Ice Wizard",
     image: IceWizard,
+    type: "Troop",
+    rarity: "Legendary",
     elixirCost: 3
   },
   "Inferno Dragon": {
     name: "Inferno Dragon",
     image: InfernoDragon,
+    type: "Troop",
+    rarity: "Legendary",
     elixirCost: 4
   },
   "Inferno Tower": {
     name: "Inferno Tower",
     image: InfernoTower,
+    type: "Building",
+    rarity: "Rare",
     elixirCost: 5
   },
   "Knight": {
     name: "Knight",
     image: Knight,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 3
   },
   "Lava Hound": {
     name: "Lava Hound",
     image: LavaHound,
+    type: "Troop",
+    rarity: "Legendary",
     elixirCost: 7
   },
   "Lightning": {
     name: "Lightning",
     image: Lightning,
+    type: "Spell",
+    rarity: "Epic",
     elixirCost: 6
   },
   "Lumberjack": {
     name: "Lumberjack",
     image: Lumberjack,
+    type: "Troop",
+    rarity: "Legendary",
     elixirCost: 4
   },
   "Mega Minion": {
     name: "Mega Minion",
     image: MegaMinion,
+    type: "Troop",
+    rarity: "Rare",
     elixirCost: 3
   },
   "Miner": {
     name: "Miner",
     image: Miner,
+    type: "Troop",
+    rarity: "Legendary",
     elixirCost: 3
   },
   "Minion Horde": {
     name: "Minion Horde",
     image: MinionHorde,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 5
   },
   "Minions": {
     name: "Minions",
     image: Minions,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 3
   },
   "Mini PEKKA": {
     name: "Mini PEKKA",
     image: MiniPEKKA,
+    type: "Troop",
+    rarity: "Rare",
     elixirCost: 4
   },
   "Mirror": {
     name: "Mirror",
     image: Mirror,
+    type: "Spell",
+    rarity: "Epic",
     elixirCost: "?"
   },
   "Mortar": {
     name: "Mortar",
     image: Mortar,
+    type: "Building",
+    rarity: "Common",
     elixirCost: 4
   },
   "Musketeer": {
     name: "Musketeer",
     image: Musketeer,
+    type: "Troop",
+    rarity: "Rare",
     elixirCost: 4
   },
   "PEKKA": {
     name: "PEKKA",
     image: PEKKA,
+    type: "Troop",
+    rarity: "Epic",
     elixirCost: 7
   },
   "Poison": {
     name: "Poison",
     image: Poison,
+    type: "Spell",
+    rarity: "Epic",
     elixirCost: 4
   },
   "Prince": {
     name: "Prince",
     image: Prince,
+    type: "Troop",
+    rarity: "Epic",
     elixirCost: 5
   },
   "Princess": {
     name: "Princess",
     image: Princess,
+    type: "Troop",
+    rarity: "Legendary",
     elixirCost: 3
   },
   "Rage": {
     name: "Rage",
     image: Rage,
+    type: "Spell",
+    rarity: "Epic",
     elixirCost: 2
   },
   "Rocket": {
     name: "Rocket",
     image: Rocket,
+    type: "Spell",
+    rarity: "Rare",
     elixirCost: 6
   },
   "Royal Giant": {
     name: "Royal Giant",
     image: RoyalGiant,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 6
   },
   "Skeleton Army": {
     name: "Skeleton Army",
     image: SkeletonArmy,
+    type: "Troop",
+    rarity: "Epic",
     elixirCost: 3
   },
   "Skeletons": {
     name: "Skeletons",
     image: Skeletons,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 1
   },
   "Sparky": {
     name: "Sparky",
     image: Sparky,
+    type: "Troop",
+    rarity: "Legendary",
     elixirCost: 6
   },
   "Spear Goblins": {
     name: "Spear Goblins",
     image: SpearGoblins,
+    type: "Troop",
+    rarity: "Common",
     elixirCost: 2
   },
   "Tesla": {
     name: "Tesla",
     image: Tesla,
+    type: "Building",
+    rarity: "Common",
     elixirCost: 4
   },
   "The Log": {
     name: "The Log",
     image: TheLog,
+    type: "Spell",
+    rarity: "Legendary",
     elixirCost: 2
   },
   "Three Musketeers": {
     name: "Three Musketeers",
     image: ThreeMusketeers,
+    type: "Troop",
+    rarity: "Rare",
     elixirCost: 9
   },
   "Tombstone": {
     name: "Tombstone",
     image: Tombstone,
+    type: "Building",
+    rarity: "Rare",
     elixirCost: 3
   },
   "Tornado": {
     name: "Tornado",
     image: Tornado,
+    type: "Spell",
+    rarity: "Epic",
     elixirCost: 3
   },
   "Valkyrie": {
     name: "Valkyrie",
     image: Valkyrie,
+    type: "Troop",
+    rarity: "Rare",
     elixirCost: 4
   },
   "Witch": {
     name: "Witch",
     image: Witch,
+    type: "Troop",
+    rarity: "Epic",
     elixirCost: 5
   },
   "Wizard": {
     name: "Wizard",
     image: Wizard,
+    type: "Troop",
+    rarity: "Rare",
     elixirCost: 5
   },
   "X-Bow": {
     name: "X-Bow",
     image: XBow,
+    type: "Building",
+    rarity: "Epic",
     elixirCost: 6
   },
   "Zap": {
     name: "Zap",
     image: Zap,
+    type: "Spell",
+    rarity: "Common",
     elixirCost: 2
   }
 }
