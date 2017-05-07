@@ -18,7 +18,10 @@ export default class CardsContainer extends Component {
     switch (sortedBy) {
       case "Alphabetical":
       default:
-        remainingCards = remainingCards.sort()
+        remainingCards.sort()
+        break;
+      case "Arena":
+      remainingCards.sort((nameOne, nameTwo) => cards[nameOne]["arena"] - cards[nameTwo]["arena"])
         break;
       case "Type":
         const troops = remainingCards.filter((name) => cards[name]["type"] === "Troop" )

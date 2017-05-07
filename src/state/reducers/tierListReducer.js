@@ -12,7 +12,7 @@ export default function(state={
       title: "A-tier",
       description: "The second best cards in the game",
       notes: "Barbarian Hut might move up soon",
-      cards: ["Barbarian Hut"]
+      cards: ["Barbarian Hut", "Baby Dragon"]
     }
   ],
   cardsRemaining: {

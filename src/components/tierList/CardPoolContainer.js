@@ -24,6 +24,7 @@ class CardPoolContainer extends Component {
     const { sortedBy, cards } = cardsRemaining
     const selectOptions = [
       { value: 'Alphabetical', label: 'Alphabetical' },
+      { value: 'Arena', label: 'Arena' },
       { value: 'Type', label: 'Type' },
       { value: 'Rarity', label: 'Rarity' },
       { value: 'Elixir', label: 'Elixir' }
@@ -36,7 +37,8 @@ class CardPoolContainer extends Component {
           name="card-pool-sorter"
           value={sortedBy}
           onChange={this.handleSorterChange}
-          options={selectOptions}/>
+          options={selectOptions}
+          clearable={false}/>
         <CardsContainer
           sortedBy={sortedBy}
           cards={cards}/>
