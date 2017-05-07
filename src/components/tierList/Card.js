@@ -3,7 +3,7 @@ import ReactTooltip from 'react-tooltip'
 
 import { cards } from '../../helpers/cards';
 
-export default class CardIcon extends Component {
+export default class Card extends Component {
   render() {
     const { name } = this.props;
     const card = cards[name];

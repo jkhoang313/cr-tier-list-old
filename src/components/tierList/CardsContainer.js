@@ -1,20 +1,52 @@
 import React, { Component } from 'react';
 
-import CardIcon from './CardIcon';
+import Card from './Card';
+import { cards } from '../../helpers/cards';
+
 
 export default class CardsContainer extends Component {
-  renderCards() {
-    const { cards } = this.props;
-
+  renderCards(cards) {
     return cards.map((cardName) => {
-      return <CardIcon name={cardName} key={cardName}/>;
+      return <Card name={cardName} key={cardName}/>;
     });
   };
 
+  renderSortedCards() {
+    const { sortedBy } = this.props;
+    let remainingCards = this.props.cards;
+
+    switch (sortedBy) {
+      case "Alphabetical":
+      default:
+        remainingCards = remainingCards.sort()
+        break;
+      case "Type":
+        const troops = remainingCards.filter((name) => cards[name]["type"] === "Troop" )
+        const buildings = remainingCards.filter((name) => cards[name]["type"] === "Building" )
+        const spells = remainingCards.filter((name) => cards[name]["type"] === "Spell" )
+        remainingCards = troops.concat(buildings).concat(spells)
+        break;
+      case "Rarity":
+        const commons = remainingCards.filter((name) => cards[name]["rarity"] === "Common")
+        const rares = remainingCards.filter((name) => cards[name]["rarity"] === "Rare")
+        const epics = remainingCards.filter((name) => cards[name]["rarity"] === "Epic")
+        const legendaries = remainingCards.filter((name) => cards[name]["rarity"] === "Legendary")
+        remainingCards = commons.concat(rares).concat(epics).concat(legendaries)
+        break;
+      case "Elixir":
+        remainingCards.sort((nameOne, nameTwo) => cards[nameOne]["elixirCost"] - cards[nameTwo]["elixirCost"])
+        break;
+    }
+
+    return this.renderCards(remainingCards)
+  }
+
   render() {
+    const { sortedBy, cards } = this.props;
+
     return (
       <div className="cards-container">
-        { this.renderCards() }
+        { sortedBy ? this.renderSortedCards() : this.renderCards(cards) }
       </div>
     );
   };

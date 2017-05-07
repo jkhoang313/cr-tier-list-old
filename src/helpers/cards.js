@@ -258,7 +258,7 @@ export const cards = {
     image: GoblinHut,
     type: "Building",
     rarity: "Rare",
-    elixirCost: 3
+    elixirCost: 5
   },
   "Goblins": {
     name: "Goblins",
@@ -405,7 +405,7 @@ export const cards = {
     image: Mirror,
     type: "Spell",
     rarity: "Epic",
-    elixirCost: "?"
+    elixirCost: 0
   },
   "Mortar": {
     name: "Mortar",

@@ -8,7 +8,7 @@ import * as actionCreators from '../../state/actions'
 import 'react-select/dist/react-select.css';
 import CardsContainer from './CardsContainer';
 
-class CardPool extends Component {
+class CardPoolContainer extends Component {
   constructor(props) {
     super(props)
 
@@ -37,7 +37,9 @@ class CardPool extends Component {
           value={sortedBy}
           onChange={this.handleSorterChange}
           options={selectOptions}/>
-        <CardsContainer cards={cards}/>
+        <CardsContainer
+          sortedBy={sortedBy}
+          cards={cards}/>
       </div>
     );
   };
@@ -53,4 +55,4 @@ function mapDispatchToProps(dispatch){
     return bindActionCreators(actionCreators, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CardPool)
+export default connect(mapStateToProps, mapDispatchToProps)(CardPoolContainer)
