@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import Select from 'react-select'
 import { bindActionCreators } from 'redux'
 
-// import { fetchMessages } from '../actions'
 import * as actionCreators from '../../state/actions'
-import 'react-select/dist/react-select.css';
 import CardsContainer from './CardsContainer';
+import 'react-select/dist/react-select.css';
+
 
 class CardPoolContainer extends Component {
   constructor(props) {

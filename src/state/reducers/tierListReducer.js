@@ -29,6 +29,16 @@ export default function(state={
           sortedBy: action.payload
         }
       };
+    case "ADD_TIER":
+      return {
+        ...state,
+        tiers: state.tiers.concat([{
+          title: "",
+          description: "",
+          notes: "",
+          cards: []
+        }])
+      }
     default:
       return state;
   }

@@ -8,6 +8,7 @@ import rootReducer from './state/reducers';
 import App from './components/App';
 
 import './stylesheets/main.scss'
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
 const store = createStore(rootReducer, applyMiddleware(promiseMiddleware));

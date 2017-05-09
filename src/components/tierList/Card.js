@@ -9,7 +9,7 @@ export default class Card extends Component {
     const card = cards[name];
 
     return (
-      <div className="card" id={name.toLowerCase() + "-card"}>
+      <div className="card-icon" id={name.toLowerCase() + "-card"}>
         <ReactTooltip
           id="card-description"
           type="info"/>

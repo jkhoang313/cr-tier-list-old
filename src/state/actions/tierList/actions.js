@@ -6,3 +6,9 @@ export function sortCardsRemaining(sort) {
     payload: sort
   }
 }
+
+export function addTier() {
+  return {
+    type: "ADD_TIER"
+  }
+}

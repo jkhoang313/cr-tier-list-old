@@ -1,9 +1,14 @@
 body main {
   margin: 5%; }
 
-body .card {
+body .card-icon {
   display: inline-block;
   width: 50px; }
-  body .card .card-image {
-    height: 50px;
-    width: 40px; }
+
+body .card-icon .card-image {
+  height: 50px;
+  width: 40px; }
+
+body .tier {
+  padding: 1em;
+  border: solid; }
