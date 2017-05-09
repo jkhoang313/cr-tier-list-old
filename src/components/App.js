@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
+import { slide as SideMenu } from 'react-burger-menu';
 
 import NavBar from './base/NavBar.js';
 import TierListContainer from './tierList/TierListContainer.js';
@@ -10,6 +11,7 @@ class App extends Component {
     return (
       <main>
         <NavBar />
+        <SideMenu />
         <Container>
           <TierListContainer />
           <CardPoolContainer />
