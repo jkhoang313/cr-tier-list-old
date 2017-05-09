@@ -1,3 +1,14 @@
 nav {
   background-color: $black;
+
+  .nav-item {
+    a {
+      border-bottom: solid $black 0.2em;
+
+      &:hover {
+        color: $white;
+        border-bottom: solid $white 0.2em;
+      }
+    }
+  }
 }

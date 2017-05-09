@@ -8,10 +8,18 @@ export default class NavBar extends React.Component {
         <Navbar toggleable>
           <Nav navbar>
             <NavItem>
-              <NavLink    href="/components/">Components</NavLink>
+              <NavLink href="#">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+              <NavLink href="#">{"Clyde's Tier List"}</NavLink>
+            </NavItem>
+          </Nav>
+          <Nav navbar className="ml-auto">
+            <NavItem>
+              <NavLink href="#">Settings</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#">Logout</NavLink>
             </NavItem>
           </Nav>
         </Navbar>
