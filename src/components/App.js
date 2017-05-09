@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 import NavBar from './base/NavBar.js';
 import TierListContainer from './tierList/TierListContainer.js';
@@ -9,8 +10,10 @@ class App extends Component {
     return (
       <main>
         <NavBar />
-        <TierListContainer />
-        <CardPoolContainer />
+        <Container>
+          <TierListContainer />
+          <CardPoolContainer />
+        </Container>
       </main>
     );
   };

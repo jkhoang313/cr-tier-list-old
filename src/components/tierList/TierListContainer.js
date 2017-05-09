@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'reactstrap';
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
+import { Container, Row, Col } from 'reactstrap';
 
 import * as actionCreators from '../../state/actions'
 import Tier from './Tier'
@@ -20,14 +21,18 @@ class TierListContainer extends Component {
     const { name } = tierList;
 
     return (
-      <div className="tier-list-container">
-        <h1>{name}</h1>
-        <Button
-          outline
-          color="primary"
-          onClick={addTier}>Add A Tier</Button>
+      <Row className="tier-list-container">
+        <Col sm="12" md="12">
+          <Row>
+            <h1>{name}</h1>
+            <Button
+              outline
+              color="primary"
+              onClick={addTier}>Add A Tier</Button>
+          </Row>
         { this.renderTiers() }
-      </div>
+        </Col>
+      </Row>
     );
   };
 };

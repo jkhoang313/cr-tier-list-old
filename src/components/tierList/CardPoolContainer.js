@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import Select from 'react-select'
-import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux';
+import Select from 'react-select';
+import { bindActionCreators } from 'redux';
+import { Container, Row, Col } from 'reactstrap';
 
 import * as actionCreators from '../../state/actions'
 import CardsContainer from './CardsContainer';
@@ -31,18 +32,22 @@ class CardPoolContainer extends Component {
     ]
 
     return (
-      <div className='cards-remaining-container'>
-        <h2>Card Pool</h2>
-        <Select
-          name="card-pool-sorter"
-          value={sortedBy}
-          onChange={this.handleSorterChange}
-          options={selectOptions}
-          clearable={false}/>
-        <CardsContainer
-          sortedBy={sortedBy}
-          cards={cards}/>
-      </div>
+      <Row className='cards-remaining-container'>
+        <Col sm="12" md="12">
+          <Row>
+            <h2>Card Pool</h2>
+          </Row>
+          <Select
+            name="card-pool-sorter"
+            value={sortedBy}
+            onChange={this.handleSorterChange}
+            options={selectOptions}
+            clearable={false}/>
+          <CardsContainer
+            sortedBy={sortedBy}
+            cards={cards}/>
+        </Col>
+      </Row>
     );
   };
 };

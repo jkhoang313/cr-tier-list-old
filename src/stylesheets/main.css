@@ -11,11 +11,12 @@ body .card-icon .card-image {
 
 body .tier {
   padding: 1em;
-  border: solid; }
+  border: solid;
+  display: block; }
 
 body .cards-remaining-container {
-  padding: 1em;
-  border: solid; }
+  border: solid;
+  display: block; }
 
 body .cards-container {
   padding: 0.5em;
@@ -30,3 +31,10 @@ body nav .nav-item a {
 body nav .nav-item a:hover {
   color: #fff;
   border-bottom: solid #fff 0.2em; }
+
+body .bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px; }

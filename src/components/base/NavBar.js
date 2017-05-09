@@ -14,7 +14,7 @@ export default class NavBar extends React.Component {
               <NavLink href="#">{"Clyde's Tier List"}</NavLink>
             </NavItem>
           </Nav>
-          <Nav navbar className="ml-auto">
+          <Nav navbar>
             <NavItem>
               <NavLink href="#">Settings</NavLink>
             </NavItem>
