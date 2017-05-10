@@ -8,8 +8,17 @@ body {
   /* Wrapper for item list */
   /* Styling of overlay */ }
 
-body body {
-  font-family: Verdana; }
+body main {
+  font-family: Verdana;
+  background-color: #444; }
+
+body main div.body.container {
+  margin: 0;
+  width: 100%;
+  padding: 0 5% 0 5%; }
+
+body main div.body.container > .row {
+  padding: 2%; }
 
 body .card-icon {
   display: inline-block;
@@ -19,30 +28,32 @@ body .card-icon .card-image {
   height: 50px;
   width: 40px; }
 
-body .tier {
-  padding: 1em;
-  border: solid;
-  display: block; }
+body .tier .title {
+  padding: .1em;
+  position: relative; }
+
+body .tier .title h6 {
+  position: absolute;
+  font-size: 0.9em;
+  bottom: 20%;
+  right: 10%;
+  color: #fff; }
 
 body .cards-remaining-container {
-  border: solid;
   display: block; }
 
-body .cards-container {
-  padding: 0.5em;
-  border: solid; }
-
 body nav {
-  background-color: #444; }
+  background-color: #000000; }
 
 body nav .nav-item a {
-  border-bottom: solid #444 0.2em; }
+  border-bottom: solid #000000 0.2em; }
 
 body nav .nav-item a:hover {
   color: #fff;
   border-bottom: solid #fff 0.2em; }
 
 body .bm-burger-button {
+  display: none;
   position: fixed;
   width: 36px;
   height: 30px;
@@ -73,3 +84,6 @@ body .bm-item-list {
 
 body .bm-overlay {
   background: rgba(0, 0, 0, 0.3); }
+
+body .tier-list-container.row .tier-list-header.row {
+  display: block; }

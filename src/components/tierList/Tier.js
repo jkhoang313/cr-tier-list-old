@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 import CardsContainer from './CardsContainer'
 
@@ -10,10 +10,12 @@ class Tier extends Component {
 
     return (
       <Row className="tier">
-        <h5>{title} - {cards.length} cards</h5>
-        <h6>Description: {description}</h6>
-        <CardsContainer cards={cards}/>
-        <h6>Notes: {notes}</h6>
+        <Col xs="2" md="2" className="title">
+          <h6>{title}</h6>
+        </Col>
+        <Col xs="10" md="10">
+          <CardsContainer cards={cards}/>
+        </Col>
       </Row>
     )
   };

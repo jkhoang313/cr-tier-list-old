@@ -33,7 +33,7 @@ class CardPoolContainer extends Component {
 
     return (
       <Row className='cards-remaining-container'>
-        <Col sm="12" md="12">
+        <Col xs="12" md="12">
           <Row>
             <h2>Card Pool</h2>
           </Row>

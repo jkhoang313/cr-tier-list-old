@@ -1,5 +1,14 @@
 .tier {
-  padding: 1em;
-  border: solid;
-  display: block;
+  .title {
+    padding: .1em;
+    position: relative;
+
+    h6 {
+      position: absolute;
+      font-size: 0.9em;
+      bottom: 20%;
+      right: 10%;
+      color: $white;
+    }
+  }
 }

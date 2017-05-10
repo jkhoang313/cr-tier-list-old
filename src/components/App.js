@@ -12,7 +12,7 @@ class App extends Component {
       <main>
         <NavBar />
         <SideMenu />
-        <Container>
+        <Container className="body">
           <TierListContainer />
           <CardPoolContainer />
         </Container>
