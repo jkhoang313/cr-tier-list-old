@@ -1,11 +1,10 @@
 main {
-  font-family: Verdana;
+  font-family: sans-serif;
   background-color: $light-black;
 
   div.body.container {
-    margin: 0;
     width: 100%;
-    padding: 0 2% 0 2%;
+    padding: 0 2% 2% 2%;
 
     &> .row {
       // padding: 2%;

@@ -9,13 +9,12 @@ body {
   /* Styling of overlay */ }
 
 body main {
-  font-family: Verdana;
+  font-family: sans-serif;
   background-color: #444; }
 
 body main div.body.container {
-  margin: 0;
   width: 100%;
-  padding: 0 2% 0 2%; }
+  padding: 0 2% 2% 2%; }
 
 body .card-icon {
   display: inline-block;
@@ -24,6 +23,9 @@ body .card-icon {
 body .card-icon .card-image {
   height: 50px;
   width: 40px; }
+
+body .tier {
+  margin-bottom: .4em; }
 
 body .tier .title {
   padding: .1em;
@@ -36,19 +38,26 @@ body .tier .title h6 {
   right: 10%;
   color: #fff; }
 
+body .tier .cards-container {
+  border-bottom: solid .1em;
+  padding-bottom: .4em; }
+
 body .cards-remaining-container {
   border: solid 0.2em #000000;
   border-radius: 1em;
   margin: 2% 0 2% 0;
   display: block; }
 
-body nav {
+body .cards-remaining-container .cards-container {
+  padding: 1.5%; }
+
+body ul.nav {
   background-color: #000000; }
 
-body nav .nav-item a {
+body ul.nav li.nav-item a {
   border-bottom: solid #000000 0.2em; }
 
-body nav .nav-item a:hover {
+body ul.nav li.nav-item a:hover {
   color: #fff;
   border-bottom: solid #fff 0.2em; }
 

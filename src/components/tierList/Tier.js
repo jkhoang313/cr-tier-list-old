@@ -13,7 +13,7 @@ class Tier extends Component {
         <Col xs="2" md="2" className="title">
           <h6>{title}</h6>
         </Col>
-        <Col xs="10" md="10">
+        <Col xs="10" md="10" className="tier-cards">
           <CardsContainer cards={cards}/>
         </Col>
       </Row>

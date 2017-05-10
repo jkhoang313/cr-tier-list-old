@@ -1,4 +1,6 @@
 .tier {
+  margin-bottom: .4em;
+
   .title {
     padding: .1em;
     position: relative;
@@ -10,5 +12,10 @@
       right: 10%;
       color: $white;
     }
+  }
+
+  .cards-container {
+    border-bottom: solid .1em;
+    padding-bottom: .4em;
   }
 }

@@ -5,24 +5,17 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar toggleable>
-          <Nav navbar>
+          <Nav>
             <NavItem>
               <NavLink href="#">Home</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="#">{"Clyde's Tier List"}</NavLink>
-            </NavItem>
-          </Nav>
-          <Nav navbar>
-            <NavItem>
+            <NavItem className="ml-auto">
               <NavLink href="#">Settings</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="#">Logout</NavLink>
             </NavItem>
           </Nav>
-        </Navbar>
       </div>
     );
   }
