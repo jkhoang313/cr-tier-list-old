@@ -33,7 +33,7 @@ export default function(state={
       return {
         ...state,
         tiers: state.tiers.concat([{
-          title: "",
+          title: "New Tier",
           description: "",
           notes: "",
           cards: []

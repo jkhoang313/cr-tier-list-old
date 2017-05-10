@@ -15,10 +15,7 @@ body main {
 body main div.body.container {
   margin: 0;
   width: 100%;
-  padding: 0 5% 0 5%; }
-
-body main div.body.container > .row {
-  padding: 2%; }
+  padding: 0 2% 0 2%; }
 
 body .card-icon {
   display: inline-block;
@@ -40,6 +37,9 @@ body .tier .title h6 {
   color: #fff; }
 
 body .cards-remaining-container {
+  border: solid 0.2em #000000;
+  border-radius: 1em;
+  margin: 2% 0 2% 0;
   display: block; }
 
 body nav {
@@ -85,5 +85,16 @@ body .bm-item-list {
 body .bm-overlay {
   background: rgba(0, 0, 0, 0.3); }
 
+body .tier-list-container.row {
+  border: solid 0.2em #000000;
+  border-radius: .5em;
+  margin: 2% 0 2% 0;
+  padding: 0 0 2% 0; }
+
 body .tier-list-container.row .tier-list-header.row {
-  display: block; }
+  padding: 2%;
+  background-color: #000000;
+  border-radius: .3em;
+  margin-bottom: 1em;
+  display: block;
+  color: #fff; }

@@ -70,6 +70,7 @@ import Witch from "../../public/images/Witch.png"
 import Wizard from "../../public/images/Wizard.png"
 import XBow from "../../public/images/X-Bow.png"
 import Zap from "../../public/images/Zap.png"
+import MysteryCard from "../../public/images/MysteryCard.png"
 
 export const cards = {
   "Archers": {
@@ -648,5 +649,9 @@ export const cards = {
     rarity: "Common",
     elixirCost: 2,
     arena: 5
+  },
+  "MysteryCard": {
+    name: "MysteryCard",
+    image: MysteryCard
   }
 }

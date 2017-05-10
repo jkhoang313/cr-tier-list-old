@@ -24,13 +24,13 @@ class TierListContainer extends Component {
       <Row className="tier-list-container">
         <Col sm="12" md="12">
           <Row className="tier-list-header">
-            <h1>{name}</h1>
-            <Button
-              outline
-              color="primary"
-              onClick={addTier}>Add A Tier</Button>
+            <h4>{name}</h4>
           </Row>
         { this.renderTiers() }
+        <Button
+          outline
+          color="primary"
+          onClick={addTier}>Add A Tier</Button>
         </Col>
       </Row>
     );

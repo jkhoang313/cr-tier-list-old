@@ -6,9 +6,13 @@ import { cards } from '../../helpers/cards';
 
 export default class CardsContainer extends Component {
   renderCards(cards) {
-    return cards.map((cardName) => {
-      return <Card name={cardName} key={cardName}/>;
-    });
+    if (cards.length < 1) {
+      return <Card name={"MysteryCard"} />
+    } else {
+      return cards.map((cardName) => {
+        return <Card name={cardName} key={cardName}/>;
+      });
+    }
   };
 
   renderSortedCards() {
@@ -40,7 +44,6 @@ export default class CardsContainer extends Component {
         remainingCards.sort((nameOne, nameTwo) => cards[nameOne]["elixirCost"] - cards[nameTwo]["elixirCost"])
         break;
     }
-
     return this.renderCards(remainingCards)
   }
 
