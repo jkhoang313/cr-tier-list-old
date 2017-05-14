@@ -22,7 +22,7 @@ class TierListContainer extends Component {
 
     return (
       <Row className="tier-list-container">
-        <Col sm="12" md="12">
+        <Col sm="12" md="12" className="panel">
           <Row className="tier-list-header">
             <h4>{name}</h4>
           </Row>

@@ -11,7 +11,6 @@ class App extends Component {
     return (
       <main>
         <NavBar />
-        <SideMenu />
         <Container className="body">
           <TierListContainer />
           <CardPoolContainer />
@@ -22,3 +21,5 @@ class App extends Component {
 };
 
 export default App;
+
+// <SideMenu />

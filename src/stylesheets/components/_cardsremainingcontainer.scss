@@ -1,0 +1,11 @@
+.cards-remaining-container.row {
+  background-color: $lighter-black;
+  color: $black;
+  display: block;
+
+  div.col {
+    .cards-container {
+      padding: 1.5%;
+    }
+  }
+}

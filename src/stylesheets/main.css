@@ -9,12 +9,19 @@ body {
   /* Styling of overlay */ }
 
 body main {
-  font-family: sans-serif;
-  background-color: #444; }
+  font-family: sans-serif; }
 
 body main div.body.container {
   width: 100%;
-  padding: 0 2% 2% 2%; }
+  padding: 0; }
+
+body main div.body.container > div.row {
+  padding: 4%; }
+
+body main div.body.container > div.row div.panel {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 4%; }
 
 body .card-icon {
   display: inline-block;
@@ -35,20 +42,18 @@ body .tier .title h6 {
   position: absolute;
   font-size: 0.9em;
   bottom: 20%;
-  right: 10%;
-  color: #fff; }
+  right: 10%; }
 
 body .tier .cards-container {
   border-bottom: solid .1em;
   padding-bottom: .4em; }
 
-body .cards-remaining-container {
-  border: solid 0.2em #000000;
-  border-radius: 1em;
-  margin: 2% 0 2% 0;
+body .cards-remaining-container.row {
+  background-color: #1f1f1f;
+  color: #000000;
   display: block; }
 
-body .cards-remaining-container .cards-container {
+body .cards-remaining-container.row div.col .cards-container {
   padding: 1.5%; }
 
 body ul.nav {
@@ -95,15 +100,12 @@ body .bm-overlay {
   background: rgba(0, 0, 0, 0.3); }
 
 body .tier-list-container.row {
-  border: solid 0.2em #000000;
-  border-radius: .5em;
-  margin: 2% 0 2% 0;
-  padding: 0 0 2% 0; }
+  background-color: #e0dfdf; }
 
-body .tier-list-container.row .tier-list-header.row {
-  padding: 2%;
-  background-color: #000000;
+body .tier-list-container.row div.col .tier-list-header.row {
   border-radius: .3em;
   margin-bottom: 1em;
-  display: block;
-  color: #fff; }
+  display: block; }
+
+body .tier-list-container.row div.col .tier-list-header.row h4 {
+  text-align: center; }
