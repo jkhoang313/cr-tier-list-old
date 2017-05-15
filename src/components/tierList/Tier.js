@@ -6,7 +6,7 @@ import CardsContainer from './CardsContainer'
 class Tier extends Component {
   render() {
     const { tier } = this.props;
-    const { title, description, notes, cards } = tier;
+    const { title, cards } = tier;
 
     return (
       <Row className="tier">
