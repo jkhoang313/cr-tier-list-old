@@ -5,10 +5,11 @@ import CardsContainer from './CardsContainer';
 
 export default class SortedCardsColumn extends Component {
   render() {
-    const { cards } = this.props;
+    const { cards, sections, name } = this.props;
 
     return (
-      <Col xs="12" md="4">
+      <Col xs="12" md={sections || 3}>
+        <h6>{name}</h6>
         <CardsContainer cards={cards} />
       </Col>
     );

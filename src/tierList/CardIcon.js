@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import ReactTooltip from 'react-tooltip'
 
-import { cards } from '../helpers/cards';
+import { cardDescriptions } from '../helpers/cards';
 import './CardIcon.css';
 
 export default class CardIcon extends Component {
   render() {
     const { name } = this.props;
-    const card = cards[name];
+    const card = cardDescriptions[name];
 
     return (
       <div className="card">

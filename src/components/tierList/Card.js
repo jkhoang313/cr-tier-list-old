@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import ReactTooltip from 'react-tooltip'
 
-import { cards } from '../../helpers/cards';
+import { cardDescriptions } from '../../helpers/cards';
 
 export default class Card extends Component {
   render() {
     const { name } = this.props;
-    const card = cards[name];
+    const card = cardDescriptions[name];
 
     return (
       <div className="card-icon" id={name.toLowerCase() + "-card"}>
@@ -18,7 +18,7 @@ export default class Card extends Component {
           className="card-image"
           alt={card.name}
           data-for="card-description"
-          data-tip="Card Description"/>
+          data-tip={name}/>
       </div>
     );
   };

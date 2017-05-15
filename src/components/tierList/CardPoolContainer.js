@@ -6,8 +6,7 @@ import { Row, Col } from 'reactstrap';
 
 import * as actionCreators from '../../state/actions'
 import SortedCardsColumn from './SortedCardsColumn';
-// import CardsContainer from './CardsContainer';
-import { cards } from '../../helpers/cards';
+import { cardDescriptions } from '../../helpers/cards';
 
 
 class CardPoolContainer extends Component {
@@ -23,56 +22,91 @@ class CardPoolContainer extends Component {
 
   renderSortedColumns() {
     const { cardsRemaining } = this.props;
-    const { sortedBy } = cardsRemaining;
-    const names = cardsRemaining.cards;
+    const { sortedBy, cards } = cardsRemaining;
 
     switch (sortedBy) {
       case "Alphabetical":
       default:
-        const colOne = names.filter((card) => card[0] <= "F")
-        const colTwo = names.filter((card) => card[0] >= "G" && card[0] <= "O")
-        const colThree = names.filter((card) => card[0] >= "P")
+        const aToF = cards.filter((card) => card[0] <= "F")
+        const gToI = cards.filter((card) => card[0] >= "G" && card[0] <= "I")
+        const jToP = cards.filter((card) => card[0] >= "J" && card[0] <= "P")
+        const qToZ = cards.filter((card) => card[0] >= "Q")
         return [
-          <SortedCardsColumn cards={colOne} key={1}/>,
-          <SortedCardsColumn cards={colTwo} key={2}/>,
-          <SortedCardsColumn cards={colThree} key={3}/>
-        ]
-        break;
+          <SortedCardsColumn
+            cards={aToF} name={"A to F"} key={1}/>,
+          <SortedCardsColumn
+            cards={gToI} name={"G to I"} key={2}/>,
+          <SortedCardsColumn
+            cards={jToP} name={"J to P"} key={3}/>,
+          <SortedCardsColumn
+            cards={qToZ} name={"Q to Z"} key={4}/>
+        ];
       case "Arena":
-        const colArenaOne = names.filter((name) => cards[name]["arena"] <= 3 )
-        const colArenaTwo = names.filter((name) => cards[name]["arena"] > 3 && cards[name]["arena"] <= 6)
-        const colArenaThree = names.filter((name) => cards[name]["arena"] > 6)
+        const arenaZeroToTwo = cards.filter((name) => cardDescriptions[name]["arena"] <= 1 ).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
+        const arenaThreeToFive = cards.filter((name) => cardDescriptions[name]["arena"] > 1 && cardDescriptions[name]["arena"] <= 4).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
+        const arenaSixToSeven = cards.filter((name) => cardDescriptions[name]["arena"] > 4 && cardDescriptions[name]["arena"] <= 6).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
+        const arenaEightToTen = cards.filter((name) => cardDescriptions[name]["arena"] > 6).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
         return [
-          <SortedCardsColumn cards={troops} key={1}/>,
-          <SortedCardsColumn cards={buildings} key={2}/>,
-          <SortedCardsColumn cards={spells} key={3}/>,
-        ]
-        break;
+          <SortedCardsColumn
+            cards={arenaZeroToTwo} name={"Training Camp-Arena 2"} key={1}/>,
+          <SortedCardsColumn
+            cards={arenaThreeToFive} name={"Arena 3-5"} key={2}/>,
+          <SortedCardsColumn
+            cards={arenaSixToSeven} name={"Arena 6-7"} key={3}/>,
+          <SortedCardsColumn
+            cards={arenaEightToTen} name={"Arena 8-10"} key={4}/>
+        ];
       case "Type":
-        const troops = names.filter((name) => cards[name]["type"] === "Troop" )
-        const buildings = names.filter((name) => cards[name]["type"] === "Building" )
-        const spells = names.filter((name) => cards[name]["type"] === "Spell" )
+        const troops = cards.filter((name) => cardDescriptions[name]["type"] === "Troop").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const buildingTroops = cards.filter((name) => cardDescriptions[name]["type"] === "BuildingTroop").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const buildings = cards.filter((name) => cardDescriptions[name]["type"] === "Building").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const spells = cards.filter((name) => cardDescriptions[name]["type"] === "Spell").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
         return [
-          <SortedCardsColumn cards={troops} key={1}/>,
-          <SortedCardsColumn cards={buildings} key={2}/>,
-          <SortedCardsColumn cards={spells} key={3}/>,
-        ]
-        break;
+          <SortedCardsColumn
+            cards={troops} name={"Regular Troops"} key={1}/>,
+          <SortedCardsColumn
+            cards={buildingTroops} name={"Building Troops"} key={2}/>,
+          <SortedCardsColumn
+            cards={buildings} name={"Buildings"} key={3}/>,
+          <SortedCardsColumn
+            cards={spells} name={"Spells"} key={4}/>,
+        ];
       case "Rarity":
-        const commons = names.filter((name) => cards[name]["rarity"] === "Common")
-        const rares = names.filter((name) => cards[name]["rarity"] === "Rare")
-        const epics = names.filter((name) => cards[name]["rarity"] === "Epic")
-        const legendaries = names.filter((name) => cards[name]["rarity"] === "Legendary")
+        const commons = cards.filter((name) => cardDescriptions[name]["rarity"] === "Common").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const rares = cards.filter((name) => cardDescriptions[name]["rarity"] === "Rare").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const epics = cards.filter((name) => cardDescriptions[name]["rarity"] === "Epic").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const legendaries = cards.filter((name) => cardDescriptions[name]["rarity"] === "Legendary").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
         return [
-          <SortedCardsColumn cards={commons} key={1}/>,
-          <SortedCardsColumn cards={rares} key={2}/>,
-          <SortedCardsColumn cards={epics} key={3}/>,
-          <SortedCardsColumn cards={legendaries} key={4}/>,
-        ]
-        break;
-      // case "Elixir":
-      //   remainingCards.sort((nameOne, nameTwo) => cards[nameOne]["elixirCost"] - cards[nameTwo]["elixirCost"])
-      //   break;
+          <SortedCardsColumn
+            cards={commons} name={"Commons"} key={1}/>,
+          <SortedCardsColumn
+            cards={rares} name={"Rares"} key={2}/>,
+          <SortedCardsColumn
+            cards={epics} name={"Epics"} key={3}/>,
+          <SortedCardsColumn
+            cards={legendaries} name={"Legendaries"} key={4}/>,
+        ];
+      case "Elixir":
+        const elixirOneToTwo = cards.filter((name) => cardDescriptions[name]["elixirCost"] <= 3).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const elixirThreeToFive = cards.filter((name) => cardDescriptions[name]["elixirCost"] > 3 && cardDescriptions[name]["elixirCost"] <= 5).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const elixirSixToNine = cards.filter((name) => cardDescriptions[name]["elixirCost"] > 5).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        return [
+          <SortedCardsColumn
+            cards={elixirOneToTwo}
+            name={"1-2 Elixir"}
+            sections={4}
+            key={1}/>,
+          <SortedCardsColumn
+            cards={elixirThreeToFive}
+            name={"3-5 Elixir"}
+            sections={4}
+            key={2}/>,
+          <SortedCardsColumn
+            cards={elixirSixToNine}
+            name={"6-9 Elixir"}
+            sections={4}
+            key={3}/>,
+        ];
     }
   }
 

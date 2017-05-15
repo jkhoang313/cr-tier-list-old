@@ -72,7 +72,7 @@ import XBow from "../../public/images/X-Bow.png"
 import Zap from "../../public/images/Zap.png"
 import MysteryCard from "../../public/images/MysteryCard.png"
 
-export const cards = {
+export const cardDescriptions = {
   "Archers": {
     name: "Archers",
     image: Archers,
@@ -89,14 +89,6 @@ export const cards = {
     elixirCost: 3,
     arena: 0
   },
-  "Balloon": {
-    name: "Balloon",
-    image: Balloon,
-    type: "Troop",
-    rarity: "Epic",
-    elixirCost: 2,
-    arena: 2
-  },
   "Baby Dragon": {
     name: "Baby Dragon",
     image: BabyDragon,
@@ -105,12 +97,20 @@ export const cards = {
     elixirCost: 2,
     arena: 0
   },
+  "Balloon": {
+    name: "Balloon",
+    image: Balloon,
+    type: "BuildingTroop",
+    rarity: "Epic",
+    elixirCost: 5,
+    arena: 2
+  },
   "Bandit": {
     name: "Bandit",
     image: Bandit,
     type: "Troop",
     rarity: "Legendary",
-    elixirCost: 5,
+    elixirCost: 3,
     arena: 9
   },
   "Barbarian Hut": {
@@ -132,9 +132,9 @@ export const cards = {
   "Battle Ram": {
     name: "Battle Ram",
     image: BattleRam,
-    type: "Troop",
+    type: "BuildingTroop",
     rarity: "Rare",
-    elixirCost: 5,
+    elixirCost: 4,
     arena: 6
   },
   "Bomber": {
@@ -190,7 +190,7 @@ export const cards = {
     image: DartGoblin,
     type: "Troop",
     rarity: "Rare",
-    elixirCost: 4,
+    elixirCost: 3,
     arena: 9
   },
   "Electro Wizard": {
@@ -260,7 +260,7 @@ export const cards = {
   "Giant": {
     name: "Giant",
     image: Giant,
-    type: "Troop",
+    type: "BuildingTroop",
     rarity: "Rare",
     elixirCost: 5,
     arena: 0
@@ -308,7 +308,7 @@ export const cards = {
   "Golem": {
     name: "Golem",
     image: Golem,
-    type: "Troop",
+    type: "BuildingTroop",
     rarity: "Epic",
     elixirCost: 8,
     arena: 6
@@ -340,7 +340,7 @@ export const cards = {
   "Hog Rider": {
     name: "Hog Rider",
     image: HogRider,
-    type: "Troop",
+    type: "BuildingTroop",
     rarity: "Rare",
     elixirCost: 4,
     arena: 4
@@ -348,7 +348,7 @@ export const cards = {
   "Ice Golem": {
     name: "Ice Golem",
     image: IceGolem,
-    type: "Troop",
+    type: "BuildingTroop",
     rarity: "Rare",
     elixirCost: 2,
     arena: 8
@@ -396,7 +396,7 @@ export const cards = {
   "Lava Hound": {
     name: "Lava Hound",
     image: LavaHound,
-    type: "Troop",
+    type: "BuildingTroop",
     rarity: "Legendary",
     elixirCost: 7,
     arena: 4
@@ -533,7 +533,7 @@ export const cards = {
   "Royal Giant": {
     name: "Royal Giant",
     image: RoyalGiant,
-    type: "Troop",
+    type: "BuildingTroop",
     rarity: "Common",
     elixirCost: 6,
     arena: 7
