@@ -4,7 +4,7 @@ import { Container } from 'reactstrap';
 
 import NavBar from './base/NavBar.js';
 import TierListContainer from './tierList/TierListContainer.js';
-import CardPoolContainer from './tierList/CardPoolContainer.js';
+import CardPoolContainer from './tierList/CardsRemainingContainer.js';
 import 'react-select/dist/react-select.css';
 
 

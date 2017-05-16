@@ -3,6 +3,10 @@
   color: $black;
   display: block;
 
+  .title {
+    margin: auto;
+  }
+
   div.col {
     .cards-container {
       padding: 1.5%;

@@ -7,79 +7,111 @@ body {
   /* Morph shape necessary with bubble or elastic */
   /* Wrapper for item list */
   /* Styling of overlay */ }
-  body main {
-    font-family: sans-serif; }
-    body main div.body.container {
-      width: 100%;
-      padding: 0; }
-      body main div.body.container > div.row {
-        padding: 4%; }
-        body main div.body.container > div.row div.panel {
-          background-color: #fff;
-          border-radius: 10px;
-          padding: 4%; }
-  body .card-icon {
-    display: inline-block;
-    width: 50px; }
-    body .card-icon .card-image {
-      height: 50px;
-      width: 40px; }
-  body .tier {
-    margin-bottom: .4em; }
-    body .tier .title {
-      padding: .1em;
-      position: relative; }
-      body .tier .title h6 {
-        position: absolute;
-        font-size: 0.9em;
-        bottom: 20%;
-        right: 10%; }
-    body .tier .cards-container {
-      border-bottom: solid .1em;
-      padding-bottom: .4em; }
-  body .cards-remaining-container.row {
-    background-color: #1f1f1f;
-    color: #000000;
-    display: block; }
-    body .cards-remaining-container.row div.col .cards-container {
-      padding: 1.5%; }
-  body ul.nav {
-    background-color: #000000; }
-    body ul.nav li.nav-item a {
-      border-bottom: solid #000000 0.2em; }
-      body ul.nav li.nav-item a:hover {
-        color: #fff;
-        border-bottom: solid #fff 0.2em; }
-  body .bm-burger-button {
-    display: none;
-    position: fixed;
-    width: 36px;
-    height: 30px;
-    left: 36px;
-    top: 36px; }
-  body .bm-burger-bars {
-    background: #373a47; }
-  body .bm-cross-button {
-    height: 24px;
-    width: 24px; }
-  body .bm-cross {
-    background: #bdc3c7; }
-  body .bm-menu {
-    background: #373a47;
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em; }
-  body .bm-morph-shape {
-    fill: #373a47; }
-  body .bm-item-list {
-    color: #b8b7ad;
-    padding: 0.8em; }
-  body .bm-overlay {
-    background: rgba(0, 0, 0, 0.3); }
-  body .tier-list-container.row {
-    background-color: #e0dfdf; }
-    body .tier-list-container.row div.col .tier-list-header.row {
-      border-radius: .3em;
-      margin-bottom: 1em;
-      display: block; }
-      body .tier-list-container.row div.col .tier-list-header.row h4 {
-        text-align: center; }
+
+body main {
+  font-family: sans-serif; }
+
+body main div.body.container {
+  width: 100%;
+  padding: 0; }
+
+body main div.body.container > div.row {
+  padding: 4%; }
+
+body main div.body.container > div.row div.panel {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 4%; }
+
+body .card-icon {
+  display: inline-block;
+  width: 50px; }
+
+body .card-icon .card-image {
+  height: 50px;
+  width: 40px; }
+
+body .tier {
+  margin-bottom: .4em; }
+
+body .tier .title {
+  padding: .1em;
+  position: relative; }
+
+body .tier .title h6 {
+  position: absolute;
+  font-size: 0.9em;
+  bottom: 20%;
+  right: 10%; }
+
+body .tier .cards-container {
+  border-bottom: solid .1em;
+  padding-bottom: .4em; }
+
+body .cards-remaining-container.row {
+  background-color: #1f1f1f;
+  color: #000000;
+  display: block; }
+
+body .cards-remaining-container.row .title {
+  margin: auto; }
+
+body .cards-remaining-container.row div.col .cards-container {
+  padding: 1.5%; }
+
+body ul.nav {
+  background-color: #000000; }
+
+body ul.nav li.nav-item a {
+  border-bottom: solid #000000 0.2em; }
+
+body ul.nav li.nav-item a:hover {
+  color: #fff;
+  border-bottom: solid #fff 0.2em; }
+
+body .bm-burger-button {
+  display: none;
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px; }
+
+body .bm-burger-bars {
+  background: #373a47; }
+
+body .bm-cross-button {
+  height: 24px;
+  width: 24px; }
+
+body .bm-cross {
+  background: #bdc3c7; }
+
+body .bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em; }
+
+body .bm-morph-shape {
+  fill: #373a47; }
+
+body .bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em; }
+
+body .bm-overlay {
+  background: rgba(0, 0, 0, 0.3); }
+
+body .tier-list-container.row {
+  background-color: #e0dfdf; }
+
+body .tier-list-container.row div.col .tier-list-header.row {
+  border-radius: .3em;
+  margin-bottom: 1em;
+  display: block; }
+
+body .tier-list-container.row div.col .tier-list-header.row h4 {
+  text-align: center; }
+
+body div.sorted-cards-container.row {
+  padding-top: 2%; }
