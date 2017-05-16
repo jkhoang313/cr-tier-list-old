@@ -118,5 +118,11 @@ body .tier-list-container.row div.col .tier-list-header.row {
 body .tier-list-container.row div.col .tier-list-header.row h4 {
   text-align: center; }
 
+body .tier-list-container.row div.col button.btn {
+  display: block; }
+
+body .tier-list-container.row div.col div.switch {
+  display: block; }
+
 body div.sorted-cards-container.row {
   padding-top: 2%; }

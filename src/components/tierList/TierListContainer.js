@@ -49,11 +49,11 @@ class TierListContainer extends Component {
           outline
           color="primary"
           onClick={addTier}>Add A Tier</Button>
-        <span>save</span>
         <Switch
           onClick={this.toggleAutoSave}
           on={this.state.autoSave}
           />
+        <span>auto-save</span>
         </Col>
       </Row>
     );
