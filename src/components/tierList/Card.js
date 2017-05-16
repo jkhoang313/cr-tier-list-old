@@ -3,13 +3,14 @@ import ReactTooltip from 'react-tooltip'
 
 import { cardDescriptions } from '../../helpers/cards';
 
+
 export default class Card extends Component {
   render() {
     const { name } = this.props;
     const card = cardDescriptions[name];
 
     return (
-      <div className="card-icon" id={name.toLowerCase() + "-card"}>
+      <div className="card-icon" id={name.toLowerCase()+"-card"}>
         <ReactTooltip
           id="card-description"
           type="info"/>

@@ -9,10 +9,10 @@ export default class NavBar extends React.Component {
             <NavItem>
               <NavLink href="#">Home</NavLink>
             </NavItem>
-            <NavItem className="ml-auto">
-              <NavLink href="#">Settings</NavLink>
-            </NavItem>
             <NavItem>
+              <NavLink href="#">Tools</NavLink>
+            </NavItem>
+            <NavItem className="ml-auto">
               <NavLink href="#">Logout</NavLink>
             </NavItem>
           </Nav>

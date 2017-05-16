@@ -3,6 +3,7 @@ import { Col } from 'reactstrap';
 
 import CardsContainer from './CardsContainer';
 
+
 export default class SortedCardsColumn extends Component {
   render() {
     const { cards, sections, name } = this.props;

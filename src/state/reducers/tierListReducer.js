@@ -1,6 +1,7 @@
 export default function(state={
   id: '1',
   name: "Clyde's Tier List",
+  description: "",
   tiers: [
     {
       title: "S-tier",
