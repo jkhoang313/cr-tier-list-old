@@ -5,27 +5,30 @@ import { Row, Col, Button, ButtonGroup } from 'reactstrap';
 
 import * as actionCreators from '../../state/actions'
 import SortedCardsColumn from './SortedCardsColumn';
-import { cardDescriptions } from '../../helpers/cards';
+import { cardDescriptions, cardRoster } from '../../helpers/cards';
 
 
-class CardPoolContainer extends Component {
+class CardsRemainingContainer extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      sortedBy: "Alphabetical"
+    }
 
     this.handleSorterChange = this.handleSorterChange.bind(this)
   }
 
   renderSortedColumns() {
-    const { cardsRemaining } = this.props;
-    const { sortedBy, cards } = cardsRemaining;
+    const { sortedBy } = this.state;
 
     switch (sortedBy) {
       case "Alphabetical":
       default:
-        const aToF = cards.filter((card) => card[0] <= "F")
-        const gToI = cards.filter((card) => card[0] >= "G" && card[0] <= "I")
-        const jToP = cards.filter((card) => card[0] >= "J" && card[0] <= "P")
-        const qToZ = cards.filter((card) => card[0] >= "Q")
+        const aToF = cardRoster.filter((card) => card[0] <= "F")
+        const gToI = cardRoster.filter((card) => card[0] >= "G" && card[0] <= "I")
+        const jToP = cardRoster.filter((card) => card[0] >= "J" && card[0] <= "P")
+        const qToZ = cardRoster.filter((card) => card[0] >= "Q")
         return [
           <SortedCardsColumn
             cards={aToF} name={"A to F"} key={1}/>,
@@ -37,10 +40,10 @@ class CardPoolContainer extends Component {
             cards={qToZ} name={"Q to Z"} key={4}/>
         ];
       case "Arena":
-        const arenaZeroToTwo = cards.filter((name) => cardDescriptions[name]["arena"] <= 1 ).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
-        const arenaThreeToFive = cards.filter((name) => cardDescriptions[name]["arena"] > 1 && cardDescriptions[name]["arena"] <= 4).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
-        const arenaSixToSeven = cards.filter((name) => cardDescriptions[name]["arena"] > 4 && cardDescriptions[name]["arena"] <= 6).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
-        const arenaEightToTen = cards.filter((name) => cardDescriptions[name]["arena"] > 6).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
+        const arenaZeroToTwo = cardRoster.filter((name) => cardDescriptions[name]["arena"] <= 1 ).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
+        const arenaThreeToFive = cardRoster.filter((name) => cardDescriptions[name]["arena"] > 1 && cardDescriptions[name]["arena"] <= 4).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
+        const arenaSixToSeven = cardRoster.filter((name) => cardDescriptions[name]["arena"] > 4 && cardDescriptions[name]["arena"] <= 6).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
+        const arenaEightToTen = cardRoster.filter((name) => cardDescriptions[name]["arena"] > 6).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["arena"] - cardDescriptions[nameTwo]["arena"])
         return [
           <SortedCardsColumn
             cards={arenaZeroToTwo} name={"Training Camp-Arena 2"} key={1}/>,
@@ -52,10 +55,10 @@ class CardPoolContainer extends Component {
             cards={arenaEightToTen} name={"Arena 8-10"} key={4}/>
         ];
       case "Type":
-        const troops = cards.filter((name) => cardDescriptions[name]["type"] === "Troop").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
-        const buildingTroops = cards.filter((name) => cardDescriptions[name]["type"] === "BuildingTroop").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
-        const buildings = cards.filter((name) => cardDescriptions[name]["type"] === "Building").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
-        const spells = cards.filter((name) => cardDescriptions[name]["type"] === "Spell").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const troops = cardRoster.filter((name) => cardDescriptions[name]["type"] === "Troop").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const buildingTroops = cardRoster.filter((name) => cardDescriptions[name]["type"] === "BuildingTroop").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const buildings = cardRoster.filter((name) => cardDescriptions[name]["type"] === "Building").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const spells = cardRoster.filter((name) => cardDescriptions[name]["type"] === "Spell").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
         return [
           <SortedCardsColumn
             cards={troops} name={"Regular Troops"} key={1}/>,
@@ -67,10 +70,10 @@ class CardPoolContainer extends Component {
             cards={spells} name={"Spells"} key={4}/>,
         ];
       case "Rarity":
-        const commons = cards.filter((name) => cardDescriptions[name]["rarity"] === "Common").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
-        const rares = cards.filter((name) => cardDescriptions[name]["rarity"] === "Rare").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
-        const epics = cards.filter((name) => cardDescriptions[name]["rarity"] === "Epic").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
-        const legendaries = cards.filter((name) => cardDescriptions[name]["rarity"] === "Legendary").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const commons = cardRoster.filter((name) => cardDescriptions[name]["rarity"] === "Common").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const rares = cardRoster.filter((name) => cardDescriptions[name]["rarity"] === "Rare").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const epics = cardRoster.filter((name) => cardDescriptions[name]["rarity"] === "Epic").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const legendaries = cardRoster.filter((name) => cardDescriptions[name]["rarity"] === "Legendary").sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
         return [
           <SortedCardsColumn
             cards={commons} name={"Commons"} key={1}/>,
@@ -82,9 +85,9 @@ class CardPoolContainer extends Component {
             cards={legendaries} name={"Legendaries"} key={4}/>,
         ];
       case "Elixir":
-        const elixirOneToTwo = cards.filter((name) => cardDescriptions[name]["elixirCost"] <= 3).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
-        const elixirThreeToFive = cards.filter((name) => cardDescriptions[name]["elixirCost"] > 3 && cardDescriptions[name]["elixirCost"] <= 5).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
-        const elixirSixToNine = cards.filter((name) => cardDescriptions[name]["elixirCost"] > 5).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const elixirOneToTwo = cardRoster.filter((name) => cardDescriptions[name]["elixirCost"] <= 3).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const elixirThreeToFive = cardRoster.filter((name) => cardDescriptions[name]["elixirCost"] > 3 && cardDescriptions[name]["elixirCost"] <= 5).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
+        const elixirSixToNine = cardRoster.filter((name) => cardDescriptions[name]["elixirCost"] > 5).sort((nameOne, nameTwo) => cardDescriptions[nameOne]["elixirCost"] - cardDescriptions[nameTwo]["elixirCost"])
         return [
           <SortedCardsColumn
             cards={elixirOneToTwo}
@@ -106,12 +109,13 @@ class CardPoolContainer extends Component {
   }
 
   handleSorterChange(event) {
-    this.props.sortCardsRemaining(event.target.innerHTML)
+    this.setState({
+      sortedBy: event.target.innerHTML
+    })
   }
 
   render() {
-    const { cardsRemaining } = this.props;
-    const { sortedBy } = cardsRemaining
+    const { sortedBy } = this.state
 
     return (
       <Row className='cards-remaining-container'>
@@ -159,7 +163,7 @@ class CardPoolContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    cardsRemaining: state.tierList.cardsRemaining
+    tierList: state.tierList
   }
 }
 
@@ -170,4 +174,4 @@ function mapDispatchToProps(dispatch){
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CardPoolContainer)
+)(CardsRemainingContainer)

@@ -3,13 +3,17 @@ import React, { Component } from 'react';
 import Card from './Card';
 
 
-export default class CardsContainer extends Component {
+export default class TierCards extends Component {
   renderCards(cards) {
     if (cards.length < 1) {
       return <Card name={"MysteryCard"} />
     } else {
       return cards.map((name) => {
-        return <Card name={name} key={name}/>;
+        return (
+          <Card
+            name={name}
+            key={name}/>
+        );
       });
     }
   };

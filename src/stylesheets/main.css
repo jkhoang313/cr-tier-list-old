@@ -36,6 +36,9 @@ body .card-icon .card-image {
   height: 50px;
   width: 40px; }
 
+body .card-icon .card-image.used {
+  filter: grayscale(100%); }
+
 body .tier {
   margin-bottom: .4em; }
 

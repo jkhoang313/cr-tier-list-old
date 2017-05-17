@@ -7,5 +7,9 @@
   .card-image {
     height: 50px;
     width: 40px;
+
+    &.used {
+      filter: grayscale(100%);
+    }
   }
 }

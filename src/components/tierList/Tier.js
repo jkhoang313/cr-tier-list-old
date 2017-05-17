@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Collapse, CardBlock } from 'reactstrap';
 
-import CardsContainer from './CardsContainer'
+import TierCards from './TierCards'
 
 class Tier extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class Tier extends Component {
           <h6 onClick={this.openTierDetails}>{title}</h6>
         </Col>
         <Col xs="10" md="10" className="tier-cards">
-          <CardsContainer cards={cards}/>
+          <TierCards cards={cards}/>
         </Col>
         <Col xs="12" md="12">
           <Collapse isOpen={this.state.detailsDisplayed}>

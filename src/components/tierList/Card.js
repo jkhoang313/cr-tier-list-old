@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactTooltip from 'react-tooltip';
 import { Popover, PopoverTitle, PopoverContent } from 'reactstrap';
+import cn from 'classnames'
 
 import { cardDescriptions } from '../../helpers/cards';
 
@@ -23,7 +24,7 @@ export default class Card extends Component {
   }
 
   render() {
-    const { name } = this.props;
+    const { name, used } = this.props;
     const card = cardDescriptions[name];
     const divId = name.toLowerCase().replace(/\s+/g, '-') + "-card";
 
@@ -34,7 +35,7 @@ export default class Card extends Component {
           type="info"/>
         <img
           src={card.image}
-          className="card-image"
+          className={cn("card-image", { used })}
           alt={card.name}
           data-for="card-description"
           data-tip={name}
