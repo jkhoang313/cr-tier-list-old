@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Col } from 'reactstrap';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import * as actionCreators from '../../state/actions'
 import Card from './Card';
 
 
@@ -13,14 +15,19 @@ class SortedCardsColumn extends Component {
   };
 
   renderCards() {
-    const { cards } = this.props;
+    const { cards, tiers, addCardToTier } = this.props;
 
     if (cards.length < 1) {
-      return <Card name={"MysteryCard"} />
+      return (
+        <Card name={"MysteryCard"} />
+      )
     } else {
       return cards.map((name) => {
         return (
           <Card
+            tiers={tiers}
+            addCardToTier={addCardToTier}
+            menuOptions={this.menuOptions}
             name={name}
             used={this.cardUsed(name)}
             key={name}/>
@@ -55,4 +62,11 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(SortedCardsColumn)
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(actionCreators, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SortedCardsColumn)

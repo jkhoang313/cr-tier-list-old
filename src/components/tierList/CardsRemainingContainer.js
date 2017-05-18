@@ -17,6 +17,7 @@ class CardsRemainingContainer extends Component {
     }
 
     this.handleSorterChange = this.handleSorterChange.bind(this)
+    this.renderSorter = this.renderSorter.bind(this)
   }
 
   renderSortedColumns() {
@@ -114,9 +115,22 @@ class CardsRemainingContainer extends Component {
     })
   }
 
-  render() {
+  renderSorter() {
     const { sortedBy } = this.state
 
+    const sorts = ["Alphabetical", "Arena", "Type", "Rarity" ,"Elixir"]
+
+    return sorts.map((sort, index) => (
+      <Button
+        key={index}
+        color="primary" onClick={this.handleSorterChange}
+        active={sortedBy === sort}>
+        { sort }
+      </Button>
+    ))
+  }
+
+  render() {
     return (
       <Row className='cards-remaining-container'>
         <Col xs="12" md="12" className="panel">
@@ -125,31 +139,7 @@ class CardsRemainingContainer extends Component {
           </Row>
           <ButtonGroup className="card-sorter row">
             <Col xs="12" md="12">
-              <Button
-                color="primary" onClick={this.handleSorterChange}
-                active={sortedBy === "Alphabetical"}>
-                Alphabetical
-              </Button>
-              <Button
-                color="primary" onClick={this.handleSorterChange}
-                active={sortedBy === "Arena"}>
-                Arena
-              </Button>
-              <Button
-                color="primary" onClick={this.handleSorterChange}
-                active={sortedBy === "Type"}>
-                Type
-              </Button>
-              <Button
-                color="primary" onClick={this.handleSorterChange}
-                active={sortedBy === "Rarity"}>
-                Rarity
-              </Button>
-              <Button
-                color="primary" onClick={this.handleSorterChange}
-                active={sortedBy === "Elixir"}>
-                Elixir
-              </Button>
+              { this.renderSorter() }
             </Col>
           </ButtonGroup>
           <Row className="sorted-cards-container">

@@ -5,3 +5,12 @@ export function addTier() {
     type: "ADD_TIER"
   }
 }
+
+export function addCardToTier(params) {
+  return {
+    type: "ADD_CARD_TO_TIER",
+    payload: {
+      params
+    }
+  }
+}

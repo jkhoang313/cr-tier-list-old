@@ -8,11 +8,11 @@ export default class TierCards extends Component {
     if (cards.length < 1) {
       return <Card name={"MysteryCard"} />
     } else {
-      return cards.map((name) => {
+      return cards.map((name, index) => {
         return (
           <Card
             name={name}
-            key={name}/>
+            key={index}/>
         );
       });
     }

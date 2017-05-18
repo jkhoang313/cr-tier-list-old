@@ -4,12 +4,14 @@ export default function(state={
   description: "",
   tiers: [
     {
+      id: 1,
       title: "S-tier",
       description: "The best cards in the game",
       notes: "Bomber just reached S tier!",
       cards: ["Bomber", "Bowler", "Bomb Tower"]
     },
     {
+      id: 2,
       title: "A-tier",
       description: "The second best cards in the game",
       notes: "Barbarian Hut might move up soon",
@@ -25,11 +27,29 @@ export default function(state={
       return {
         ...state,
         tiers: state.tiers.concat([{
+          // TODO
+          id: state.tiers.length + 1,
           title: "New Tier",
           description: "",
           notes: "",
           cards: []
         }])
+      }
+    case "ADD_CARD_TO_TIER":
+      const { tierId, name } = action.payload.params
+
+      return {
+        ...state,
+        tiers: state.tiers.map((tier) => {
+          if (tier.id === tierId) {
+            return {
+              ...tier,
+              cards: tier.cards.concat(name)
+            }
+          } else {
+            return tier
+          }
+        })
       }
     default:
       return state;

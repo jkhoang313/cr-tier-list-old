@@ -39,6 +39,29 @@ body .card-icon .card-image {
 body .card-icon .card-image.used {
   filter: grayscale(100%); }
 
+body .dropdown {
+  display: inline-block; }
+
+body .dropdown__content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  z-index: 10; }
+
+body .dropdown__content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+body .dropdown__content ul li {
+  min-width: 5em;
+  min-height: 2em;
+  text-align: center;
+  border: solid; }
+
+body .dropdown--active .dropdown__content {
+  display: block; }
+
 body .tier {
   margin-bottom: .4em; }
 
