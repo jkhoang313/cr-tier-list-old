@@ -11,7 +11,7 @@ class SortedCardsColumn extends Component {
   constructor(props) {
     super(props)
 
-    this.cardUsed = this.cardUsed.bind(this)
+    this.cardDisabled = this.cardDisabled.bind(this)
   };
 
   renderCards() {
@@ -26,17 +26,16 @@ class SortedCardsColumn extends Component {
         return (
           <Card
             tiers={tiers}
-            addCardToTier={addCardToTier}
-            menuOptions={this.menuOptions}
+            onClick={addCardToTier}
             name={name}
-            used={this.cardUsed(name)}
+            disabled={this.cardDisabled(name)}
             key={name}/>
         );
       });
     }
   };
 
-  cardUsed(name) {
+  cardDisabled(name) {
     const { tiers } = this.props;
 
     return tiers.some(tier => tier.cards.includes(name))

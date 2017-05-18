@@ -14,3 +14,12 @@ export function addCardToTier(params) {
     }
   }
 }
+
+export function removeCardFromTier(params) {
+  return {
+    type: "REMOVE_CARD_FROM_TIER",
+    payload: {
+      params
+    }
+  }
+}

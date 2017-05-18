@@ -8,7 +8,7 @@
     height: 50px;
     width: 40px;
 
-    &.used {
+    &.disabled {
       filter: grayscale(100%);
     }
   }

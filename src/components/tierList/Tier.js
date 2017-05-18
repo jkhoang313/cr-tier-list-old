@@ -31,7 +31,9 @@ class Tier extends Component {
           <h6 onClick={this.openTierDetails}>{title}</h6>
         </Col>
         <Col xs="10" md="10" className="tier-cards">
-          <TierCards cards={cards}/>
+          <TierCards
+            tierId={tier.id}
+            cards={cards}/>
         </Col>
         <Col xs="12" md="12">
           <Collapse isOpen={this.state.detailsDisplayed}>

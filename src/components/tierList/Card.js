@@ -8,24 +8,34 @@ import { cardDescriptions } from '../../helpers/cards';
 
 export default class Card extends Component {
   renderMenu() {
-    const { name, used, tiers, addCardToTier } = this.props;
+    const { name, disabled, tiers, tierId, onClick } = this.props;
 
-    return tiers.map((tier, index) => {
+    if (tiers) {
+      return tiers.map((tier, index) => {
+        return (
+          <li key={index}>
+            <a onClick={
+              () => disabled ? null : onClick({ tierId: tier.id, name })
+            }>{tier.title}</a>
+          </li>
+        )
+      })
+    } else {
       return (
-        <li key={index}>
-          <a onClick={
-            () => used ? null : addCardToTier({ tierId: tier.id, name })
-          }>{tier.title}</a>
+        <li>
+          <a onClick={() => onClick({ tierId, name })}>
+            Remove
+          </a>
         </li>
       )
-    })
+    }
   }
 
   render() {
-    const { name, used, tiers } = this.props;
+    const { name, disabled } = this.props;
     const card = cardDescriptions[name];
     const divId = name.toLowerCase().replace(/\s+/g, '-') + "-card";
-    const active = used ? false : null
+    const active = disabled ? false : null
 
     return (
       <div className="card-icon" id={divId}>
@@ -36,7 +46,7 @@ export default class Card extends Component {
           <DropdownTrigger>
             <img
               src={card.image}
-              className={cn("card-image", { used })}
+              className={cn("card-image", { disabled })}
               alt={card.name}
               data-for="card-description"
               data-tip={name}
@@ -44,7 +54,7 @@ export default class Card extends Component {
           </DropdownTrigger>
           <DropdownContent>
             <ul>
-              { tiers ? this.renderMenu() : null }
+              { this.renderMenu() }
             </ul>
           </DropdownContent>
         </Dropdown>

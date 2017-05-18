@@ -24,7 +24,11 @@ class TierListContainer extends Component {
     const { tiers } = this.props.tierList;
 
     return tiers.map((tier, index) => {
-      return <Tier tier={tier} key={index}/>;
+      return (
+        <Tier
+          tier={tier}
+          key={index}/>
+      );
     });
   };
 

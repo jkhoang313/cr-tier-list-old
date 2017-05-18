@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export default function(state={
   id: '1',
   name: "Clyde's Tier List",
@@ -35,7 +37,7 @@ export default function(state={
           cards: []
         }])
       }
-    case "ADD_CARD_TO_TIER":
+    case "ADD_CARD_TO_TIER": {
       const { tierId, name } = action.payload.params
 
       return {
@@ -50,7 +52,25 @@ export default function(state={
             return tier
           }
         })
+      };
+    }
+    case "REMOVE_CARD_FROM_TIER": {
+      const { tierId, name } = action.payload.params
+
+      return {
+        ...state,
+        tiers: state.tiers.map((tier) => {
+          if (tier.id === tierId) {
+            return {
+              ...tier,
+              cards: _.reject(tier.cards, (card) => card === name)
+            }
+          } else {
+            return tier
+          }
+        })
       }
+    }
     default:
       return state;
   }

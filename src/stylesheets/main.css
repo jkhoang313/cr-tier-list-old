@@ -36,7 +36,7 @@ body .card-icon .card-image {
   height: 50px;
   width: 40px; }
 
-body .card-icon .card-image.used {
+body .card-icon .card-image.disabled {
   filter: grayscale(100%); }
 
 body .dropdown {

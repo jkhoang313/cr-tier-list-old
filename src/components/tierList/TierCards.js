@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import * as actionCreators from '../../state/actions'
 import Card from './Card';
 
 
-export default class TierCards extends Component {
+class TierCards extends Component {
   renderCards(cards) {
+    const { tierId, removeCardFromTier } = this.props;
+
     if (cards.length < 1) {
-      return <Card name={"MysteryCard"} />
+      return (
+        <Card
+          name={"MysteryCard"}
+          onClick={() => {}}/>
+      )
     } else {
       return cards.map((name, index) => {
         return (
           <Card
             name={name}
+            tierId={tierId}
+            onClick={removeCardFromTier}
             key={index}/>
         );
       });
@@ -28,3 +39,18 @@ export default class TierCards extends Component {
     );
   };
 };
+
+function mapStateToProps(state) {
+  return {
+    tierList: state.tierList
+  }
+}
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(actionCreators, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TierCards)
