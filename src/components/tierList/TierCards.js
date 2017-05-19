@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actionCreators from '../../state/actions'
+import * as actionCreators from '../../state/actions';
 import Card from './Card';
 
 
@@ -13,8 +13,7 @@ class TierCards extends Component {
     if (cards.length < 1) {
       return (
         <Card
-          name={"MysteryCard"}
-          onClick={() => {}}/>
+          name={"MysteryCard"}/>
       )
     } else {
       return cards.map((name, index) => {
@@ -24,8 +23,8 @@ class TierCards extends Component {
             tierId={tierId}
             onClick={removeCardFromTier}
             key={index}/>
-        );
-      });
+        )
+      })
     }
   };
 
@@ -36,21 +35,21 @@ class TierCards extends Component {
       <div className="cards-container">
         { this.renderCards(cards) }
       </div>
-    );
-  };
+    )
+  }
 };
 
 function mapStateToProps(state) {
   return {
     tierList: state.tierList
   }
-}
+};
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators(actionCreators, dispatch);
-}
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TierCards)
+)(TierCards);

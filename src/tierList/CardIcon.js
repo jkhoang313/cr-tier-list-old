@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactTooltip from 'react-tooltip'
 
 import { cardDescriptions } from '../helpers/cards';
-import './CardIcon.css';
 
 export default class CardIcon extends Component {
   render() {

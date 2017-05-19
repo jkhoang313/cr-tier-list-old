@@ -21,13 +21,15 @@ export default class Card extends Component {
         )
       })
     } else {
-      return (
-        <li>
-          <a onClick={() => onClick({ tierId, name })}>
-            Remove
-          </a>
-        </li>
-      )
+      if (onClick) {
+        return (
+          <li>
+            <a onClick={() => onClick({ tierId, name })}>
+              Remove
+            </a>
+          </li>
+        )
+      }
     }
   }
 
@@ -35,7 +37,7 @@ export default class Card extends Component {
     const { name, disabled } = this.props;
     const card = cardDescriptions[name];
     const divId = name.toLowerCase().replace(/\s+/g, '-') + "-card";
-    const active = disabled ? false : null
+    const active = disabled ? false : null;
 
     return (
       <div className="card-icon" id={divId}>
@@ -59,6 +61,6 @@ export default class Card extends Component {
           </DropdownContent>
         </Dropdown>
       </div>
-    );
-  };
+    )
+  }
 };

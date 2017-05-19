@@ -26,10 +26,10 @@ class CardsRemainingContainer extends Component {
     switch (sortedBy) {
       case "Alphabetical":
       default:
-        const aToF = cardRoster.filter((card) => card[0] <= "F")
-        const gToI = cardRoster.filter((card) => card[0] >= "G" && card[0] <= "I")
-        const jToP = cardRoster.filter((card) => card[0] >= "J" && card[0] <= "P")
-        const qToZ = cardRoster.filter((card) => card[0] >= "Q")
+        const aToF = cardRoster.filter((card) => card[0] <= "F");
+        const gToI = cardRoster.filter((card) => card[0] >= "G" && card[0] <= "I");
+        const jToP = cardRoster.filter((card) => card[0] >= "J" && card[0] <= "P");
+        const qToZ = cardRoster.filter((card) => card[0] >= "Q");
         return [
           <SortedCardsColumn
             cards={aToF} name={"A to F"} key={1}/>,

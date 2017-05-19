@@ -5,8 +5,8 @@ import { bindActionCreators } from 'redux';
 import { Row, Col } from 'reactstrap';
 import Switch from 'react-toggle-switch';
 
-import * as actionCreators from '../../state/actions'
-import Tier from './Tier'
+import * as actionCreators from '../../state/actions';
+import Tier from './Tier';
 
 
 class TierListContainer extends Component {
@@ -18,7 +18,7 @@ class TierListContainer extends Component {
     }
 
     this.toggleAutoSave = this.toggleAutoSave.bind(this)
-  };
+  }
 
   renderTiers() {
     const { tiers } = this.props.tierList;
@@ -28,9 +28,9 @@ class TierListContainer extends Component {
         <Tier
           tier={tier}
           key={index}/>
-      );
-    });
-  };
+      )
+    })
+  }
 
   toggleAutoSave() {
     this.setState({
@@ -60,21 +60,21 @@ class TierListContainer extends Component {
         <span>auto-save</span>
         </Col>
       </Row>
-    );
-  };
+    )
+  }
 };
 
 function mapStateToProps(state) {
   return {
     tierList: state.tierList
   }
-}
+};
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators(actionCreators, dispatch);
-}
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TierListContainer)
+)(TierListContainer);

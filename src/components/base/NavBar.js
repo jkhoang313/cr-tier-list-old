@@ -7,16 +7,16 @@ export default class NavBar extends React.Component {
       <div>
           <Nav>
             <NavItem>
-              <NavLink href="#">Home</NavLink>
+              <NavLink href="/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#">Tools</NavLink>
+              <NavLink href="/tools">Tools</NavLink>
             </NavItem>
             <NavItem className="ml-auto">
-              <NavLink href="#">Logout</NavLink>
+              <NavLink href="/logout">Logout</NavLink>
             </NavItem>
           </Nav>
       </div>
-    );
+    )
   }
-}
+};

@@ -12,7 +12,7 @@ class SortedCardsColumn extends Component {
     super(props)
 
     this.cardDisabled = this.cardDisabled.bind(this)
-  };
+  }
 
   renderCards() {
     const { cards, tiers, addCardToTier } = this.props;
@@ -22,14 +22,14 @@ class SortedCardsColumn extends Component {
         <Card name={"MysteryCard"} />
       )
     } else {
-      return cards.map((name) => {
+      return cards.map((name, index) => {
         return (
           <Card
             tiers={tiers}
             onClick={addCardToTier}
             name={name}
             disabled={this.cardDisabled(name)}
-            key={name}/>
+            key={index}/>
         );
       });
     }
@@ -38,7 +38,7 @@ class SortedCardsColumn extends Component {
   cardDisabled(name) {
     const { tiers } = this.props;
 
-    return tiers.some(tier => tier.cards.includes(name))
+    return tiers.some(tier => tier.cards.includes(name));
   };
 
   render() {
@@ -51,21 +51,21 @@ class SortedCardsColumn extends Component {
           { this.renderCards() }
         </div>
       </Col>
-    );
+    )
   }
-}
+};
 
 function mapStateToProps(state) {
   return {
     tiers: state.tierList.tiers
   }
-}
+};
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators(actionCreators, dispatch);
-}
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SortedCardsColumn)
+)(SortedCardsColumn);
