@@ -36,11 +36,11 @@ export default class Tier extends Component {
             cards={cards}/>
         </Col>
         <Col xs="12" md="12">
-          <Collapse isOpen={this.state.detailsDisplayed}>
+          {/*<Collapse isOpen={this.state.detailsDisplayed}>
             <CardBlock>
               { notes }
             </CardBlock>
-          </Collapse>
+          </Collapse>*/}
         </Col>
       </Row>
     )

@@ -8,6 +8,7 @@ main {
     &> div.row {
       padding: 4%;
       margin: 0;
+      background-color: $light-gray;
 
       div.panel {
         background-color: $white;

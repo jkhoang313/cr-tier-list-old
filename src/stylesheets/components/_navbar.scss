@@ -3,11 +3,11 @@ ul.nav {
 
   li.nav-item {
     a {
-      border-bottom: solid $black 0.2em;
+      border-bottom: solid $black 0.2rem;
 
       &:hover {
         color: $white;
-        border-bottom: solid $white 0.2em;
+        border-bottom: solid $white 0.2rem;
       }
     }
   }
