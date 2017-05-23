@@ -23,3 +23,10 @@ export function removeCardFromTier(params) {
     }
   }
 }
+
+export function updateTier(params) {
+  return {
+    type: "UPDATE_TIER",
+    payload: params
+  }
+}

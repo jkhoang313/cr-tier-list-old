@@ -91,7 +91,14 @@ body .cards-remaining-container.row div.col .cards-container {
   padding: 1.5%; }
 
 body ul.nav {
-  background-color: #000000; }
+  background-color: #000000;
+  display: block; }
+
+body ul.nav li.nav-item {
+  display: inline-block; }
+
+body ul.nav li.nav-item.right {
+  float: right; }
 
 body ul.nav li.nav-item a {
   border-bottom: solid #000000 0.2rem; }

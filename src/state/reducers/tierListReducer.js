@@ -37,6 +37,7 @@ export default function(state={
           cards: []
         }])
       }
+
     case "ADD_CARD_TO_TIER": {
       const { tierId, name } = action.payload.params
 
@@ -54,6 +55,7 @@ export default function(state={
         })
       };
     }
+
     case "REMOVE_CARD_FROM_TIER": {
       const { tierId, name } = action.payload.params
 
@@ -71,6 +73,15 @@ export default function(state={
         })
       }
     }
+
+    case "UPDATE_TIER": {
+      const { description } = action.payload;
+
+      return {
+        ...state
+      }
+    }
+
     default:
       return state;
   }

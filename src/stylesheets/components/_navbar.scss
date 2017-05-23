@@ -1,7 +1,14 @@
 ul.nav {
   background-color: $black;
+  display: block;
 
   li.nav-item {
+    display: inline-block;
+
+    &.right {
+      float: right;
+    }
+
     a {
       border-bottom: solid $black 0.2rem;
 

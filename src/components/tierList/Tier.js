@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Row, Col, Collapse, CardBlock } from 'reactstrap';
 
+import * as actionCreators from '../../state/actions';
 import TierCards from './TierCards'
+import InlineEdit from '../helpers/InlineEdit'
 
 
-export default class Tier extends Component {
+class Tier extends Component {
   constructor(props) {
     super(props)
 
@@ -22,13 +26,16 @@ export default class Tier extends Component {
   }
 
   render() {
-    const { tier } = this.props;
+    const { tier, updateTier } = this.props;
     const { title, cards, notes } = tier;
 
     return (
       <Row className="tier">
         <Col xs="2" md="2" className="title">
-          <h6 onClick={this.openTierDetails}>{title}</h6>
+          <InlineEdit
+            description={title}
+            onSubmit={updateTier}
+            />
         </Col>
         <Col xs="10" md="10" className="tier-cards">
           <TierCards
@@ -44,5 +51,18 @@ export default class Tier extends Component {
         </Col>
       </Row>
     )
-  };
+  }
 };
+
+function mapStateToProps(state) {
+  return state
+};
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(actionCreators, dispatch);
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Tier)
