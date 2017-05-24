@@ -29,7 +29,9 @@ export default class InlineEdit extends Component {
   renderDescription() {
     const { description } = this.props;
 
-    return <h6 onClick={this.handleClick}>{description}</h6>
+    return (
+      <h6 onClick={this.handleClick}>{description}</h6>
+    )
   }
 
   renderInput() {
@@ -59,19 +61,21 @@ export default class InlineEdit extends Component {
 
   handleInputBlur() {
     const { description } = this.state;
+    const { tierId } = this.props;
 
     this.setState({
       isEditing: false
     })
 
-    this.props.onSubmit({ description })
+    this.props.onSubmit({ tierId, description });
   }
 
   render () {
     return (
-      <div>
+      <div className="inline-edit">
       { this.state.isEditing ?
-        this.renderInput() : this.renderDescription() }
+        this.renderInput() : this.renderDescription()
+      }
       </div>
     )
   }

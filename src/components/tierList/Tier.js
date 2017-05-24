@@ -34,6 +34,7 @@ class Tier extends Component {
         <Col xs="2" md="2" className="title">
           <InlineEdit
             description={title}
+            tierId={tier.id}
             onSubmit={updateTier}
             />
         </Col>

@@ -75,10 +75,19 @@ export default function(state={
     }
 
     case "UPDATE_TIER": {
-      const { description } = action.payload;
-
+      const { tierId, description } = action.payload;
       return {
-        ...state
+        ...state,
+        tiers: state.tiers.map((tier) => {
+          if (tier.id === tierId) {
+            return {
+              ...tier,
+              description: description
+            }
+          } else {
+            return tier
+          }
+        })
       }
     }
 
