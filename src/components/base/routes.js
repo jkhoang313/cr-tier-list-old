@@ -7,6 +7,6 @@ import Tools from './Tools';
 export default (
   <Route path="/" component={App}>
     <Route path="tools" component={Tools} />
-    <Route path="tier-list" component={TierList} />
+    <Route path="tier-lists" component={TierList} />
   </Route>
 );

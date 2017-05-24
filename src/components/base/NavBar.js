@@ -10,7 +10,7 @@ export default class NavBar extends React.Component {
             <NavLink href="/">Home</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/tools">Tools</NavLink>
+            <NavLink href="/tier-lists">Tier Lists</NavLink>
           </NavItem>
           <NavItem className="right">
             <NavLink href="/logout">Logout</NavLink>
