@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-// import { Form, FormGroup, Input } from 'reactstrap';
 
 
 export default class InlineEdit extends Component {
@@ -8,7 +7,7 @@ export default class InlineEdit extends Component {
     super(props)
 
     this.state = {
-      isEditing: true,
+      isEditing: false,
       text: this.props.text
     }
 
@@ -48,7 +47,7 @@ export default class InlineEdit extends Component {
 
   handleFormSubmit(event) {
     event.preventDefault();
-    $('.form-group input').blur();
+    $('.inline-edit input').blur();
   }
 
   handleInputChange(event) {
@@ -61,7 +60,7 @@ export default class InlineEdit extends Component {
     const { text } = this.state;
 
     this.setState({
-      isEditing: true
+      isEditing: false
     });
 
     this.props.onSubmit(text);

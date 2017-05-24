@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import { Row, Col, Collapse, CardBlock } from 'reactstrap';
 
 import * as actionCreators from '../../state/actions';
-import TierCards from './TierCards'
-import InlineEdit from '../helpers/InlineEdit'
+import TierCards from './TierCards';
+import InlineEdit from '../helpers/InlineEdit';
 
 
 class Tier extends Component {

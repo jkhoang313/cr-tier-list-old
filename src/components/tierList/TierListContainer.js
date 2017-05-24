@@ -7,6 +7,7 @@ import Switch from 'react-toggle-switch';
 
 import * as actionCreators from '../../state/actions';
 import Tier from './Tier';
+import InlineEdit from '../helpers/InlineEdit';
 
 
 class TierListContainer extends Component {
@@ -18,6 +19,7 @@ class TierListContainer extends Component {
     }
 
     this.toggleAutoSave = this.toggleAutoSave.bind(this)
+    this.updateTierListName = this.updateTierListName.bind(this)
   }
 
   renderTiers() {
@@ -38,6 +40,12 @@ class TierListContainer extends Component {
     })
   }
 
+  updateTierListName(name) {
+    const { updateTierList } = this.props;
+
+    updateTierList({ name })
+  }
+
   render() {
     const { tierList, addTier } = this.props
     const { name } = tierList;
@@ -46,7 +54,10 @@ class TierListContainer extends Component {
       <Row className="tier-list-container">
         <Col sm="12" md="12" className="panel">
           <Row className="tier-list-header">
-            <h4>{name}</h4>
+            <InlineEdit
+              text={name}
+              onSubmit={this.updateTierListName}
+              />
           </Row>
         { this.renderTiers() }
         <Button
@@ -71,7 +82,7 @@ function mapStateToProps(state) {
 };
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators(actionCreators, dispatch);
+  return bindActionCreators(actionCreators, dispatch);
 };
 
 export default connect(

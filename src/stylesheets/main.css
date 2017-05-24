@@ -137,9 +137,7 @@ body .bm-overlay {
 body .tier-list-container.row div.col .tier-list-header.row {
   border-radius: .3rem;
   margin-bottom: 1rem;
-  display: block; }
-
-body .tier-list-container.row div.col .tier-list-header.row h4 {
+  display: block;
   text-align: center; }
 
 body .tier-list-container.row div.col button.btn {
@@ -158,13 +156,7 @@ body div.inline-edit input, body div.inline-edit h6 {
   border: none;
   box-shadow: none;
   font-size: 1.4rem;
-  color: #000000;
-  position: absolute;
-  right: .5rem;
-  bottom: .5rem;
-  text-align: right;
-  padding: 0;
-  max-width: 80%; }
+  color: #000000; }
 
 body div.inline-edit input:focus {
   outline: none;

@@ -91,6 +91,14 @@ export default function(state={
       }
     }
 
+    case "UPDATE_TIER_LIST": {
+      const { name } = action.payload;
+      return {
+        ...state,
+        name: name
+      }
+    }
+
     default:
       return state;
   }
