@@ -1,16 +1,9 @@
 .tier {
   margin-bottom: .4rem;
 
-  .title {
+  .tier-name {
     padding: .1rem;
     position: relative;
-
-    h6 {
-      position: absolute;
-      font-size: 1.8rem;
-      bottom: 20%;
-      right: 10%;
-    }
   }
 
   .cards-container {

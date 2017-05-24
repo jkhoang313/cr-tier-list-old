@@ -39,7 +39,7 @@ class Tier extends Component {
 
     return (
       <Row className="tier">
-        <Col xs="2" md="2" className="title">
+        <Col xs="2" md="2" className="tier-name">
           <InlineEdit
             text={title}
             onSubmit={this.updateTierTitle}

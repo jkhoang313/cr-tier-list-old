@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import { Form, FormGroup, Input } from 'reactstrap';
+// import { Form, FormGroup, Input } from 'reactstrap';
 
 
 export default class InlineEdit extends Component {
@@ -8,7 +8,7 @@ export default class InlineEdit extends Component {
     super(props)
 
     this.state = {
-      isEditing: false,
+      isEditing: true,
       text: this.props.text
     }
 
@@ -36,15 +36,13 @@ export default class InlineEdit extends Component {
 
   renderInput() {
     return (
-      <Form onSubmit={this.handleFormSubmit}>
-        <FormGroup>
-          <Input
-            onChange={this.handleInputChange}
-            onBlur={this.handleInputBlur}
-            value={this.state.text}
-            autoFocus/>
-        </FormGroup>
-      </Form>
+      <form onSubmit={this.handleFormSubmit}>
+        <input
+          onChange={this.handleInputChange}
+          onBlur={this.handleInputBlur}
+          value={this.state.text}
+          autoFocus/>
+      </form>
     )
   }
 
@@ -63,7 +61,7 @@ export default class InlineEdit extends Component {
     const { text } = this.state;
 
     this.setState({
-      isEditing: false
+      isEditing: true
     });
 
     this.props.onSubmit(text);
