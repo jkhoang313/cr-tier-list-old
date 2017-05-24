@@ -9,7 +9,7 @@ export default class InlineEdit extends Component {
 
     this.state = {
       isEditing: false,
-      description: this.props.description
+      text: this.props.text
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -27,10 +27,10 @@ export default class InlineEdit extends Component {
   }
 
   renderDescription() {
-    const { description } = this.props;
+    const { text } = this.props;
 
     return (
-      <h6 onClick={this.handleClick}>{description}</h6>
+      <h6 onClick={this.handleClick}>{text}</h6>
     )
   }
 
@@ -41,7 +41,7 @@ export default class InlineEdit extends Component {
           <Input
             onChange={this.handleInputChange}
             onBlur={this.handleInputBlur}
-            value={this.state.description}
+            value={this.state.text}
             autoFocus/>
         </FormGroup>
       </Form>
@@ -55,19 +55,18 @@ export default class InlineEdit extends Component {
 
   handleInputChange(event) {
     this.setState({
-      description: event.target.value
+      text: event.target.value
     })
   }
 
   handleInputBlur() {
-    const { description } = this.state;
-    const { tierId } = this.props;
+    const { text } = this.state;
 
     this.setState({
       isEditing: false
-    })
+    });
 
-    this.props.onSubmit({ tierId, description });
+    this.props.onSubmit(text);
   }
 
   render () {

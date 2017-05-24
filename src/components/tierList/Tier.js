@@ -17,6 +17,7 @@ class Tier extends Component {
     }
 
     this.openTierDetails = this.openTierDetails.bind(this)
+    this.updateTierTitle = this.updateTierTitle.bind(this)
   }
 
   openTierDetails() {
@@ -25,17 +26,23 @@ class Tier extends Component {
     })
   }
 
+  updateTierTitle(title) {
+    const { updateTier, tier } = this.props;
+    const tierId = tier.id;
+
+    updateTier({ tierId, title });
+  }
+
   render() {
-    const { tier, updateTier } = this.props;
+    const { tier } = this.props;
     const { title, cards, notes } = tier;
 
     return (
       <Row className="tier">
         <Col xs="2" md="2" className="title">
           <InlineEdit
-            description={title}
-            tierId={tier.id}
-            onSubmit={updateTier}
+            text={title}
+            onSubmit={this.updateTierTitle}
             />
         </Col>
         <Col xs="10" md="10" className="tier-cards">
