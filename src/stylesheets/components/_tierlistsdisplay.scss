@@ -1,0 +1,24 @@
+div.tier-list-item {
+  background-color: $white;
+  border-radius: 5px;
+  margin: 0;
+  box-shadow: 0px 0px 3px $black;
+  margin: 3rem 0;
+
+  div.tier-list-item-header {
+    background-color: $black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: $white;
+    display: block;
+    padding: 2rem;
+
+    h3 {
+      display: inline-block;
+
+      &.right {
+        float: right;
+      }
+    }
+  }
+}

@@ -174,3 +174,24 @@ body div.inline-edit input:focus {
   border: none;
   box-shadow: none;
   color: #000000; }
+
+body div.tier-list-item {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 0;
+  box-shadow: 0px 0px 3px #000000;
+  margin: 3rem 0; }
+
+body div.tier-list-item div.tier-list-item-header {
+  background-color: #000000;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #fff;
+  display: block;
+  padding: 2rem; }
+
+body div.tier-list-item div.tier-list-item-header h3 {
+  display: inline-block; }
+
+body div.tier-list-item div.tier-list-item-header h3.right {
+  float: right; }
