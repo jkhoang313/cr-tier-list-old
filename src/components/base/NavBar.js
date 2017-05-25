@@ -12,6 +12,9 @@ export default class NavBar extends React.Component {
           <NavItem>
             <NavLink href="/tier-lists">Tier Lists</NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink href="/tier-list/1">Tier List</NavLink>
+          </NavItem>
           <NavItem className="right">
             <NavLink href="/logout">Logout</NavLink>
           </NavItem>

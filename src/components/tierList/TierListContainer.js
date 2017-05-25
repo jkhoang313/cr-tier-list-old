@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import { Row, Col } from 'reactstrap';
-import Switch from 'react-toggle-switch';
 
 import * as actionCreators from '../../state/actions';
+import TierListEditOptions from './TierListEditOptions';
 import Tier from './Tier';
 import InlineEdit from '../helpers/InlineEdit';
 
@@ -52,7 +51,7 @@ class TierListContainer extends Component {
 
     return (
       <Row className="tier-list-container">
-        <Col sm="12" md="12" className="panel">
+        <Col sm="12" md="10" className="panel">
           <Row className="tier-list-header">
             <InlineEdit
               text={name}
@@ -60,15 +59,13 @@ class TierListContainer extends Component {
               />
           </Row>
         { this.renderTiers() }
-        <Button
-          outline
-          color="primary"
-          onClick={addTier}>Add A Tier</Button>
-        <Switch
-          onClick={this.toggleAutoSave}
-          on={this.state.autoSave}
-          />
-        <span>auto-save</span>
+        </Col>
+        <Col xs="12" md="2" className="panel">
+          <TierListEditOptions
+            addTier={addTier}
+            toggleAutoSave={this.toggleAutoSave}
+            autoSave={this.state.autoSave}
+            />
         </Col>
       </Row>
     )

@@ -2,6 +2,11 @@
 @import './utilities/variables';
 @import "~react-toggle-switch/dist/css/switch.min.css";
 
+html, body, div#root, main {
+  height: 100%;
+  background-color: $light-gray;
+}
+
 body {
   @import 'components/all';
 }
