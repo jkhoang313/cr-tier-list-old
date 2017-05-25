@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-import { Container, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 import * as actionCreators from '../../state/actions';
+import Tier from './Tier';
 
 
 class TierListDisplayItem extends Component {
+  constructor(props) {
+    super(props)
+
+    this.renderTiers = this.renderTiers.bind(this)
+  }
+
+  renderTiers() {
+    const { tiers } = this.props.tierList
+
+    return tiers.map(tier =>
+      <Tier tier={tier} />
+    )
+  }
+
   render() {
-    const { creator, name, description, date_created, tiers } = this.props.tierList;
+    const { creator, name, description, date_created } = this.props.tierList;
 
     return (
       <Row className="tier-list-item">
@@ -18,9 +31,7 @@ class TierListDisplayItem extends Component {
             <h3 className="right">{creator}</h3>
             <h5>{description}</h5>
           </Row>
-          <Row>
-            tiers
-          </Row>
+          { this.renderTiers() }
         </Col>
       </Row>
     )

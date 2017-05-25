@@ -50,13 +50,13 @@ class Tier extends Component {
             tierId={tier.id}
             cards={cards}/>
         </Col>
-        <Col xs="12" md="12">
-          {/*<Collapse isOpen={this.state.detailsDisplayed}>
+        {/*<Col xs="12" md="12">
+          <Collapse isOpen={this.state.detailsDisplayed}>
             <CardBlock>
               { notes }
             </CardBlock>
-          </Collapse>*/}
-        </Col>
+          </Collapse>
+        </Col>*/}
       </Row>
     )
   }
