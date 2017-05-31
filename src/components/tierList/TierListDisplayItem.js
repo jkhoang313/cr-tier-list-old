@@ -15,8 +15,8 @@ class TierListDisplayItem extends Component {
   renderTiers() {
     const { tiers } = this.props.tierList
 
-    return tiers.map(tier =>
-      <Tier tier={tier} />
+    return tiers.map((tier, index) =>
+      <Tier tier={tier} key={index}/>
     )
   }
 
