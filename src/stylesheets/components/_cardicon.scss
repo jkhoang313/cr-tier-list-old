@@ -1,12 +1,12 @@
 .card-icon {
   display: inline-block;
-  width: 50px;
-  padding-left: 5px;
-  padding-right: 5px;
+  width: 3rem;
+  padding-left: .3rem;
+  padding-right: .3rem;
 
   .card-image {
-    height: 50px;
-    width: 40px;
+    height: 3rem;
+    width: 2.5rem;
 
     &.disabled {
       filter: grayscale(100%);

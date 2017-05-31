@@ -3,7 +3,19 @@
   html {
     font-size: 10px; } }
 
+@media (min-width: 576px) and (max-width: 767px) {
+  html {
+    font-size: 12px; } }
+
 @media (min-width: 768px) and (max-width: 991px) {
+  html {
+    font-size: 16px; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  html {
+    font-size: 16px; } }
+
+@media (min-width: 1200px) {
   html {
     font-size: 16px; } }
 
@@ -41,13 +53,13 @@ body main div.body.container > div.row div.panel {
 
 body .card-icon {
   display: inline-block;
-  width: 50px;
-  padding-left: 5px;
-  padding-right: 5px; }
+  width: 3rem;
+  padding-left: .3rem;
+  padding-right: .3rem; }
 
 body .card-icon .card-image {
-  height: 50px;
-  width: 40px; }
+  height: 3rem;
+  width: 2.5rem; }
 
 body .card-icon .card-image.disabled {
   filter: grayscale(100%); }
