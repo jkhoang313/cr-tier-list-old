@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactTooltip from 'react-tooltip';
+// import ReactTooltip from 'react-tooltip';
 import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
 import cn from 'classnames';
 
@@ -41,9 +41,9 @@ export default class Card extends Component {
 
     return (
       <div className="card-icon" id={divId}>
-        <ReactTooltip
+        {/*}<ReactTooltip
           id="card-description"
-          type="info"/>
+          type="info"/>*/}
         <Dropdown active={active}>
           <DropdownTrigger>
             <img

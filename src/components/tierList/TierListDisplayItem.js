@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Collapse, CardBlock } from 'reactstrap';
 
-import * as actionCreators from '../../state/actions';
+// import * as actionCreators from '../../state/actions';
 import Tier from './Tier';
 
 
@@ -9,15 +9,23 @@ class TierListDisplayItem extends Component {
   constructor(props) {
     super(props)
 
-    this.renderTiers = this.renderTiers.bind(this)
+    this.state = {
+      tierListOpen: false
+    }
   }
 
   renderTiers() {
     const { tiers } = this.props.tierList
 
     return tiers.map((tier, index) =>
-      <Tier tier={tier} key={index}/>
+      <Tier tier={tier} key={index} />
     )
+  }
+
+  openTierList() {
+    this.setState({
+      tierListOpen: !this.state.tierListOpen
+    })
   }
 
   render() {
@@ -36,7 +44,18 @@ class TierListDisplayItem extends Component {
           <Row className="description">
             <h6>{description}</h6>
           </Row>
-          { this.renderTiers() }
+          <Row>
+            <Collapse isOpen={this.state.tierListOpen}>
+              <CardBlock>
+                { this.renderTiers() }
+              </CardBlock>
+            </Collapse>
+          </Row>
+          <Row
+            className="toggle-tier-list-item"
+            onClick={() => this.openTierList()}>
+            <h6>Click</h6>
+          </Row>
         </Col>
       </Row>
     )

@@ -58,8 +58,8 @@ body .card-icon {
   padding-right: .3rem; }
 
 body .card-icon .card-image {
-  height: 3rem;
-  width: 2.5rem; }
+  height: 2.5rem;
+  width: 2.1rem; }
 
 body .card-icon .card-image.disabled {
   filter: grayscale(100%); }
@@ -233,3 +233,9 @@ body div.tier-list-item div.description {
 body div.tier-list-item div.description h6 {
   font-size: 0.7rem;
   margin: 0; }
+
+body div.tier-list-item div.toggle-tier-list-item {
+  text-align: center; }
+
+body div.tier-list-item div.toggle-tier-list-item h6 {
+  width: 100%; }

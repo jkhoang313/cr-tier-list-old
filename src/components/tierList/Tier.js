@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Row, Col, Collapse, CardBlock } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 import * as actionCreators from '../../state/actions';
 import TierCards from './TierCards';
@@ -35,7 +35,7 @@ class Tier extends Component {
 
   render() {
     const { tier } = this.props;
-    const { title, cards, notes } = tier;
+    const { title, cards } = tier;
 
     return (
       <Row className="tier">
