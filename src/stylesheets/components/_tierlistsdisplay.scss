@@ -5,20 +5,41 @@ div.tier-list-item {
   box-shadow: 0px 0px 3px $black;
   margin: 3rem 0;
 
-  div.tier-list-item-header {
+  div.header {
     background-color: $black;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     color: $white;
     display: block;
-    padding: 2rem;
+    padding: 0.8rem;
 
     h3 {
       display: inline-block;
+      font-size: 1rem;
+      margin: 0;
 
       &.right {
         float: right;
       }
+
+      &.date-modified {
+        display: block;
+        font-size: 0.7rem;
+        font-style: italic;
+        margin-top: .2rem;
+      }
+    }
+  }
+
+  div.description {
+    background-color: $blue-green;
+    color: $white;
+    display: block;
+    padding: 0.8rem;
+
+    h6 {
+      font-size: 0.7rem;
+      margin: 0;
     }
   }
 }

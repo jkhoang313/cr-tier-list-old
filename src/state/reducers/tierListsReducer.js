@@ -6,8 +6,8 @@ export default function(state = [
     // will be a hash with account into
     creator: "Clyde",
     name: "Clyde's Tournament Tier List",
-    description: "Comprehensive tier list for tournament capped cards",
-    date_created: "1-3-2017",
+    description: "Comprehensive tier list for tournament capped cards. Based on tournament play and challenge play. Bi-weekly tier list!",
+    date_modified: "1-23-2017",
     tiers: [
       {
         id: 1,
@@ -47,7 +47,7 @@ export default function(state = [
     creator: "Franco",
     name: "2v2 clan battle tier list",
     description: "for those 2v2 clan battles",
-    date_created: "1-5-2017",
+    date_modified: "2-5-2017",
     tiers: [
       {
         id: 1,

@@ -21,15 +21,20 @@ class TierListDisplayItem extends Component {
   }
 
   render() {
-    const { creator, name, description, date_created } = this.props.tierList;
+    const { creator, name, description, date_modified } = this.props.tierList;
 
     return (
       <Row className="tier-list-item">
         <Col xs="12" md="12">
-          <Row className="tier-list-item-header">
+          <Row className="header">
             <h3>{name}</h3>
             <h3 className="right">{creator}</h3>
-            <h5>{description}</h5>
+            <h3 className="date-modified">
+              Date Modified: {date_modified}
+            </h3>
+          </Row>
+          <Row className="description">
+            <h6>{description}</h6>
           </Row>
           { this.renderTiers() }
         </Col>
