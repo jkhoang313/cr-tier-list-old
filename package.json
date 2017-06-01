@@ -11,6 +11,7 @@
     "react-bootstrap": "^0.31.0",
     "react-burger-menu": "^2.0.2",
     "react-dom": "^15.5.4",
+    "react-dragula": "^1.1.17",
     "react-foundation": "^0.7.0",
     "react-menu": "0.0.10",
     "react-popover": "^0.4.8",
