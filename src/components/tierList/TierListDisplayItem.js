@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Collapse, CardBlock } from 'reactstrap';
+import { browserHistory } from 'react-router';
 
 // import * as actionCreators from '../../state/actions';
 import Tier from './Tier';
@@ -28,6 +29,11 @@ class TierListDisplayItem extends Component {
     })
   }
 
+  goToTierList() {
+    // TODO
+    browserHistory.push('/tier-list/1')
+  }
+
   render() {
     const { creator, name, description, date_modified } = this.props.tierList;
 
@@ -35,8 +41,13 @@ class TierListDisplayItem extends Component {
       <Row className="tier-list-item">
         <Col xs="12" md="12">
           <Row className="header">
-            <h3>{name}</h3>
-            <h3 className="right">{creator}</h3>
+            <h3
+              className="clickable"
+              onClick={() => this.goToTierList()}>{name}</h3>
+            <h3
+              className="right clickable">
+              {creator}
+            </h3>
             <h3 className="date-modified">
               Date Modified: {date_modified}
             </h3>

@@ -215,6 +215,9 @@ body div.tier-list-item div.header h3 {
   font-size: 1rem;
   margin: 0; }
 
+body div.tier-list-item div.header h3.clickable:hover {
+  color: blue; }
+
 body div.tier-list-item div.header h3.right {
   float: right; }
 
@@ -240,5 +243,8 @@ body div.tier-list-item div.toggle-tier-list-item {
 body div.tier-list-item div.toggle-tier-list-item h6 {
   width: 100%; }
 
-body div.tier-list-item div.collapse.show {
+body div.tier-list-item div.collapse.show, body div.tier-list-item div.collapsing {
   width: 100%; }
+
+.clickable {
+  cursor: pointer; }
