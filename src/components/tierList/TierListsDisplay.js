@@ -28,7 +28,7 @@ class TierListsDisplay extends Component {
     return (
       <Container className="body">
         <Row>
-          <Col xs="12" md={{ size: 8, push: 2, pull: 2}}>
+          <Col xs="12" md={{ size: 10, push: 1, pull: 1}}>
             { this.renderTierLists() }
           </Col>
         </Row>

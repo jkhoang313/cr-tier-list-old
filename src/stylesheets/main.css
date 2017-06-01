@@ -53,7 +53,7 @@ body main div.body.container > div.row div.panel {
 
 body .card-icon {
   display: inline-block;
-  width: 3rem;
+  width: 2.5rem;
   padding-left: .3rem;
   padding-right: .3rem; }
 
@@ -95,7 +95,7 @@ body .tier .tier-name {
   position: relative; }
 
 body .tier .cards-container {
-  border-bottom: solid .1rem;
+  border-bottom: solid 0.05rem #9f9797;
   padding-bottom: .4rem; }
 
 body .cards-remaining-container.row {
@@ -159,16 +159,16 @@ body .bm-item-list {
 body .bm-overlay {
   background: rgba(0, 0, 0, 0.3); }
 
-body .tier-list-container.row div.col div.tier-list-header.row {
+body div.tier-list-container.row div.col div.tier-list-header.row {
   border-radius: .3rem;
   margin-bottom: 1rem;
   display: block;
   text-align: center; }
 
-body .tier-list-container.row div.col button.btn {
+body div.tier-list-container.row div.col button.btn {
   display: block; }
 
-body .tier-list-container.row div.col div.switch {
+body div.tier-list-container.row div.col div.switch {
   display: block; }
 
 body div.sorted-cards-container.row {
@@ -181,7 +181,7 @@ body div.inline-edit {
 body div.inline-edit form, body div.inline-edit input, body div.inline-edit h6 {
   border: none;
   box-shadow: none;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #000000;
   text-align: right;
   width: 100%;
@@ -238,4 +238,7 @@ body div.tier-list-item div.toggle-tier-list-item {
   text-align: center; }
 
 body div.tier-list-item div.toggle-tier-list-item h6 {
+  width: 100%; }
+
+body div.tier-list-item div.collapse.show {
   width: 100%; }
