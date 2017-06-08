@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import dragula from 'react-dragula';
+// import dragula from 'react-dragula';
 
 import * as actionCreators from '../../state/actions';
 import Card from './Card';
@@ -11,9 +11,10 @@ import Card from './Card';
 class TierCards extends Component {
   componentDidMount() {
     const container = ReactDOM.findDOMNode(this);
-    dragula([container], {
-      mirrorContainer: container
-    });
+    this.props.drake.containers.push(container)
+    // dragula([container], {
+    //   mirrorContainer: container
+    // });
   }
 
   renderCards(cards) {

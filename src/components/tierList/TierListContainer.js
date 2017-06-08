@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Row, Col } from 'reactstrap';
+import dragula from 'react-dragula';
 
 import * as actionCreators from '../../state/actions';
 import TierListEditOptions from './TierListEditOptions';
@@ -14,7 +15,8 @@ class TierListContainer extends Component {
     super(props)
 
     this.state = {
-      autoSave: true
+      autoSave: true,
+      drake: dragula({})
     }
 
     this.toggleAutoSave = this.toggleAutoSave.bind(this)
@@ -28,7 +30,8 @@ class TierListContainer extends Component {
       return (
         <Tier
           tier={tier}
-          key={index}/>
+          key={index}
+          drake={this.state.drake}/>
       )
     })
   }

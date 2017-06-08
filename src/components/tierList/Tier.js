@@ -34,7 +34,7 @@ class Tier extends Component {
   }
 
   render() {
-    const { tier } = this.props;
+    const { tier, drake } = this.props;
     const { title, cards } = tier;
 
     return (
@@ -48,7 +48,8 @@ class Tier extends Component {
         <Col xs="11" md="11" className="tier-cards">
           <TierCards
             tierId={tier.id}
-            cards={cards}/>
+            cards={cards}
+            drake={drake}/>
         </Col>
         {/*<Col xs="12" md="12">
           <Collapse isOpen={this.state.detailsDisplayed}>
