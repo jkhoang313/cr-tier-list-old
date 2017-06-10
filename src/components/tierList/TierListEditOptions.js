@@ -5,7 +5,9 @@ import { Button } from 'reactstrap';
 
 export default class TierListEditOptions extends Component {
   render() {
-    const { addTier, toggleAutoSave, autoSave } = this.props;
+    const { addTier, toggleAutoSave, autoSave,
+            toggleHideUsedCards, usedCardsHidden
+          } = this.props;
 
     return (
       <div>
@@ -17,7 +19,12 @@ export default class TierListEditOptions extends Component {
           onClick={toggleAutoSave}
           on={autoSave}
           />
-        <span>auto-save</span>
+        <span>Auto-Save</span>
+        <Switch
+          onClick={toggleHideUsedCards}
+          on={usedCardsHidden}
+          />
+        <span>Hide used cards</span>
       </div>
     )
   }

@@ -10,11 +10,13 @@ import Card from './Card';
 
 class TierCards extends Component {
   componentDidMount() {
-    const container = ReactDOM.findDOMNode(this);
-    this.props.drake.containers.push(container)
-    // dragula([container], {
-    //   mirrorContainer: container
-    // });
+    if (this.props.drake) {
+      const container = ReactDOM.findDOMNode(this);
+      this.props.drake.containers.push(container)
+      // dragula([container], {
+      //   mirrorContainer: container
+      // });
+    }
   }
 
   renderCards(cards) {

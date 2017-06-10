@@ -16,10 +16,12 @@ class TierListContainer extends Component {
 
     this.state = {
       autoSave: true,
-      drake: dragula({})
+      drake: dragula({}),
+      usedCardsHidden: false
     }
 
     this.toggleAutoSave = this.toggleAutoSave.bind(this)
+    this.toggleHideUsedCards = this.toggleHideUsedCards.bind(this)
     this.updateTierListName = this.updateTierListName.bind(this)
   }
 
@@ -37,8 +39,16 @@ class TierListContainer extends Component {
   }
 
   toggleAutoSave() {
+    console.log('autosave')
     this.setState({
       autoSave: !this.state.autoSave
+    })
+  }
+
+  toggleHideUsedCards() {
+    console.log('hide used')
+    this.setState({
+      usedCardsHidden: !this.state.usedCardsHidden
     })
   }
 
@@ -68,6 +78,8 @@ class TierListContainer extends Component {
             addTier={addTier}
             toggleAutoSave={this.toggleAutoSave}
             autoSave={this.state.autoSave}
+            toggleHideUsedCards={this.toggleHideUsedCards}
+            usedCardsHidden={this.state.usedCardsHidden}
             />
         </Col>
       </Row>
