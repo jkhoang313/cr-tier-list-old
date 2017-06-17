@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Container, Row, Col } from 'reactstrap';
 
-import * as actionCreators from '../../state/actions';
-import TierListDisplayItem from './TierListDisplayItem';
+import * as actionCreators from '../../../state/actions';
+import TierListsDisplayItem from './TierListsDisplayItem';
 
 
-class TierListsDisplay extends Component {
+class TierListsDisplayPage extends Component {
   constructor(props) {
     super(props)
 
@@ -18,7 +18,7 @@ class TierListsDisplay extends Component {
     const { tierLists } = this.props;
 
     return tierLists.map((tierList, index) =>
-      <TierListDisplayItem
+      <TierListsDisplayItem
         tierList={tierList}
         key={index}
         />
@@ -50,4 +50,4 @@ function mapDispatchToProps(dispatch){
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TierListsDisplay);
+)(TierListsDisplayPage);

@@ -29,4 +29,8 @@
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
+
+  &.display-only {
+    cursor: default;
+  }
 }

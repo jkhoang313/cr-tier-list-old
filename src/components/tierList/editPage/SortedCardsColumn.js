@@ -3,8 +3,8 @@ import { Col } from 'reactstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actionCreators from '../../state/actions'
-import Card from './Card';
+import * as actionCreators from '../../../state/actions'
+import Card from '../Card';
 
 
 class SortedCardsColumn extends Component {

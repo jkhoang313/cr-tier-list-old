@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Row, Col, Button, ButtonGroup } from 'reactstrap';
 
-import * as actionCreators from '../../state/actions'
+import * as actionCreators from '../../../state/actions'
 import SortedCardsColumn from './SortedCardsColumn';
-import cardFilter from '../../helpers/cardFilter';
+import cardFilter from '../../../helpers/cardFilter';
 
 
 class CardsRemainingContainer extends Component {

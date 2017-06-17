@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux';
 import { Row, Col } from 'reactstrap';
 import dragula from 'react-dragula';
 
-import * as actionCreators from '../../state/actions';
+import * as actionCreators from '../../../state/actions';
 import TierListEditOptions from './TierListEditOptions';
-import Tier from './Tier';
+import Tier from '../Tier';
 import InlineEdit from '../helpers/InlineEdit';
 
 

@@ -8,39 +8,38 @@ import { cardDescriptions } from '../../helpers/cards';
 
 export default class Card extends Component {
   renderMenu() {
-    const { name, disabled, tiers, tierId, onClick } = this.props;
+    const { name, disabled, tiers, tierId, onClick, displayOnly } = this.props;
 
     if (tiers) {
       return tiers.map((tier, index) => {
         return (
           <li key={index}>
-            <a onClick={
-              () => disabled ? null : onClick({ tierId: tier.id, name })
+            <a onClick={ () =>
+              disabled ? null : onClick({ tierId: tier.id, name })
             }>{tier.title}</a>
           </li>
         )
       })
-    } else {
-      if (onClick) {
-        return (
-          <li>
-            <a onClick={() => onClick({ tierId, name })}>
-              Remove
-            </a>
-          </li>
-        )
-      }
+    } else if (onClick && !displayOnly) {
+      return (
+        <li>
+          <a onClick={() => onClick({ tierId, name })}>
+            Remove
+          </a>
+        </li>
+      )
     }
   }
 
   render() {
-    const { name, disabled } = this.props;
+    const { name, disabled, displayOnly } = this.props;
     const card = cardDescriptions[name];
     const divId = name.toLowerCase().replace(/\s+/g, '-') + "-card";
-    const active = disabled ? false : null;
+    const active = disabled ? false : null
 
     return (
-      <div className="card-icon" id={divId}>
+      <div
+        className={cn("card-icon", {"display-only": displayOnly})} id={divId}>
         {/*}<ReactTooltip
           id="card-description"
           type="info"/>*/}

@@ -13,14 +13,11 @@ class TierCards extends Component {
     if (this.props.drake) {
       const container = ReactDOM.findDOMNode(this);
       this.props.drake.containers.push(container)
-      // dragula([container], {
-      //   mirrorContainer: container
-      // });
     }
   }
 
   renderCards(cards) {
-    const { tierId, removeCardFromTier } = this.props;
+    const { tierId, removeCardFromTier, displayOnly } = this.props;
 
     if (cards.length < 1) {
       return (
@@ -34,6 +31,7 @@ class TierCards extends Component {
             name={name}
             tierId={tierId}
             onClick={removeCardFromTier}
+            displayOnly={displayOnly}
             key={index}/>
         )
       })

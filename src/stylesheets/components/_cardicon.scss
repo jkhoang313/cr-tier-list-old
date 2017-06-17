@@ -14,11 +14,8 @@
   }
 }
 
-.dropdown {
-  display: inline-block;
-}
-
 .dropdown__content {
+  cursor: default;
   display: none;
   position: absolute;
   background-color: $white;

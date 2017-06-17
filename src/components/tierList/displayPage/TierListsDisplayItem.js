@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Row, Col, Collapse, CardBlock } from 'reactstrap';
 import { browserHistory } from 'react-router';
 
-// import * as actionCreators from '../../state/actions';
-import Tier from './Tier';
+// import * as actionCreators from '../../../state/actions';
+import Tier from '../Tier';
 
 
-class TierListDisplayItem extends Component {
+class TierListsDisplayItem extends Component {
   constructor(props) {
     super(props)
 
@@ -19,7 +19,10 @@ class TierListDisplayItem extends Component {
     const { tiers } = this.props.tierList
 
     return tiers.map((tier, index) =>
-      <Tier tier={tier} key={index} />
+      <Tier
+        tier={tier}
+        key={index}
+        displayOnly={true}/>
     )
   }
 
@@ -73,4 +76,4 @@ class TierListDisplayItem extends Component {
   }
 }
 
-export default TierListDisplayItem
+export default TierListsDisplayItem

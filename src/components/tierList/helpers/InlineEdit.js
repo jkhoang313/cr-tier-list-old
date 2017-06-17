@@ -69,7 +69,7 @@ export default class InlineEdit extends Component {
   render () {
     return (
       <div className="inline-edit">
-      { this.state.isEditing ?
+      { this.state.isEditing && this.props.displayOnly ?
         this.renderInput() : this.renderDescription()
       }
       </div>
