@@ -250,7 +250,10 @@ body .gu-mirror {
   z-index: 9999 !important;
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  filter: alpha(opacity=80); }
+  filter: alpha(opacity=80);
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing; }
 
 body .gu-hide {
   display: none !important; }
@@ -266,13 +269,13 @@ body .gu-transit {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   filter: alpha(opacity=20); }
 
-body .cards-container > div {
+body .cards-container > div.card-icon {
   cursor: move;
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab; }
 
-body .cards-container > div.display-only {
+body .cards-container > div.card-icon.display-only {
   cursor: default; }
 
 body .tier-list-edit-option div {

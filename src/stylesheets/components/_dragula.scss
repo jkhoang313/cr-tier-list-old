@@ -5,6 +5,9 @@
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
 }
 
 .gu-hide {
@@ -24,7 +27,7 @@
   filter: alpha(opacity=20);
 }
 
-.cards-container > div {
+.cards-container > div.card-icon {
   cursor: move;
   cursor: grab;
   cursor: -moz-grab;
