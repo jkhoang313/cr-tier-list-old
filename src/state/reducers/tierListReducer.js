@@ -41,15 +41,20 @@ export default function(state = {
       }
 
     case "ADD_CARD_TO_TIER": {
-      const { tierId, name } = action.payload.params
+      const { tierId, cardName } = action.payload.params;
+      let position = action.payload.params.position;
 
       return {
         ...state,
         tiers: state.tiers.map((tier) => {
           if (tier.id === tierId) {
+            if (position === -1) {
+              position = tier.cards.length
+            }
+
             return {
               ...tier,
-              cards: tier.cards.concat(name)
+              cards: tier.cards.slice(0, position).concat([cardName], tier.cards.slice(position))
             }
           } else {
             return tier
@@ -59,7 +64,7 @@ export default function(state = {
     }
 
     case "REMOVE_CARD_FROM_TIER": {
-      const { tierId, name } = action.payload.params
+      const { tierId, cardName } = action.payload.params;
 
       return {
         ...state,
@@ -67,7 +72,35 @@ export default function(state = {
           if (tier.id === tierId) {
             return {
               ...tier,
-              cards: _.reject(tier.cards, (card) => card === name)
+              cards: _.reject(tier.cards, (card) => card === cardName)
+            }
+          } else {
+            return tier
+          }
+        })
+      }
+    }
+
+    case "MOVE_CARD_BETWEEN_TIERS": {
+      const { oldTierId, newTierId, cardName } = action.payload.params;
+      let position = action.payload.params.position;
+
+      return {
+        ...state,
+        tiers: state.tiers.map((tier) => {
+          if (tier.id === oldTierId) {
+            return {
+              ...tier,
+              cards: _.reject(tier.cards, (card) => card === cardName)
+            }
+          } else if (tier.id === newTierId) {
+            if (position === -1) {
+              position = tier.cards.length
+            }
+
+            return {
+              ...tier,
+              cards: tier.cards.slice(0, position).concat([cardName], tier.cards.slice(position))
             }
           } else {
             return tier

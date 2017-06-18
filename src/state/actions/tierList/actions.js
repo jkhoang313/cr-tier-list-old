@@ -22,6 +22,15 @@ export function removeCardFromTier(params) {
   }
 }
 
+export function moveCardBetweenTiers(params) {
+  return {
+    type: "MOVE_CARD_BETWEEN_TIERS",
+    payload: {
+      params
+    }
+  }
+}
+
 export function updateTierList(params) {
   return {
     type: "UPDATE_TIER_LIST",

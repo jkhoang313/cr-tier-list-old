@@ -24,6 +24,7 @@ class TierCards extends Component {
             tierId={tierId}
             onClick={removeCardFromTier}
             displayOnly={displayOnly}
+            position={index}
             key={index}/>
         )
       })
