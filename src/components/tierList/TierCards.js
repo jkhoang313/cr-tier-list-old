@@ -13,7 +13,8 @@ class TierCards extends Component {
     if (cards.length < 1) {
       return (
         <Card
-          name={"MysteryCard"}/>
+          name={"MysteryCard"}
+          disabled={true}/>
       )
     } else {
       return cards.map((name, index) => {
@@ -30,10 +31,11 @@ class TierCards extends Component {
   };
 
   render() {
-    const { cards } = this.props;
+    const { cards, tierId } = this.props;
 
     return (
-      <div className="tier cards-container">
+      <div
+        className="tier cards-container" id={`tier-${tierId}`}>
         { this.renderCards(cards) }
       </div>
     )

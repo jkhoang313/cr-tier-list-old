@@ -34,12 +34,16 @@ export default class Card extends Component {
   render() {
     const { name, disabled, displayOnly } = this.props;
     const card = cardDescriptions[name];
-    const divId = name.toLowerCase().replace(/\s+/g, '-') + "-card";
+    // const divId = name.toLowerCase().replace(/\s+/g, '-');
+    const divId = name;
     const active = disabled ? false : null
 
     return (
       <div
-        className={cn("card-icon", {"display-only": displayOnly})} id={divId}>
+        className={cn("card-icon", {
+          "display-only": displayOnly,
+          disabled})}
+        id={divId}>
         {/*}<ReactTooltip
           id="card-description"
           type="info"/>*/}

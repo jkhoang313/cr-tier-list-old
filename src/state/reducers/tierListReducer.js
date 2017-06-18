@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 export default function(state = {
-  id: '1',
+  id: 1,
   name: "Clyde's Tier List",
   description: "",
   type: 1,
@@ -14,7 +14,7 @@ export default function(state = {
       cards: ["Bomber", "Bowler", "Bomb Tower"]
     },
     {
-      id: 2,
+      id: 23,
       title: "A-tier",
       description: "The second best cards in the game",
       notes: "Barbarian Hut might move up soon",

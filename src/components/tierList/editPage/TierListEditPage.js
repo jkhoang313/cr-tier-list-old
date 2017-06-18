@@ -11,13 +11,35 @@ import CardPoolContainer from './CardsRemainingContainer.js';
 
 class TierListEditPage extends Component {
   componentWillMount() {
-    dragula({
+    const { addCardToTier, removeCardFromTier } = this.props;
+    let drake = dragula({
       isContainer: (el) => {
         return el.classList.contains('cards-container');
       },
       accepts: (el, target, source, sibling) => {
         return target.classList.contains('tier')
-      }
+      },
+      copy: (el, source, t) => {
+        return !source.classList.contains('tier')
+      },
+      moves: (el, source, handle, sibling) => {
+        return !el.classList.contains('disabled')
+      },
+      revertOnSpill: true
+    })
+
+    drake.on("drop", (el, target, source, sibling) => {
+      drake.cancel();
+      if (source.classList.contains('tier')) {
+        removeCardFromTier({
+          tierId: parseInt(source.id.substring(5), 10),
+          name: el.id
+        })
+      };
+      addCardToTier({
+        tierId: parseInt(target.id.substring(5), 10),
+        name: el.id
+      });
     })
   }
 
