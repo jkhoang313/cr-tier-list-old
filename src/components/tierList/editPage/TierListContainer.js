@@ -39,17 +39,13 @@ class TierListContainer extends Component {
   }
 
   toggleAutoSave() {
-    console.log('autosave')
     this.setState({
       autoSave: !this.state.autoSave
     })
   }
 
   toggleHideUsedCards() {
-    console.log('hide used')
-    this.setState({
-      usedCardsHidden: !this.state.usedCardsHidden
-    })
+    this.props.handleHideUsedCardsToggle();
   }
 
   updateTierListName(name) {
@@ -60,7 +56,7 @@ class TierListContainer extends Component {
 
   render() {
     const { tierList, addTier } = this.props
-    const { name } = tierList;
+    const { name, usedCardsHidden } = tierList;
 
     return (
       <Row className="tier-list-container">
@@ -79,7 +75,7 @@ class TierListContainer extends Component {
             toggleAutoSave={this.toggleAutoSave}
             autoSave={this.state.autoSave}
             toggleHideUsedCards={this.toggleHideUsedCards}
-            usedCardsHidden={this.state.usedCardsHidden}
+            usedCardsHidden={usedCardsHidden}
             />
         </Col>
       </Row>

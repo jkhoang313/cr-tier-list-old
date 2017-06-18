@@ -1,4 +1,4 @@
-@import url(~react-toggle-switch/dist/css/switch.min.css);
+@import url(~react-switch-button/dist/react-switch-button.css);
 @media (max-width: 575px) {
   html {
     font-size: 10px; } }
@@ -274,6 +274,9 @@ body .cards-container > div {
 
 body .cards-container > div.display-only {
   cursor: default; }
+
+body .tier-list-edit-option div {
+  display: block; }
 
 .clickable {
   cursor: pointer; }

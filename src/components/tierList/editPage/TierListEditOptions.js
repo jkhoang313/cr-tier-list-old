@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Switch from 'react-toggle-switch';
+// import SwitchButton from 'react-switch-button';
+import ToggleButton from 'react-toggle-button'
 import { Button } from 'reactstrap';
 
 
@@ -10,19 +11,20 @@ export default class TierListEditOptions extends Component {
           } = this.props;
 
     return (
-      <div>
+      <div className="tier-list-edit-option">
         <Button
           outline
           color="primary"
           onClick={addTier}>Add A Tier</Button>
-        <Switch
-          onClick={toggleAutoSave}
-          on={autoSave}
+        <ToggleButton
+          labelRight="Auto-save"
+          onToggle={toggleAutoSave}
+          value={autoSave}
           />
-        <span>Auto-Save</span>
-        <Switch
-          onClick={toggleHideUsedCards}
-          on={usedCardsHidden}
+        <span>Auto-save</span>
+        <ToggleButton
+          onToggle={toggleHideUsedCards}
+          value={usedCardsHidden}
           />
         <span>Hide used cards</span>
       </div>

@@ -15,7 +15,7 @@ class SortedCardsColumn extends Component {
   }
 
   renderCards() {
-    const { cards, tiers, addCardToTier } = this.props;
+    const { cards, tiers, addCardToTier, usedCardsHidden } = this.props;
 
     if (cards.length < 1) {
       return (
@@ -23,15 +23,26 @@ class SortedCardsColumn extends Component {
       )
     } else {
       return cards.map((name, index) => {
-        return (
-          <Card
-            tiers={tiers}
-            onClick={addCardToTier}
-            name={name}
-            disabled={this.cardDisabled(name)}
-            key={index}/>
-        );
-      });
+        if (!this.cardDisabled(name)) {
+          return (
+            <Card
+              tiers={tiers}
+              onClick={addCardToTier}
+              name={name}
+              key={index}/>
+          );
+        } else if (!usedCardsHidden) {
+          return (
+            <Card
+              tiers={tiers}
+              onClick={addCardToTier}
+              name={name}
+              disabled={true}
+              key={index}/>
+          )
+        }
+        return null;
+      })
     }
   };
 
@@ -57,7 +68,8 @@ class SortedCardsColumn extends Component {
 
 function mapStateToProps(state) {
   return {
-    tiers: state.tierList.tiers
+    tiers: state.tierList.tiers,
+    usedCardsHidden: state.tierList.usedCardsHidden
   }
 };
 

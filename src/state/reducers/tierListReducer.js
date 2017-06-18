@@ -4,6 +4,7 @@ export default function(state = {
   id: '1',
   name: "Clyde's Tier List",
   description: "",
+  type: 1,
   tiers: [
     {
       id: 1,
@@ -22,7 +23,8 @@ export default function(state = {
   ],
   cardsRemaining: {
     sortedBy: "Alphabetical"
-  }
+  },
+  usedCardsHidden: false
 }, action) {
   switch (action.type) {
     case "ADD_TIER":
@@ -96,6 +98,13 @@ export default function(state = {
       return {
         ...state,
         name: name
+      }
+    }
+
+    case "SET_USED_CARDS_HIDDEN": {
+      return {
+        ...state,
+        usedCardsHidden: !state.usedCardsHidden
       }
     }
 

@@ -37,3 +37,9 @@ export function updateTier(params) {
     payload: params
   }
 }
+
+export function handleHideUsedCardsToggle() {
+  return {
+    type: "SET_USED_CARDS_HIDDEN"
+  }
+}
