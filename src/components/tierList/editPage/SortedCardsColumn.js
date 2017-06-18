@@ -53,7 +53,7 @@ class SortedCardsColumn extends Component {
   };
 
   render() {
-    const { sections } = this.props;
+    const { sections, name } = this.props;
 
     return (
       <Col xs="12" md={sections || 3}>
