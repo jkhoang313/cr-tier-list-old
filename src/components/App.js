@@ -1,27 +1,18 @@
 import React, { Component } from 'react';
-import { Container } from 'reactstrap';
 // import { slide as SideMenu } from 'react-burger-menu';
 
-import NavBar from './base/NavBar.js';
-import TierListContainer from './tierList/TierListContainer.js';
-import CardPoolContainer from './tierList/CardsRemainingContainer.js';
-import 'react-select/dist/react-select.css';
+import NavBar from './NavBar.js';
 
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <main>
         <NavBar />
-        <Container className="body">
-          <TierListContainer />
-          <CardPoolContainer />
-        </Container>
+        { this.props.children }
       </main>
-    );
-  };
+    )
+  }
 };
-
-export default App;
 
 // <SideMenu />

@@ -1,53 +1,69 @@
 import React, { Component } from 'react';
-import ReactTooltip from 'react-tooltip';
-import { Popover, PopoverTitle, PopoverContent } from 'reactstrap';
+// import ReactTooltip from 'react-tooltip';
+import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
+import cn from 'classnames';
 
 import { cardDescriptions } from '../../helpers/cards';
 
 
 export default class Card extends Component {
-  constructor(props) {
-    super(props)
+  renderMenu() {
+    const { name, disabled, tiers, tierId, onClick, displayOnly } = this.props;
 
-    this.state = {
-      cardPopoverOpen: false
+    if (tiers) {
+      return tiers.map((tier, index) => {
+        return (
+          <li key={index}>
+            <a onClick={ () =>
+              disabled ? null : onClick({ tierId: tier.id, cardName: name })
+            }>{tier.title}</a>
+          </li>
+        )
+      })
+    } else if (onClick && !displayOnly) {
+      return (
+        <li>
+          <a onClick={() => onClick({ tierId, cardName: name })}>
+            Remove
+          </a>
+        </li>
+      )
     }
-
-    this.togglePopover = this.togglePopover.bind(this)
-  }
-
-  togglePopover() {
-    this.setState({
-      cardPopoverOpen: !this.state.cardPopoverOpen
-    });
   }
 
   render() {
-    const { name } = this.props;
+    const { name, disabled, displayOnly, position } = this.props;
     const card = cardDescriptions[name];
-    const divId = name.toLowerCase().replace(/\s+/g, '-') + "-card";
+    // const divId = name.toLowerCase().replace(/\s+/g, '-');
+    const divId = name;
+    const active = disabled ? false : null;
 
     return (
-      <div className="card-icon" id={divId}>
-        <ReactTooltip
+      <div
+        className={cn(`card-icon position-${position}`, {
+          "display-only": displayOnly,
+          disabled})}
+        id={divId}>
+        {/*}<ReactTooltip
           id="card-description"
-          type="info"/>
-        <img
-          src={card.image}
-          className="card-image"
-          alt={card.name}
-          data-for="card-description"
-          data-tip={name}
-          onClick={this.togglePopover}/>
-        <Popover
-          placement="top"
-          isOpen={this.state.cardPopoverOpen}
-          target={divId}
-          toggle={this.toggle}>
-          <PopoverTitle>Popover Title</PopoverTitle>
-          <PopoverContent>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</PopoverContent>
-        </Popover>
+          type="info"/>*/}
+        <Dropdown active={active}>
+          <DropdownTrigger>
+            <img
+              src={card.image}
+              className={cn("card-image", { disabled })}
+              alt={card.name}
+              data-for="card-description"
+              data-tip={name}
+              onClick={this.togglePopover}/>
+          </DropdownTrigger>
+          <DropdownContent>
+            <ul>
+              { this.renderMenu() }
+            </ul>
+          </DropdownContent>
+        </Dropdown>
       </div>
-    );
-  };
+    )
+  }
 };

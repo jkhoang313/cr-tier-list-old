@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import { Row, Col, Collapse, CardBlock } from 'reactstrap';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Row, Col } from 'reactstrap';
 
-import CardsContainer from './CardsContainer'
+import * as actionCreators from '../../state/actions';
+import TierCards from './TierCards';
+import InlineEdit from './helpers/InlineEdit';
+
 
 class Tier extends Component {
   constructor(props) {
@@ -12,6 +17,7 @@ class Tier extends Component {
     }
 
     this.openTierDetails = this.openTierDetails.bind(this)
+    this.updateTierTitle = this.updateTierTitle.bind(this)
   }
 
   openTierDetails() {
@@ -20,28 +26,53 @@ class Tier extends Component {
     })
   }
 
+  updateTierTitle(title) {
+    const { updateTier, tier } = this.props;
+    const tierId = tier.id;
+
+    updateTier({ tierId, title });
+  }
+
   render() {
-    const { tier } = this.props;
-    const { title, cards, notes } = tier;
+    const { tier, displayOnly } = this.props;
+    const { title, cards } = tier;
 
     return (
       <Row className="tier">
-        <Col xs="2" md="2" className="title">
-          <h6 onClick={this.openTierDetails}>{title}</h6>
+        <Col xs="1" md="1" className="tier-name">
+          <InlineEdit
+            text={title}
+            onSubmit={this.updateTierTitle}
+            displayOnly={displayOnly}
+            />
         </Col>
-        <Col xs="10" md="10" className="tier-cards">
-          <CardsContainer cards={cards}/>
+        <Col xs="11" md="11" className="tier-cards">
+          <TierCards
+            tierId={tier.id}
+            cards={cards}
+            displayOnly={displayOnly}/>
         </Col>
-        <Col xs="12" md="12">
+        {/*<Col xs="12" md="12">
           <Collapse isOpen={this.state.detailsDisplayed}>
             <CardBlock>
               { notes }
             </CardBlock>
           </Collapse>
-        </Col>
+        </Col>*/}
       </Row>
     )
-  };
+  }
 };
 
-export default Tier
+function mapStateToProps(state) {
+  return state
+};
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(actionCreators, dispatch);
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Tier)

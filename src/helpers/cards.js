@@ -94,7 +94,7 @@ export const cardDescriptions = {
     image: BabyDragon,
     type: "Troop",
     rarity: "Epic",
-    elixirCost: 2,
+    elixirCost: 4,
     arena: 0
   },
   "Balloon": {
@@ -655,3 +655,7 @@ export const cardDescriptions = {
     image: MysteryCard
   }
 }
+
+export const cardRoster = [
+  "Archers", "Arrows", "Baby Dragon", "Balloon", "Bandit", "Barbarian Hut", "Barbarians", "Battle Ram", "Bomb Tower", "Bomber",  "Bowler", "Cannon", "Clone", "Dark Prince", "Dart Goblin", "Electro Wizard", "Elite Barbarians", "Elixir Collector", "Executioner", "Fireball", "Fire Spirits", "Freeze", "Furnace", "Giant", "Giant Skeleton", "Goblin Barrel", "Goblin Gang", "Goblin Hut", "Goblins", "Golem", "Graveyard", "Guards", "Heal", "Hog Rider", "Ice Golem", "Ice Spirit", "Ice Wizard", "Inferno Dragon", "Inferno Tower", "Knight", "Lava Hound", "Lightning", "Lumberjack", "Mega Minion", "Miner", "Minion Horde", "Minions", "Mini PEKKA", "Mirror", "Mortar", "Musketeer", "PEKKA", "Poison", "Prince", "Princess", "Rage", "Rocket", "Royal Giant", "Skeleton Army", "Skeletons", "Sparky", "Spear Goblins", "Tesla", "The Log", "Three Musketeers", "Tombstone", "Tornado", "Valkyrie", "Witch", "Wizard", "X-Bow", "Zap"
+]

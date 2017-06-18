@@ -1,15 +1,11 @@
-.tier-list-container.row {
-  background-color: $light-gray;
+div.tier-list-container.row {
 
   div.col {
-    .tier-list-header.row {
-      border-radius: .3em;
-      margin-bottom: 1em;
+    div.tier-list-header.row {
+      border-radius: .3rem;
+      margin-bottom: 1rem;
       display: block;
-
-      h4 {
-        text-align: center;
-      }
+      text-align: center;
     }
 
     button.btn {

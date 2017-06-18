@@ -1,7 +1,51 @@
 // import variables
 @import './utilities/variables';
-@import "~react-toggle-switch/dist/css/switch.min.css";
+@import '~react-switch-button/dist/react-switch-button.css';
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html, body, div#root, main {
+  height: 100%;
+  background-color: $light-gray;
+}
 
 body {
   @import 'components/all';
+}
+
+.clickable {
+  cursor: pointer;
 }

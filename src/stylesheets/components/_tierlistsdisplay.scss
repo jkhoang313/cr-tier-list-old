@@ -1,0 +1,62 @@
+div.tier-list-item {
+  background-color: $white;
+  border-radius: 5px;
+  margin: 0;
+  box-shadow: 0px 0px 3px $black;
+  margin: 3rem 0;
+
+  div.header {
+    background-color: $black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: $white;
+    display: block;
+    padding: 0.8rem;
+
+    h3 {
+      display: inline-block;
+      font-size: 1rem;
+      margin: 0;
+
+      &.clickable:hover {
+        // TODO
+        color: blue;
+      }
+
+      &.right {
+        float: right;
+      }
+
+      &.date-modified {
+        display: block;
+        font-size: 0.7rem;
+        font-style: italic;
+        margin-top: .2rem;
+      }
+    }
+  }
+
+  div.description {
+    background-color: $blue-green;
+    color: $white;
+    display: block;
+    padding: 0.8rem;
+
+    h6 {
+      font-size: 0.7rem;
+      margin: 0;
+    }
+  }
+
+  div.toggle-tier-list-item {
+    text-align: center;
+
+    h6 {
+      width: 100%;
+    }
+  }
+
+  div.collapse.show, div.collapsing {
+    width: 100%;
+  }
+}
