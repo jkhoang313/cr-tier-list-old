@@ -2,9 +2,15 @@ import _ from 'lodash';
 
 export default function(state = {
   id: 1,
-  name: "Clyde's Tier List",
-  description: "",
-  type: 1,
+  creator: {
+    id: 1,
+    name: "Clyde"
+  },
+  name: "Clyde's Tournament Tier List",
+  list_type: 1,
+  description: "Comprehensive tier list for tournament capped cards. Based on tournament play and challenge play. Bi-weekly tier list!",
+  date_modified: "1-23-2017",
+  date_created: "1-23-2017",
   tiers: [
     {
       id: 1,

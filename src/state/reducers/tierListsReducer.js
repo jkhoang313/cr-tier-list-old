@@ -4,8 +4,12 @@ export default function(state = [
   {
     id: 1,
     // will be a hash with account into
-    creator: "Clyde",
+    creator: {
+      id: 1,
+      name: "Clyde"
+    },
     name: "Clyde's Tournament Tier List",
+    list_type: 1,
     description: "Comprehensive tier list for tournament capped cards. Based on tournament play and challenge play. Bi-weekly tier list!",
     date_modified: "1-23-2017",
     tiers: [

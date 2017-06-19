@@ -49,7 +49,7 @@ class TierListsDisplayItem extends Component {
               onClick={() => this.goToTierList()}>{name}</h3>
             <h3
               className="right clickable">
-              {creator}
+              {creator.name}
             </h3>
             <h3 className="date-modified">
               Date Modified: {date_modified}

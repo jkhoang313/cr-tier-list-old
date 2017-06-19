@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import authReducer from './authReducer'
+import userReducer from './userReducer'
 import tierListReducer from './tierListReducer'
 import tierListsReducer from './tierListsReducer'
 
 const rootReducer = combineReducers({
-  auth: authReducer,
+  user: userReducer,
   tierList: tierListReducer,
   tierLists: tierListsReducer
 })
