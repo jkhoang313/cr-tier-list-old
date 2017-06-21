@@ -1,3 +1,5 @@
+
+
 export function addTier() {
   return {
     type: "ADD_TIER"
@@ -25,6 +27,15 @@ export function removeCardFromTier(params) {
 export function moveCardBetweenTiers(params) {
   return {
     type: "MOVE_CARD_BETWEEN_TIERS",
+    payload: {
+      params
+    }
+  }
+}
+
+export function moveCardWithinTier(params) {
+  return {
+    type: "MOVE_CARD_WITHIN_TIER",
     payload: {
       params
     }

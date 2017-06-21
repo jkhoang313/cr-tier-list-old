@@ -15,7 +15,7 @@ export default class Card extends Component {
         return (
           <li key={index}>
             <a onClick={ () =>
-              disabled ? null : onClick({ tierId: tier.id, cardName: name })
+              disabled ? null : onClick({ tierId: tier.id, cardName: name, position: -1 })
             }>{tier.title}</a>
           </li>
         )

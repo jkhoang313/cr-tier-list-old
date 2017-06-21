@@ -103,10 +103,34 @@ export default function(state = {
             if (position === -1) {
               position = tier.cards.length
             }
-
             return {
               ...tier,
               cards: tier.cards.slice(0, position).concat([cardName], tier.cards.slice(position))
+            }
+          } else {
+            return tier
+          }
+        })
+      }
+    }
+
+    case "MOVE_CARD_WITHIN_TIER": {
+      const { tierId, cardName } = action.payload.params;
+      let position = action.payload.params.position;
+
+      return {
+        ...state,
+        tiers: state.tiers.map((tier) => {
+          if (tier.id === tierId) {
+            if (position === -1) {
+              position = tier.cards.length
+            }
+            let newCardsArray = _.reject(tier.cards, (card) => card === cardName)
+            newCardsArray = newCardsArray.slice(0, position).concat([cardName], newCardsArray.slice(position))
+
+            return {
+              ...tier,
+              cards: newCardsArray
             }
           } else {
             return tier
