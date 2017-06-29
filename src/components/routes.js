@@ -9,6 +9,6 @@ export default (
   <Route path="/" component={App}>
     <Route path="tools" component={Tools} />
     <Route path="tier-lists" component={TierListsDisplayPage} />
-    <Route path="tier-list/1" component={TierListEditPage} />
+    <Route path="tier-list/:id" component={TierListEditPage} />
   </Route>
 );
