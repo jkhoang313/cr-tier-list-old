@@ -12,7 +12,11 @@ import CardPoolContainer from './CardsRemainingContainer.js';
 class TierListEditPage extends Component {
   componentWillMount() {
     const { addCardToTier, moveCardBetweenTiers,
-            moveCardWithinTier } = this.props;
+            moveCardWithinTier, fetchTierList, location
+          } = this.props;
+    const tierId = location.pathname.split('/')[2]
+
+    fetchTierList(tierId)
 
     let drake = dragula({
       isContainer: (el) => {

@@ -8,18 +8,12 @@ import Card from '../Card';
 
 
 class SortedCardsColumn extends Component {
-  constructor(props) {
-    super(props)
-
-    this.cardDisabled = this.cardDisabled.bind(this)
-  }
-
   renderCards() {
     const { cards, tiers, addCardToTier, usedCardsHidden } = this.props;
 
     if (cards.length < 1) {
       return (
-        <Card name={"MysteryCard"} />
+        <Card name={"MysteryCard"}/>
       )
     } else {
       return cards.map((name, index) => {

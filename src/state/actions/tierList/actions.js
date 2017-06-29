@@ -1,8 +1,12 @@
+import callApi from '../../api';
 
+export function fetchTierList(tierId) {
+  return callApi(`/api/tier_lists/${tierId}`, "FETCH_TIER_LIST")
+}
 
-export function addTier() {
+export function addTier(params) {
   return {
-    type: "ADD_TIER"
+    type: "ADD_TIER", payload: params
   }
 }
 
