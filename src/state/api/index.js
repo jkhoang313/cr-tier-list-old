@@ -1,10 +1,10 @@
 const baseUrl = "http://localhost:3000"
 
-export default function callApi(url, actionType, params=null) {
+export default function callApi(url, actionType, requestInfo, params=null) {
   return function (dispatch) {
     dispatch(createRequest(actionType, params))
 
-    return fetch(baseUrl + url)
+    return fetch(baseUrl + url, requestInfo)
       .then(
         response => response.json(),
         error => console.log('An error occured.', error)

@@ -31,6 +31,7 @@ class TierListContainer extends Component {
       return (
         <Tier
           tier={tier}
+          index={index}
           key={index}/>
       )
     })

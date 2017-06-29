@@ -46,26 +46,33 @@ export default function(state = {
         }])
       }
 
-    case "ADD_CARD_TO_TIER": {
-      const { tierId, cardName } = action.payload.params;
-      let position = action.payload.params.position;
+    // case "ADD_CARD_TO_TIER": {
+    //   // const { tierId, cardName } = action.payload.params;
+    //   // let position = action.payload.params.position;
+    //
+    //   return {
+    //     ...state,
+    //     // tiers: state.tiers.map((tier) => {
+    //     //   if (tier.id === tierId) {
+    //     //     if (position === -1) {
+    //     //       position = tier.cards.length
+    //     //     }
+    //     //
+    //     //     return {
+    //     //       ...tier,
+    //     //       cards: tier.cards.slice(0, position).concat([cardName], tier.cards.slice(position))
+    //     //     }
+    //     //   } else {
+    //     //     return tier
+    //     //   }
+    //     // })
+    //   };
+    // }
 
+    case "ADD_CARD_TO_TIER_SUCCESS": {
       return {
         ...state,
-        tiers: state.tiers.map((tier) => {
-          if (tier.id === tierId) {
-            if (position === -1) {
-              position = tier.cards.length
-            }
-
-            return {
-              ...tier,
-              cards: tier.cards.slice(0, position).concat([cardName], tier.cards.slice(position))
-            }
-          } else {
-            return tier
-          }
-        })
+        ...action.payload.tier_list
       };
     }
 

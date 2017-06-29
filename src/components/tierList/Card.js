@@ -15,7 +15,12 @@ export default class Card extends Component {
         return (
           <li key={index}>
             <a onClick={ () =>
-              disabled ? null : onClick({ tierId: tier.id, cardName: name, position: -1 })
+              disabled ? null : onClick({
+                tierId,
+                tierIndex: index,
+                cardName: name,
+                position: -1
+              })
             }>{tier.title}</a>
           </li>
         )
@@ -34,7 +39,6 @@ export default class Card extends Component {
   render() {
     const { name, disabled, displayOnly, position } = this.props;
     const card = cardDescriptions[name];
-    // const divId = name.toLowerCase().replace(/\s+/g, '-');
     const divId = name;
     const active = disabled ? false : null;
 

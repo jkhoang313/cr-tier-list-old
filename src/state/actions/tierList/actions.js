@@ -1,21 +1,39 @@
 import callApi from '../../api';
 
 export function fetchTierList(tierId) {
-  return callApi(`/api/tier_lists/${tierId}`, "FETCH_TIER_LIST")
+  const requestInfo = {
+    method: 'get',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    }
+  }
+  return callApi(`/api/tier_lists/${tierId}`, "FETCH_TIER_LIST", requestInfo)
+}
+
+export function addCardToTier(params) {
+  const { tierId, tierIndex, cardName, position } = params;
+
+  const requestInfo = {
+    method: 'put',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      update_card_position: {
+        tier_index: tierIndex,
+        card_name: cardName,
+        position
+      }
+    }),
+  }
+  return callApi(`/api/tier_lists/${tierId}`, "ADD_CARD_TO_TIER", requestInfo)
 }
 
 export function addTier(params) {
   return {
     type: "ADD_TIER", payload: params
-  }
-}
-
-export function addCardToTier(params) {
-  return {
-    type: "ADD_CARD_TO_TIER",
-    payload: {
-      params
-    }
   }
 }
 

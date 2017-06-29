@@ -34,7 +34,7 @@ class Tier extends Component {
   }
 
   render() {
-    const { tier, displayOnly } = this.props;
+    const { tier, displayOnly, index } = this.props;
     const { title, cards } = tier;
 
     return (
@@ -48,7 +48,7 @@ class Tier extends Component {
         </Col>
         <Col xs="11" md="11" className="tier-cards">
           <TierCards
-            tierId={tier.id}
+            index={index}
             cards={cards}
             displayOnly={displayOnly}/>
         </Col>

@@ -32,11 +32,11 @@ class TierCards extends Component {
   };
 
   render() {
-    const { cards, tierId } = this.props;
+    const { cards, index } = this.props;
 
     return (
       <div
-        className="tier cards-container" id={`tier-${tierId}`}>
+        className="tier cards-container" id={`tier-${index}`}>
         { this.renderCards(cards) }
       </div>
     )
