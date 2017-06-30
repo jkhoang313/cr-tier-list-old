@@ -34,21 +34,6 @@ export default function(state = {
     }
 
     case "REMOVE_CARD_FROM_TIER_SUCCESS": {
-      // const { tierId, cardName } = action.payload.params;
-
-      // return {
-      //   ...state,
-      //   tiers: state.tiers.map((tier) => {
-      //     if (tier.id === tierId) {
-      //       return {
-      //         ...tier,
-      //         cards: _.reject(tier.cards, (card) => card === cardName)
-      //       }
-      //     } else {
-      //       return tier
-      //     }
-      //   })
-      // }
       return {
         ...state,
         ...action.payload.tier_list

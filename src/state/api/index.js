@@ -7,10 +7,10 @@ export default function callApi(url, actionType, requestInfo, params=null) {
     return fetch(baseUrl + url, requestInfo)
       .then(
         response => response.json(),
-        error => console.log('An error occured.', error)
+        error => dispatch(createFailure(actionType))
       )
       .then(json =>
-        dispatch(createSuccess(actionType, json))
+        json.error ? null : dispatch(createSuccess(actionType, json))
       )
   }
 }
@@ -24,5 +24,11 @@ function createRequest(actionType, params) {
 function createSuccess(actionType, params) {
   return {
     type: actionType + "_SUCCESS", payload: params
+  }
+}
+
+function createFailure(actionType) {
+  return {
+    type: actionType + "_FAILURE", error: true
   }
 }
