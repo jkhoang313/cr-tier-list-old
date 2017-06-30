@@ -5,7 +5,6 @@ import { Row, Col } from 'reactstrap';
 
 import * as actionCreators from '../../state/actions';
 import TierCards from './TierCards';
-import InlineEdit from './helpers/InlineEdit';
 
 
 class Tier extends Component {
@@ -34,21 +33,17 @@ class Tier extends Component {
   }
 
   render() {
-    const { tier, displayOnly } = this.props;
+    const { tier, displayOnly, index } = this.props;
     const { title, cards } = tier;
 
     return (
       <Row className="tier">
         <Col xs="1" md="1" className="tier-name">
-          <InlineEdit
-            text={title}
-            onSubmit={this.updateTierTitle}
-            displayOnly={displayOnly}
-            />
+          <h6>{title}</h6>
         </Col>
         <Col xs="11" md="11" className="tier-cards">
           <TierCards
-            tierId={tier.id}
+            index={index}
             cards={cards}
             displayOnly={displayOnly}/>
         </Col>

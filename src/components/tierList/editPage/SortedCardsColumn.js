@@ -9,7 +9,8 @@ import Card from '../Card';
 
 class SortedCardsColumn extends Component {
   renderCards() {
-    const { cards, tiers, addCardToTier, usedCardsHidden } = this.props;
+    const { cards, tierList, addCardToTier, usedCardsHidden } = this.props;
+    const { id, tiers } = tierList;
 
     if (cards.length < 1) {
       return (
@@ -21,6 +22,7 @@ class SortedCardsColumn extends Component {
           return (
             <Card
               tiers={tiers}
+              tierId={id}
               onClick={addCardToTier}
               name={name}
               key={index}/>
@@ -29,6 +31,7 @@ class SortedCardsColumn extends Component {
           return (
             <Card
               tiers={tiers}
+              tierId={id}
               onClick={addCardToTier}
               name={name}
               disabled={true}
@@ -41,7 +44,7 @@ class SortedCardsColumn extends Component {
   };
 
   cardDisabled(name) {
-    const { tiers } = this.props;
+    const { tiers } = this.props.tierList;
 
     return tiers.some(tier => tier.cards.includes(name));
   };
@@ -62,7 +65,7 @@ class SortedCardsColumn extends Component {
 
 function mapStateToProps(state) {
   return {
-    tiers: state.tierList.tiers,
+    tierList: state.tierList,
     usedCardsHidden: state.tierList.usedCardsHidden
   }
 };

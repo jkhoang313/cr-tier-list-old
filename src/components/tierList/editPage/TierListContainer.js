@@ -6,7 +6,6 @@ import { Row, Col } from 'reactstrap';
 import * as actionCreators from '../../../state/actions';
 import TierListEditOptions from './TierListEditOptions';
 import Tier from '../Tier';
-import InlineEdit from '../helpers/InlineEdit';
 
 
 class TierListContainer extends Component {
@@ -31,6 +30,7 @@ class TierListContainer extends Component {
       return (
         <Tier
           tier={tier}
+          index={index}
           key={index}/>
       )
     })
@@ -60,10 +60,7 @@ class TierListContainer extends Component {
       <Row className="tier-list-container">
         <Col sm="12" md="10" className="panel">
           <Row className="tier-list-header">
-            <InlineEdit
-              text={name}
-              onSubmit={this.updateTierListName}
-              />
+            <h3>{name}</h3>
           </Row>
         { this.renderTiers() }
         </Col>

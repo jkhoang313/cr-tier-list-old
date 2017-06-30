@@ -3,6 +3,7 @@ import { Container } from 'reactstrap';
 import dragula from 'react-dragula';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import _ from 'lodash';
 
 import * as actionCreators from '../../../state/actions';
 import TierListContainer from './TierListContainer.js';
@@ -12,9 +13,9 @@ import CardPoolContainer from './CardsRemainingContainer.js';
 class TierListEditPage extends Component {
   componentWillMount() {
     const { addCardToTier, moveCardBetweenTiers,
-            moveCardWithinTier, fetchTierList, location
+            moveCardWithinTier, fetchTierList, routeParams
           } = this.props;
-    const tierId = location.pathname.split('/')[2]
+    const tierId = routeParams.id
 
     fetchTierList(tierId)
 
@@ -36,40 +37,24 @@ class TierListEditPage extends Component {
 
     drake.on("drop", (el, target, source, sibling) => {
       drake.cancel();
-      const currentPosition = parseInt(el.classList[1].substring(9), 10)
-      const oldTierId = parseInt(source.id.substring(5), 10)
-      const newTierId = parseInt(target.id.substring(5), 10)
 
-      let position = sibling ? parseInt(sibling.classList[1].substring(9), 10) : -1;
+      let position = sibling ? _.findIndex(target.childNodes, sibling) : -1;
 
       if (source.classList.contains('tier')) {
-        if (source === target) {
-          if (currentPosition > 1 || position === -1) {
-            moveCardWithinTier({
-              tierId: newTierId,
-              cardName: el.id,
-              position: position
-            })
-          } else {
-            moveCardWithinTier({
-              tierId: newTierId,
-              cardName: el.id,
-              position: position - 1
-            })
-          }
-        } else {
-          moveCardBetweenTiers({
-            oldTierId: oldTierId,
-            newTierId: newTierId,
-            cardName: el.id,
-            position: position
-          })
-        }
+        const currentPosition = parseInt(el.classList[1].substring(9), 10)
+
+        moveCardBetweenTiers({
+          tierId,
+          tierIndex: parseInt(target.id.substring(5), 10),
+          cardName: el.id,
+          position: currentPosition > 1 || position === -1 ? position : position -1
+        })
       } else {
         addCardToTier({
-          tierId: parseInt(target.id.substring(5), 10),
+          tierId,
+          tierIndex: parseInt(target.id.substring(5), 10),
           cardName: el.id,
-          position: parseInt(position, 10)
+          position
         })
       }
     })
@@ -86,8 +71,7 @@ class TierListEditPage extends Component {
 };
 
 function mapStateToProps(state) {
-  return {
-  }
+  return state
 };
 
 function mapDispatchToProps(dispatch){

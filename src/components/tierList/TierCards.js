@@ -8,7 +8,8 @@ import Card from './Card';
 
 class TierCards extends Component {
   renderCards(cards) {
-    const { tierId, removeCardFromTier, displayOnly } = this.props;
+    const { tierList, removeCardFromTier, displayOnly } = this.props;
+    const { id } = tierList;
 
     if (cards.length < 1) {
       return (
@@ -21,7 +22,7 @@ class TierCards extends Component {
         return (
           <Card
             name={name}
-            tierId={tierId}
+            tierId={id}
             onClick={removeCardFromTier}
             displayOnly={displayOnly}
             position={index}
@@ -32,11 +33,11 @@ class TierCards extends Component {
   };
 
   render() {
-    const { cards, tierId } = this.props;
+    const { cards, index } = this.props;
 
     return (
       <div
-        className="tier cards-container" id={`tier-${tierId}`}>
+        className="tier cards-container" id={`tier-${index}`}>
         { this.renderCards(cards) }
       </div>
     )
