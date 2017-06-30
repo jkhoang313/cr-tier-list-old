@@ -1,5 +1,9 @@
 import _ from 'lodash';
 
+export function addCardToTierList(card, list, position) {
+  return list.slice(0, position).concat([card], list.slice(position))
+}
+
 export default function(state = {
   id: "",
   creator: {},
@@ -10,58 +14,80 @@ export default function(state = {
   date_created: "",
   tiers: [],
   isFetchingTierList: false,
-  usedCardsHidden: false
+  usedCardsHidden: true
 }, action) {
   switch (action.type) {
-    case "FETCH_TIER_LIST":
+    case "FETCH_TIER_LIST_REQUEST": {
       return {
         ...state,
         isFetchingTierList: true
       }
+    }
 
-    case "FETCH_TIER_LIST_SUCCESS":
+    case "FETCH_TIER_LIST_SUCCESS": {
       return {
         ...state,
         isFetchingTierList: false,
         ...action.payload.tier_list
       }
+    }
 
-    case "ADD_CARD_TO_TIER_SUCCESS": {
+    case "ADD_CARD_TO_TIER_REQUEST": {
+      const { tierIndex, cardName } = action.payload;
+      let position = action.payload.position;
+
+      return {
+        ...state,
+        tiers: state.tiers.map((tier, index) => {
+          if (index === tierIndex) {
+            position = position === -1 ? tier.cards.length : position;
+
+            return {
+              ...tier,
+              cards: addCardToTierList(cardName, tier.cards, position)
+            }
+          } else {
+            return tier
+          }
+        })
+      }
+    }
+
+    case "MOVE_CARD_BETWEEN_TIERS_REQUEST": {
+      const { tierIndex, cardName } = action.payload;
+      let position = action.payload.position;
+
+      return {
+        ...state,
+        tiers: state.tiers.map((tier, index) => {
+          // return the tier with the card removed first
+          let updatedTier = {
+            ...tier,
+            cards: _.reject(tier.cards, (card) => card === cardName)
+          }
+
+          // then return the tier with the card added
+          if (index === tierIndex) {
+            updatedTier = {
+              ...updatedTier,
+              cards: addCardToTierList(cardName, updatedTier.cards, position)
+            }
+          }
+          return updatedTier
+        })
+      }
+    }
+
+    case "ADD_CARD_TO_TIER_SUCCESS":
+    case "REMOVE_CARD_FROM_TIER_SUCCESS":
+    case "MOVE_CARD_BETWEEN_TIERS_SUCCESS": {
       return {
         ...state,
         ...action.payload.tier_list
       };
     }
 
-    case "REMOVE_CARD_FROM_TIER_SUCCESS": {
-      return {
-        ...state,
-        ...action.payload.tier_list
-      }
-    }
 
-    // case "ADD_CARD_TO_TIER": {
-    //   // const { tierId, cardName } = action.payload.params;
-    //   // let position = action.payload.params.position;
-    //
-    //   return {
-    //     ...state,
-    //     // tiers: state.tiers.map((tier) => {
-    //     //   if (tier.id === tierId) {
-    //     //     if (position === -1) {
-    //     //       position = tier.cards.length
-    //     //     }
-    //     //
-    //     //     return {
-    //     //       ...tier,
-    //     //       cards: tier.cards.slice(0, position).concat([cardName], tier.cards.slice(position))
-    //     //     }
-    //     //   } else {
-    //     //     return tier
-    //     //   }
-    //     // })
-    //   };
-    // }
 
     case "ADD_TIER":
       return {
@@ -88,58 +114,6 @@ export default function(state = {
           cards: []
         }])
       }
-
-    case "MOVE_CARD_BETWEEN_TIERS": {
-      const { oldTierId, newTierId, cardName } = action.payload.params;
-      let position = action.payload.params.position;
-
-      return {
-        ...state,
-        tiers: state.tiers.map((tier) => {
-          if (tier.id === oldTierId) {
-            return {
-              ...tier,
-              cards: _.reject(tier.cards, (card) => card === cardName)
-            }
-          } else if (tier.id === newTierId) {
-            if (position === -1) {
-              position = tier.cards.length
-            }
-            return {
-              ...tier,
-              cards: tier.cards.slice(0, position).concat([cardName], tier.cards.slice(position))
-            }
-          } else {
-            return tier
-          }
-        })
-      }
-    }
-
-    case "MOVE_CARD_WITHIN_TIER": {
-      const { tierId, cardName } = action.payload.params;
-      let position = action.payload.params.position;
-
-      return {
-        ...state,
-        tiers: state.tiers.map((tier) => {
-          if (tier.id === tierId) {
-            if (position === -1) {
-              position = tier.cards.length
-            }
-            let newCardsArray = _.reject(tier.cards, (card) => card === cardName)
-            newCardsArray = newCardsArray.slice(0, position).concat([cardName], newCardsArray.slice(position))
-
-            return {
-              ...tier,
-              cards: newCardsArray
-            }
-          } else {
-            return tier
-          }
-        })
-      }
-    }
 
     case "UPDATE_TIER": {
       const { tierId, title } = action.payload;

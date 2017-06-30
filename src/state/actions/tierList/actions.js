@@ -28,7 +28,7 @@ export function addCardToTier(params) {
       }
     }),
   }
-  return callApi(`/api/tier_lists/${tierId}`, "ADD_CARD_TO_TIER", requestInfo)
+  return callApi(`/api/tier_lists/${tierId}`, "ADD_CARD_TO_TIER", requestInfo, params)
 }
 
 export function removeCardFromTier(params) {
@@ -46,30 +46,36 @@ export function removeCardFromTier(params) {
       }
     }),
   }
-  return callApi(`/api/tier_lists/${tierId}`, "REMOVE_CARD_FROM_TIER", requestInfo)
+  return callApi(`/api/tier_lists/${tierId}`, "REMOVE_CARD_FROM_TIER", requestInfo, params)
 }
+
+export function moveCardBetweenTiers(params) {
+  const { tierId, tierIndex, cardName, position } = params;
+
+  const requestInfo = {
+    method: 'put',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      update_card_position: {
+        tier_index: tierIndex,
+        card_name: cardName,
+        position
+      }
+    }),
+  }
+  return callApi(`/api/tier_lists/${tierId}`, "MOVE_CARD_BETWEEN_TIERS", requestInfo, params)
+}
+
+
+
+
 
 export function addTier(params) {
   return {
     type: "ADD_TIER", payload: params
-  }
-}
-
-export function moveCardBetweenTiers(params) {
-  return {
-    type: "MOVE_CARD_BETWEEN_TIERS",
-    payload: {
-      params
-    }
-  }
-}
-
-export function moveCardWithinTier(params) {
-  return {
-    type: "MOVE_CARD_WITHIN_TIER",
-    payload: {
-      params
-    }
   }
 }
 

@@ -17,18 +17,18 @@ export default function callApi(url, actionType, requestInfo, params=null) {
 
 function createRequest(actionType, params) {
   return {
-    type: actionType, payload: params
+    type: `${actionType}_REQUEST`, payload: params
   }
 }
 
 function createSuccess(actionType, params) {
   return {
-    type: actionType + "_SUCCESS", payload: params
+    type: `${actionType}_SUCCESS`, payload: params
   }
 }
 
 function createFailure(actionType) {
   return {
-    type: actionType + "_FAILURE", error: true
+    type: `${actionType}_FAILURE`, error: true
   }
 }
