@@ -31,18 +31,27 @@ export function addCardToTier(params) {
   return callApi(`/api/tier_lists/${tierId}`, "ADD_CARD_TO_TIER", requestInfo)
 }
 
+export function removeCardFromTier(params) {
+  const { tierId, cardName } = params;
+
+  const requestInfo = {
+    method: 'put',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      remove_card: {
+        card_name: cardName
+      }
+    }),
+  }
+  return callApi(`/api/tier_lists/${tierId}`, "REMOVE_CARD_FROM_TIER", requestInfo)
+}
+
 export function addTier(params) {
   return {
     type: "ADD_TIER", payload: params
-  }
-}
-
-export function removeCardFromTier(params) {
-  return {
-    type: "REMOVE_CARD_FROM_TIER",
-    payload: {
-      params
-    }
   }
 }
 

@@ -9,17 +9,75 @@ export default function(state = {
   date_modified: "",
   date_created: "",
   tiers: [],
-  cardsRemaining: {
-    sortedBy: ""
-  },
+  isFetchingTierList: false,
   usedCardsHidden: false
 }, action) {
   switch (action.type) {
+    case "FETCH_TIER_LIST":
+      return {
+        ...state,
+        isFetchingTierList: true
+      }
+
     case "FETCH_TIER_LIST_SUCCESS":
+      return {
+        ...state,
+        isFetchingTierList: false,
+        ...action.payload.tier_list
+      }
+
+    case "ADD_CARD_TO_TIER_SUCCESS": {
+      return {
+        ...state,
+        ...action.payload.tier_list
+      };
+    }
+
+    case "REMOVE_CARD_FROM_TIER_SUCCESS": {
+      // const { tierId, cardName } = action.payload.params;
+
+      // return {
+      //   ...state,
+      //   tiers: state.tiers.map((tier) => {
+      //     if (tier.id === tierId) {
+      //       return {
+      //         ...tier,
+      //         cards: _.reject(tier.cards, (card) => card === cardName)
+      //       }
+      //     } else {
+      //       return tier
+      //     }
+      //   })
+      // }
       return {
         ...state,
         ...action.payload.tier_list
       }
+    }
+
+    // case "ADD_CARD_TO_TIER": {
+    //   // const { tierId, cardName } = action.payload.params;
+    //   // let position = action.payload.params.position;
+    //
+    //   return {
+    //     ...state,
+    //     // tiers: state.tiers.map((tier) => {
+    //     //   if (tier.id === tierId) {
+    //     //     if (position === -1) {
+    //     //       position = tier.cards.length
+    //     //     }
+    //     //
+    //     //     return {
+    //     //       ...tier,
+    //     //       cards: tier.cards.slice(0, position).concat([cardName], tier.cards.slice(position))
+    //     //     }
+    //     //   } else {
+    //     //     return tier
+    //     //   }
+    //     // })
+    //   };
+    // }
+
     case "ADD_TIER":
       return {
         ...state,
@@ -45,54 +103,6 @@ export default function(state = {
           cards: []
         }])
       }
-
-    // case "ADD_CARD_TO_TIER": {
-    //   // const { tierId, cardName } = action.payload.params;
-    //   // let position = action.payload.params.position;
-    //
-    //   return {
-    //     ...state,
-    //     // tiers: state.tiers.map((tier) => {
-    //     //   if (tier.id === tierId) {
-    //     //     if (position === -1) {
-    //     //       position = tier.cards.length
-    //     //     }
-    //     //
-    //     //     return {
-    //     //       ...tier,
-    //     //       cards: tier.cards.slice(0, position).concat([cardName], tier.cards.slice(position))
-    //     //     }
-    //     //   } else {
-    //     //     return tier
-    //     //   }
-    //     // })
-    //   };
-    // }
-
-    case "ADD_CARD_TO_TIER_SUCCESS": {
-      return {
-        ...state,
-        ...action.payload.tier_list
-      };
-    }
-
-    case "REMOVE_CARD_FROM_TIER": {
-      const { tierId, cardName } = action.payload.params;
-
-      return {
-        ...state,
-        tiers: state.tiers.map((tier) => {
-          if (tier.id === tierId) {
-            return {
-              ...tier,
-              cards: _.reject(tier.cards, (card) => card === cardName)
-            }
-          } else {
-            return tier
-          }
-        })
-      }
-    }
 
     case "MOVE_CARD_BETWEEN_TIERS": {
       const { oldTierId, newTierId, cardName } = action.payload.params;
