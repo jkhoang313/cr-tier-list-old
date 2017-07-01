@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Row, Col } from 'reactstrap';
 
+
 import * as actionCreators from '../../../state/actions';
 import TierListEditOptions from './TierListEditOptions';
 import Tier from '../Tier';
