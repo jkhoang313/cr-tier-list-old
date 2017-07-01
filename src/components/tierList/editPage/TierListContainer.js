@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { bindAll } from 'lodash'
 import { Row, Col } from 'reactstrap';
 
 
@@ -18,9 +19,7 @@ class TierListContainer extends Component {
       usedCardsHidden: false
     }
 
-    this.toggleAutoSave = this.toggleAutoSave.bind(this)
-    this.toggleHideUsedCards = this.toggleHideUsedCards.bind(this)
-    this.updateTierListName = this.updateTierListName.bind(this)
+    bindAll(this, ['toggleAutoSave', 'toggleHideUsedCards', 'updateTierListName'])
   }
 
   renderTiers() {
@@ -55,13 +54,13 @@ class TierListContainer extends Component {
 
   render() {
     const { tierList, addTier } = this.props
-    const { name, usedCardsHidden } = tierList;
+    const { title, usedCardsHidden } = tierList;
 
     return (
       <Row className="tier-list-container">
         <Col sm="12" md="10" className="panel">
           <Row className="tier-list-header">
-            <h3>{name}</h3>
+            <h3>{title}</h3>
           </Row>
         { this.renderTiers() }
         </Col>

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import ToggleButton from 'react-toggle-button'
-import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { bindAll } from 'lodash'
+import { Button } from 'reactstrap';
 
+
+import EditTierListModal from './EditTierListModal'
 
 
 export default class TierListEditOptions extends Component {
@@ -23,22 +25,16 @@ export default class TierListEditOptions extends Component {
   }
 
   render() {
-    const { addTier, toggleAutoSave, autoSave,
+    const { toggleAutoSave, autoSave,
             toggleHideUsedCards, usedCardsHidden
           } = this.props;
 
     return (
       <div className="tier-list-edit-option">
-        <Modal
+        <EditTierListModal
           isOpen={this.state.editModalOpen}
-          toggle={this.handleModalState}>
-          <ModalHeader>
-          </ModalHeader>
-          <ModalBody>
-          </ModalBody>
-          <ModalFooter>
-          </ModalFooter>
-        </Modal>
+          toggle={this.handleModalState}
+          />
         <Button
           onClick={this.handleModalState}
           outline

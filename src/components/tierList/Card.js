@@ -21,7 +21,7 @@ export default class Card extends Component {
                 cardName: name,
                 position: -1
               })
-            }>{tier.title}</a>
+            }>{tier.name}</a>
           </li>
         )
       })

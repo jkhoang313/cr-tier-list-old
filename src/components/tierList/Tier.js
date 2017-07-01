@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Row, Col } from 'reactstrap';
+import { bindAll } from 'lodash'
 
 import * as actionCreators from '../../state/actions';
 import TierCards from './TierCards';
@@ -15,8 +16,7 @@ class Tier extends Component {
       detailsDisplayed: false
     }
 
-    this.openTierDetails = this.openTierDetails.bind(this)
-    this.updateTierTitle = this.updateTierTitle.bind(this)
+    bindAll(this, ['openTierDetails'])
   }
 
   openTierDetails() {
@@ -25,21 +25,14 @@ class Tier extends Component {
     })
   }
 
-  updateTierTitle(title) {
-    const { updateTier, tier } = this.props;
-    const tierId = tier.id;
-
-    updateTier({ tierId, title });
-  }
-
   render() {
     const { tier, displayOnly, index } = this.props;
-    const { title, cards } = tier;
+    const { name, cards } = tier;
 
     return (
       <Row className="tier">
         <Col xs="1" md="1" className="tier-name">
-          <h6>{title}</h6>
+          <h6>{name}</h6>
         </Col>
         <Col xs="11" md="11" className="tier-cards">
           <TierCards

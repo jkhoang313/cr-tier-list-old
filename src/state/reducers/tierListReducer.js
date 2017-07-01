@@ -89,32 +89,6 @@ export default function(state = {
 
 
 
-    case "ADD_TIER":
-      return {
-        ...state,
-        tiers: state.tiers.concat([{
-          // TODO
-          id: state.tiers.length + 1,
-          title: "New Tier",
-          description: "",
-          notes: "",
-          cards: []
-        }])
-      }
-
-    case "ADD_TIER_SUCCESS":
-      return {
-        ...state,
-        tiers: state.tiers.concat([{
-          // TODO
-          id: state.tiers.length + 1,
-          title: "New Tier",
-          description: "",
-          notes: "",
-          cards: []
-        }])
-      }
-
     case "UPDATE_TIER": {
       const { tierId, title } = action.payload;
       return {
