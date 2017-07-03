@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { bindAll } from 'lodash'
+import { bindAll } from 'lodash';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Form,
          FormGroup, Label, Input, FormText, Button } from 'reactstrap';
 
 import * as actionCreators from '../../../state/actions';
 
 
-class TierListEditOptions extends Component {
+class EditTierListModal extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      title: ""
+    }
 
     bindAll(this, ['handleInputChange', 'submitForm'])
   }
@@ -19,27 +23,29 @@ class TierListEditOptions extends Component {
     const { tierList } = this.props;
 
     if (tierList.isFetchingTierList && !nextProps.tierList.isFetchingTierList) {
-      console.log(nextProps.tierList)
       const initialState = {
-        name: nextProps.tierList.name,
+        title: nextProps.tierList.title,
       }
       const tierName = nextProps.tierList.tiers.forEach((tier, index) => {
-        initialState[`tier${index}`] = tier.name
+        initialState[`tier-${index}`] = {
+          name: tier.name,
+          description: tier.description
+        }
       })
 
       this.setState(initialState)
     }
   }
 
-  handleModalState() {
-    this.setState({
-      editModalOpen: !this.state.editModalOpen
-    });
-  }
-
   handleInputChange(event) {
+    const tierNameSplit = event.target.name.split('-');
+    const stateName = tierNameSplit[0] + "-" + tierNameSplit[1]
+
     this.setState({
-      [event.target.name]: event.target.value
+      [stateName]: {
+        ...this.state[stateName],
+        [tierNameSplit[2]]: event.target.value
+      }
     })
   }
 
@@ -51,10 +57,17 @@ class TierListEditOptions extends Component {
         <FormGroup key={index}>
           <Input
             type="text"
-            name={`tier${index}`}
+            name={`tier-${index}-name`}
             onChange={this.handleInputChange}
             placeholder="Enter the tier name"
-            value={this.state[`tier${index}`]}
+            value={this.state[`tier-${index}`].name}
+            />
+          <Input
+            type="text"
+            name={`tier-${index}-description`}
+            onChange={this.handleInputChange}
+            placeholder="Enter the tier description"
+            value={this.state[`tier-${index}`].description}
             />
         </FormGroup>
       )
@@ -62,7 +75,9 @@ class TierListEditOptions extends Component {
   }
 
   submitForm() {
-    // TODO
+    const { updateTierListDetails, tierList } = this.props;
+
+    updateTierListDetails(tierList.id, this.state);
   }
 
   render() {
@@ -73,19 +88,23 @@ class TierListEditOptions extends Component {
         isOpen={isOpen}
         toggle={toggle}>
         <Form>
-          <ModalHeader>
-            {/* <FormGroup>
+          <ModalBody>
+            <FormGroup>
               <Input
-              type="email" name="email"
-              id="exampleEmail"
-              placeholder="with a placeholder"/>
-            </FormGroup> */}
-          </ModalHeader>
+              type="text"
+              name="title"
+              onChange={this.handleInputChange}
+              placeholder="Enter the tier list title"
+              value={this.state.title}
+            />
+            </FormGroup>
+          </ModalBody>
           <ModalBody>
             { this.renderTierInputs() }
           </ModalBody>
           <ModalFooter>
             <Button onClick={this.submitForm}>Submit</Button>
+            <Button onClick={toggle}>Cancel</Button>
           </ModalFooter>
         </Form>
       </Modal>
@@ -104,4 +123,4 @@ function mapDispatchToProps(dispatch){
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TierListEditOptions);
+)(EditTierListModal);

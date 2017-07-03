@@ -1,38 +1,36 @@
 import React, { Component } from 'react';
-import ToggleButton from 'react-toggle-button'
-import { bindAll } from 'lodash'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { bindAll } from 'lodash';
+import ToggleButton from 'react-toggle-button';
 import { Button } from 'reactstrap';
 
-
+import * as actionCreators from '../../../state/actions';
 import EditTierListModal from './EditTierListModal'
 
 
-export default class TierListEditOptions extends Component {
+class TierListEditOptions extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      editModalOpen: false
-    };
 
     bindAll(this, ['handleModalState'])
   }
 
   handleModalState() {
-    this.setState({
-      editModalOpen: !this.state.editModalOpen
-    });
+    const { handleEditModalState, tierList } = this.props;
+
+    handleEditModalState(!tierList.editModalOpen);
   }
 
   render() {
     const { toggleAutoSave, autoSave,
-            toggleHideUsedCards, usedCardsHidden
+            toggleHideUsedCards, usedCardsHidden, tierList
           } = this.props;
 
     return (
       <div className="tier-list-edit-option">
         <EditTierListModal
-          isOpen={this.state.editModalOpen}
+          isOpen={tierList.editModalOpen}
           toggle={this.handleModalState}
           />
         <Button
@@ -60,3 +58,16 @@ export default class TierListEditOptions extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return state
+};
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators(actionCreators, dispatch);
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TierListEditOptions);

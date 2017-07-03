@@ -14,7 +14,8 @@ export default function(state = {
   date_created: "",
   tiers: [],
   isFetchingTierList: false,
-  usedCardsHidden: true
+  usedCardsHidden: true,
+  editModalOpen: false
 }, action) {
   switch (action.type) {
     case "FETCH_TIER_LIST_REQUEST": {
@@ -85,6 +86,21 @@ export default function(state = {
         ...state,
         ...action.payload.tier_list
       };
+    }
+
+    case "HANDLE_EDIT_MODAL_STATE": {
+      return {
+        ...state,
+        editModalOpen: action.payload
+      }
+    }
+
+    case "UPDATE_TIER_LIST_DETAILS_SUCCESS": {
+      return {
+        ...state,
+        ...action.payload.tier_list,
+        editModalOpen: false
+      }
     }
 
 

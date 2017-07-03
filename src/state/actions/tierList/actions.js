@@ -69,6 +69,28 @@ export function moveCardBetweenTiers(params) {
   return callApi(`/api/tier_lists/${tierId}`, "MOVE_CARD_BETWEEN_TIERS", requestInfo, params)
 }
 
+export function handleEditModalState(state) {
+  return {
+    type: "HANDLE_EDIT_MODAL_STATE", payload: state
+  }
+}
+
+export function updateTierListDetails(tierId, params) {
+  const requestInfo = {
+    method: 'put',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      update_tier_details: {
+        ...params
+      }
+    }),
+  }
+  return callApi(`/api/tier_lists/${tierId}`, "UPDATE_TIER_LIST_DETAILS", requestInfo, params)
+}
+
 
 
 
@@ -79,12 +101,12 @@ export function addTier(params) {
   }
 }
 
-export function updateTierList(params) {
-  return {
-    type: "UPDATE_TIER_LIST",
-    payload: params
-  }
-}
+// export function updateTierList(params) {
+//   return {
+//     type: "UPDATE_TIER_LIST",
+//     payload: params
+//   }
+// }
 
 export function updateTier(params) {
   return {
