@@ -95,10 +95,19 @@ export default function(state = {
       }
     }
 
+    case "UPDATE_TIER_LIST_DETAILS_REQUEST": {
+      return {
+        ...state,
+        isFetchingTierList: true,
+        editModalOpen: false
+      }
+    }
+
     case "UPDATE_TIER_LIST_DETAILS_SUCCESS": {
       return {
         ...state,
         ...action.payload.tier_list,
+        isFetchingTierList: false,
         editModalOpen: false
       }
     }
