@@ -23,9 +23,9 @@ class TierListEditOptions extends Component {
   }
 
   render() {
-    const { toggleAutoSave, autoSave,
-            toggleHideUsedCards, usedCardsHidden, tierList
-          } = this.props;
+    const { handleAutoSaveToggle, handleHideUsedCardsToggle,
+            tierList } = this.props;
+  const { autoSaveOn, usedCardsHidden} = tierList;
 
     return (
       <div className="tier-list-edit-option">
@@ -39,19 +39,15 @@ class TierListEditOptions extends Component {
           color="primary">
           Edit Tier List
         </Button>
-        {/* <Button
-          outline
-          color="primary"
-          onClick={addTier}>Add A Tier</Button> */}
         <ToggleButton
-          onToggle={toggleHideUsedCards}
+          onToggle={handleHideUsedCardsToggle}
           value={usedCardsHidden}
           />
         <span>Hide used cards</span>
         <ToggleButton
           labelRight="Auto-save"
-          onToggle={toggleAutoSave}
-          value={autoSave}
+          onToggle={handleAutoSaveToggle}
+          value={autoSaveOn}
           />
         <span>Auto-save</span>
       </div>

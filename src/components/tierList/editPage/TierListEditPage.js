@@ -37,6 +37,8 @@ class TierListEditPage extends Component {
     drake.on("drop", (el, target, source, sibling) => {
       drake.cancel();
 
+      const tierIndex = parseInt(target.id.substring(5), 10);
+      const cardName = el.id;
       let position = sibling ? _.findIndex(target.childNodes, sibling) : -1;
 
       if (source.classList.contains('tier')) {
@@ -44,15 +46,15 @@ class TierListEditPage extends Component {
 
         moveCardBetweenTiers({
           tierId,
-          tierIndex: parseInt(target.id.substring(5), 10),
-          cardName: el.id,
-          position: currentPosition > 1 || position === -1 ? position : position -1
+          tierIndex,
+          cardName,
+          position: currentPosition > 1 || position === -1 ? position : position - 1
         })
       } else {
         addCardToTier({
           tierId,
-          tierIndex: parseInt(target.id.substring(5), 10),
-          cardName: el.id,
+          tierIndex,
+          cardName,
           position
         })
       }

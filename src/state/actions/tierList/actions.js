@@ -69,12 +69,6 @@ export function moveCardBetweenTiers(params) {
   return callApi(`/api/tier_lists/${tierId}`, "MOVE_CARD_BETWEEN_TIERS", requestInfo, params)
 }
 
-export function handleEditModalState(state) {
-  return {
-    type: "HANDLE_EDIT_MODAL_STATE", payload: state
-  }
-}
-
 export function updateTierListDetails(tierId, params) {
   const requestInfo = {
     method: 'put',
@@ -91,32 +85,26 @@ export function updateTierListDetails(tierId, params) {
   return callApi(`/api/tier_lists/${tierId}`, "UPDATE_TIER_LIST_DETAILS", requestInfo, params)
 }
 
-
-
-
-
-export function addTier(params) {
+export function addTier() {
   return {
-    type: "ADD_TIER", payload: params
+    type: "ADD_TIER"
   }
 }
 
-// export function updateTierList(params) {
-//   return {
-//     type: "UPDATE_TIER_LIST",
-//     payload: params
-//   }
-// }
-
-export function updateTier(params) {
+export function handleEditModalState(state) {
   return {
-    type: "UPDATE_TIER",
-    payload: params
+    type: "HANDLE_EDIT_MODAL_STATE", payload: state
   }
 }
 
 export function handleHideUsedCardsToggle() {
   return {
     type: "SET_USED_CARDS_HIDDEN"
+  }
+}
+
+export function handleAutoSaveToggle() {
+  return {
+    type: "SET_AUTO_SAVE"
   }
 }

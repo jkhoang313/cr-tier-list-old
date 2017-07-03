@@ -22,82 +22,46 @@ class CardsRemainingContainer extends Component {
 
   renderSortedColumns() {
     const { sortedBy } = this.state;
+    let cards, names;
+
+    if (sortedBy === "Arena") {
+      cards = ["arenaZeroToTwo", "arenaThreeToFive", "arenaSixToSeven", "arenaEightToTen"]
+      names = ["Training Camp-Arena 2", "Arena 3-5", "Arena 6-7", "Arena 8-10"]
+    } else if (sortedBy === "Type") {
+      cards = ["troops", "buildingTroops", "buildings", "spells"]
+      names = ["Regular Troops", "Building Troops", "Buildings", "Spells"]
+    } else if (sortedBy === "Rarity") {
+      cards = ["commons", "rares", "epics", "legendaries"]
+      names = ["Commons", "Rares", "Epics", "Legendaries"]
+    } else {
+      // Alphabetical
+      cards = ["aToF", "gToI", "jToP", "qToZ"]
+      names = ["A to F", "G to I", "J to P", "Q to Z"]
+    }
 
     switch (sortedBy) {
       case "Alphabetical":
+      case "Arena":
+      case "Type":
+      case "Rarity":
       default:
         return [
           <SortedCardsColumn
-            cards={cardFilter.aToF}
-            name={"A to F"}
+            cards={cardFilter[cards[0]]}
+            name={names[0]}
             key={1}/>,
           <SortedCardsColumn
-            cards={cardFilter.gToI}
-            name={"G to I"}
+            cards={cardFilter[cards[1]]}
+            name={names[1]}
             key={2}/>,
           <SortedCardsColumn
-            cards={cardFilter.jToP}
-            name={"J to P"}
+            cards={cardFilter[cards[2]]}
+            name={names[2]}
             key={3}/>,
           <SortedCardsColumn
-            cards={cardFilter.qToZ}
-            name={"Q to Z"}
+            cards={cardFilter[cards[3]]}
+            name={names[3]}
             key={4}/>
-        ];
-      case "Arena":
-        return [
-          <SortedCardsColumn
-            cards={cardFilter.arenaZeroToTwo}
-            name={"Training Camp-Arena 2"}
-            key={1}/>,
-          <SortedCardsColumn
-            cards={cardFilter.arenaThreeToFive}
-            name={"Arena 3-5"}
-            key={2}/>,
-          <SortedCardsColumn
-            cards={cardFilter.arenaSixToSeven}
-            name={"Arena 6-7"}
-            key={3}/>,
-          <SortedCardsColumn
-            cards={cardFilter.arenaEightToTen}
-            name={"Arena 8-10"}
-            key={4}/>
-        ];
-      case "Type":
-        return [
-          <SortedCardsColumn
-            cards={cardFilter.troops}
-            name={"Regular Troops"}
-            key={1}/>,
-          <SortedCardsColumn
-            cards={cardFilter.buildingTroops}
-            name={"Building Troops"}
-            key={2}/>,
-          <SortedCardsColumn
-            cards={cardFilter.buildings}
-            name={"Buildings"}
-            key={3}/>,
-          <SortedCardsColumn
-            cards={cardFilter.spells}
-            name={"Spells"}
-            key={4}/>
-        ];
-      case "Rarity":
-        return [
-          <SortedCardsColumn
-            cards={cardFilter.commons}
-            name={"Commons"}
-            key={1}/>,
-          <SortedCardsColumn
-            cards={cardFilter.rares}
-            name={"Rares"}
-            key={2}/>,
-          <SortedCardsColumn
-            cards={cardFilter.epics}
-            name={"Epics"}
-            key={3}/>,
-          <SortedCardsColumn
-            cards={cardFilter.legendaries} name={"Legendaries"} key={4}/>
         ];
       case "Elixir":
         return [
@@ -128,13 +92,13 @@ class CardsRemainingContainer extends Component {
 
   renderSorter() {
     const { sortedBy } = this.state;
-
     const filters = ["Alphabetical", "Arena", "Type", "Rarity" ,"Elixir"];
 
     return filters.map((sort, index) => (
       <Button
         key={index}
-        color="primary" onClick={this.handleSorterChange}
+        color="primary"
+        onClick={this.handleSorterChange}
         active={sortedBy === sort}>
         { sort }
       </Button>

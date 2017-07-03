@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { bindAll } from 'lodash'
 import { Row, Col } from 'reactstrap';
-
 
 import * as actionCreators from '../../../state/actions';
 import TierListEditOptions from './TierListEditOptions';
@@ -11,17 +9,6 @@ import Tier from '../Tier';
 
 
 class TierListContainer extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      autoSave: true,
-      usedCardsHidden: false
-    }
-
-    bindAll(this, ['toggleAutoSave', 'toggleHideUsedCards', 'updateTierListName'])
-  }
-
   renderTiers() {
     const { tierList } = this.props;
     const { tiers } = tierList;
@@ -36,25 +23,8 @@ class TierListContainer extends Component {
     })
   }
 
-  toggleAutoSave() {
-    this.setState({
-      autoSave: !this.state.autoSave
-    })
-  }
-
-  toggleHideUsedCards() {
-    this.props.handleHideUsedCardsToggle();
-  }
-
-  updateTierListName(name) {
-    const { updateTierList } = this.props;
-
-    updateTierList({ name })
-  }
-
   render() {
-    const { tierList, addTier } = this.props
-    const { title, usedCardsHidden } = tierList;
+    const { title } = this.props.tierList
 
     return (
       <Row className="tier-list-container">
@@ -65,13 +35,7 @@ class TierListContainer extends Component {
         { this.renderTiers() }
         </Col>
         <Col xs="12" md="2" className="panel">
-          <TierListEditOptions
-            addTier={addTier}
-            toggleAutoSave={this.toggleAutoSave}
-            autoSave={this.state.autoSave}
-            toggleHideUsedCards={this.toggleHideUsedCards}
-            usedCardsHidden={usedCardsHidden}
-            />
+          <TierListEditOptions/>
         </Col>
       </Row>
     )

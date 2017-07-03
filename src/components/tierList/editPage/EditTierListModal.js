@@ -16,7 +16,7 @@ class EditTierListModal extends Component {
       title: ""
     }
 
-    bindAll(this, ['handleInputChange', 'submitForm'])
+    bindAll(this, ['handleInputChange', 'submitForm', 'addTier'])
   }
 
   componentWillReceiveProps(nextProps) {
@@ -26,6 +26,9 @@ class EditTierListModal extends Component {
       const initialState = {
         title: nextProps.tierList.title,
       }
+      // set the state for the tier names and description
+      // must create dynamically because tier list can have a variable number
+      // of tiers
       const tierName = nextProps.tierList.tiers.forEach((tier, index) => {
         initialState[`tier-${index}`] = {
           name: tier.name,
@@ -80,8 +83,12 @@ class EditTierListModal extends Component {
     updateTierListDetails(tierList.id, this.state);
   }
 
+  addTier() {
+    // TODO
+  }
+
   render() {
-    const { isOpen, toggle, tierList } = this.props;
+    const { isOpen, toggle, tierList, addTier } = this.props;
 
     return (
       <Modal
@@ -103,6 +110,9 @@ class EditTierListModal extends Component {
             { this.renderTierInputs() }
           </ModalBody>
           <ModalFooter>
+            <Button onClick={this.addTier}>
+              Add A Tier
+            </Button>
             <Button onClick={this.submitForm}>Submit</Button>
             <Button onClick={toggle}>Cancel</Button>
           </ModalFooter>

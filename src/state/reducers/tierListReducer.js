@@ -15,6 +15,7 @@ export default function(state = {
   tiers: [],
   isFetchingTierList: false,
   usedCardsHidden: true,
+  autoSaveOn: true,
   editModalOpen: false
 }, action) {
   switch (action.type) {
@@ -88,13 +89,6 @@ export default function(state = {
       };
     }
 
-    case "HANDLE_EDIT_MODAL_STATE": {
-      return {
-        ...state,
-        editModalOpen: action.payload
-      }
-    }
-
     case "UPDATE_TIER_LIST_DETAILS_REQUEST": {
       return {
         ...state,
@@ -112,30 +106,10 @@ export default function(state = {
       }
     }
 
-
-
-    case "UPDATE_TIER": {
-      const { tierId, title } = action.payload;
+    case "HANDLE_EDIT_MODAL_STATE": {
       return {
         ...state,
-        tiers: state.tiers.map((tier) => {
-          if (tier.id === tierId) {
-            return {
-              ...tier,
-              title: title
-            }
-          } else {
-            return tier
-          }
-        })
-      }
-    }
-
-    case "UPDATE_TIER_LIST": {
-      const { name } = action.payload;
-      return {
-        ...state,
-        name: name
+        editModalOpen: action.payload
       }
     }
 
@@ -143,6 +117,13 @@ export default function(state = {
       return {
         ...state,
         usedCardsHidden: !state.usedCardsHidden
+      }
+    }
+
+    case "SET_AUTO_SAVE": {
+      return {
+        ...state,
+        autoSaveOn: !state.autoSaveOn
       }
     }
 
