@@ -17,7 +17,8 @@ class EditTierListModal extends Component {
       description: ""
     }
 
-    bindAll(this, ['handleInputChange', 'submitForm', 'addTier'])
+    bindAll(this, ['handleInputChange', 'submitForm', 'addTier',
+    'currentNumberOfTiers'])
   }
 
   componentWillReceiveProps(nextProps) {
@@ -42,6 +43,10 @@ class EditTierListModal extends Component {
     }
   }
 
+  currentNumberOfTiers() {
+    return Object.keys(this.state).length - 2;
+  }
+
   handleInputChange(event) {
     const tierNameSplit = event.target.name.split('-');
     const stateName = tierNameSplit[0] + "-" + tierNameSplit[1]
@@ -55,9 +60,7 @@ class EditTierListModal extends Component {
   }
 
   renderTierInputs() {
-    const currentTiers = Object.keys(this.state).filter(key => key.substring(0, 4) === "tier")
-
-    return currentTiers.map((tierName, index) => {
+    return _.range(this.currentNumberOfTiers()).map((index) => {
       return (
         <FormGroup key={index}>
           <Input
@@ -86,12 +89,8 @@ class EditTierListModal extends Component {
   }
 
   addTier() {
-    // the component's state will have title and description as keys
-    // current tiers are also listed as keys
-    const newestTierIndex = Object.keys(this.state).length - 2
-
     this.setState({
-      [`tier-${newestTierIndex}`]: {
+      [`tier-${this.currentNumberOfTiers()}`]: {
         name: "",
         description: ""
       }
