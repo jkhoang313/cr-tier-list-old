@@ -44,7 +44,7 @@ class EditTierListModal extends Component {
   }
 
   currentNumberOfTiers() {
-    return Object.keys(this.state).length - 2;
+    return Object.keys(this.state).length - 3;
   }
 
   handleInputChange(event) {
@@ -89,12 +89,14 @@ class EditTierListModal extends Component {
   }
 
   addTier() {
-    this.setState({
-      [`tier-${this.currentNumberOfTiers()}`]: {
-        name: "",
-        description: ""
-      }
-    })
+    if (this.currentNumberOfTiers() < 7) {
+      this.setState({
+        [`tier-${this.currentNumberOfTiers()}`]: {
+          name: "",
+          description: ""
+        }
+      })
+    }
   }
 
   render() {
