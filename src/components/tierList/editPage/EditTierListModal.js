@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { bindAll } from 'lodash';
+import _, { bindAll } from 'lodash';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Form,
          FormGroup, Label, Input, FormText, Button } from 'reactstrap';
 
@@ -31,7 +31,7 @@ class EditTierListModal extends Component {
       // set the state for the tier names and description
       // must create dynamically because tier list can have a variable number
       // of tiers
-      const tierName = nextProps.tierList.tiers.forEach((tier, index) => {
+      nextProps.tierList.tiers.forEach((tier, index) => {
         initialState[`tier-${index}`] = {
           name: tier.name,
           description: tier.description
@@ -99,12 +99,12 @@ class EditTierListModal extends Component {
   }
 
   render() {
-    const { isOpen, toggle, tierList, addTier } = this.props;
+    const { tierList, handleEditModalState } = this.props;
 
     return (
       <Modal
-        isOpen={isOpen}
-        toggle={toggle}>
+        isOpen={tierList.editModalOpen}
+        toggle={handleEditModalState}>
         <Form>
           <ModalBody>
             <FormGroup>
@@ -126,11 +126,9 @@ class EditTierListModal extends Component {
             { this.renderTierInputs() }
           </ModalBody>
           <ModalFooter>
-            <Button onClick={this.addTier}>
-              Add A Tier
-            </Button>
+            <Button onClick={this.addTier}>Add A Tier</Button>
             <Button onClick={this.submitForm}>Submit</Button>
-            <Button onClick={toggle}>Cancel</Button>
+            <Button onClick={handleEditModalState}>Cancel</Button>
           </ModalFooter>
         </Form>
       </Modal>

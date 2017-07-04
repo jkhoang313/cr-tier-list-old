@@ -109,7 +109,7 @@ export default function(state = {
     case "HANDLE_EDIT_MODAL_STATE": {
       return {
         ...state,
-        editModalOpen: action.payload
+        editModalOpen: !state.editModalOpen
       }
     }
 

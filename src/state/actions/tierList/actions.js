@@ -91,9 +91,9 @@ export function addTier() {
   }
 }
 
-export function handleEditModalState(state) {
+export function handleEditModalState() {
   return {
-    type: "HANDLE_EDIT_MODAL_STATE", payload: state
+    type: "HANDLE_EDIT_MODAL_STATE"
   }
 }
 

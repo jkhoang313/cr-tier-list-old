@@ -13,28 +13,19 @@ class TierListEditOptions extends Component {
   constructor(props) {
     super(props);
 
-    bindAll(this, ['handleModalState'])
-  }
-
-  handleModalState() {
-    const { handleEditModalState, tierList } = this.props;
-
-    handleEditModalState(!tierList.editModalOpen);
+    bindAll(this, [])
   }
 
   render() {
     const { handleAutoSaveToggle, handleHideUsedCardsToggle,
-            tierList } = this.props;
+            handleEditModalState, tierList } = this.props;
   const { autoSaveOn, usedCardsHidden} = tierList;
 
     return (
       <div className="tier-list-edit-option">
-        <EditTierListModal
-          isOpen={tierList.editModalOpen}
-          toggle={this.handleModalState}
-          />
+        <EditTierListModal/>
         <Button
-          onClick={this.handleModalState}
+          onClick={handleEditModalState}
           outline
           color="primary">
           Edit Tier List
