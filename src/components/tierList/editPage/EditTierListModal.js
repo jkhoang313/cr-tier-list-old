@@ -44,7 +44,7 @@ class EditTierListModal extends Component {
   }
 
   currentNumberOfTiers() {
-    return Object.keys(this.state).length - 3;
+    return Object.keys(this.state).length - 2;
   }
 
   handleInputChange(event) {

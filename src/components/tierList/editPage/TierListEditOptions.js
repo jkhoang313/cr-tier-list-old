@@ -26,8 +26,7 @@ class TierListEditOptions extends Component {
         <EditTierListModal/>
         <Button
           onClick={handleEditModalState}
-          outline
-          color="primary">
+          outline>
           Edit Tier List
         </Button>
         <ToggleButton

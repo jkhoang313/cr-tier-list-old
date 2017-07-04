@@ -97,7 +97,6 @@ class CardsRemainingContainer extends Component {
     return filters.map((sort, index) => (
       <Button
         key={index}
-        color="primary"
         onClick={this.handleSorterChange}
         active={sortedBy === sort}>
         { sort }
