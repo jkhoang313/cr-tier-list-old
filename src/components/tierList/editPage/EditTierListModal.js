@@ -13,7 +13,8 @@ class EditTierListModal extends Component {
     super(props)
 
     this.state = {
-      title: ""
+      title: "",
+      description: ""
     }
 
     bindAll(this, ['handleInputChange', 'submitForm', 'addTier'])
@@ -25,6 +26,7 @@ class EditTierListModal extends Component {
     if (tierList.isFetchingTierList && !nextProps.tierList.isFetchingTierList) {
       const initialState = {
         title: nextProps.tierList.title,
+        description: nextProps.tierList.description
       }
       // set the state for the tier names and description
       // must create dynamically because tier list can have a variable number
@@ -53,9 +55,9 @@ class EditTierListModal extends Component {
   }
 
   renderTierInputs() {
-    const { tiers } = this.props.tierList;
+    const currentTiers = Object.keys(this.state).filter(key => key.substring(0, 4) === "tier")
 
-    return tiers.map((tier, index) => {
+    return currentTiers.map((tierName, index) => {
       return (
         <FormGroup key={index}>
           <Input
@@ -84,7 +86,16 @@ class EditTierListModal extends Component {
   }
 
   addTier() {
-    // TODO
+    // the component's state will have title and description as keys
+    // current tiers are also listed as keys
+    const newestTierIndex = Object.keys(this.state).length - 2
+
+    this.setState({
+      [`tier-${newestTierIndex}`]: {
+        name: "",
+        description: ""
+      }
+    })
   }
 
   render() {
@@ -102,8 +113,13 @@ class EditTierListModal extends Component {
               name="title"
               onChange={this.handleInputChange}
               placeholder="Enter the tier list title"
-              value={this.state.title}
-            />
+              value={this.state.title}/>
+              <Input
+              type="text"
+              name="description"
+              onChange={this.handleInputChange}
+              placeholder="Enter the tier list description"
+              value={this.state.description}/>
             </FormGroup>
           </ModalBody>
           <ModalBody>
