@@ -19,8 +19,8 @@ class EditTierListModal extends Component {
       list_type: ""
     }
 
-    bindAll(this, ['handleInputChange', 'submitForm', 'addTier',
-    'currentNumberOfTiers'])
+    bindAll(this, ['handleInputChange', 'handleTierInputChange',
+    'submitForm', 'addTier', 'currentNumberOfTiers'])
   }
 
   componentWillReceiveProps(nextProps) {
@@ -50,7 +50,7 @@ class EditTierListModal extends Component {
     return Object.keys(this.state).length - 3;
   }
 
-  handleInputChange(event) {
+  handleTierInputChange(event) {
     const tierNameSplit = event.target.name.split('-');
     const stateName = tierNameSplit[0] + "-" + tierNameSplit[1]
 
@@ -62,21 +62,28 @@ class EditTierListModal extends Component {
     })
   }
 
+  handleInputChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   renderTierInputs() {
     return _.range(this.currentNumberOfTiers()).map((index) => {
       return (
         <FormGroup key={index}>
+          <Label>{`Tier ${index + 1}`}</Label>
           <Input
             type="text"
             name={`tier-${index}-name`}
-            onChange={this.handleInputChange}
+            onChange={this.handleTierInputChange}
             placeholder="Enter the tier name"
             value={this.state[`tier-${index}`].name}
             />
           <Input
             type="text"
             name={`tier-${index}-description`}
-            onChange={this.handleInputChange}
+            onChange={this.handleTierInputChange}
             placeholder="Enter the tier description"
             value={this.state[`tier-${index}`].description}
             />
@@ -112,19 +119,22 @@ class EditTierListModal extends Component {
         <Form>
           <ModalBody>
             <FormGroup>
+              <Label>Title</Label>
               <Input
               type="text"
               name="title"
               onChange={this.handleInputChange}
               placeholder="Enter the tier list title"
               value={this.state.title}/>
+              <Label>Description</Label>
               <Input
-              type="text"
+              type="textarea"
               name="description"
               onChange={this.handleInputChange}
               placeholder="Enter the tier list description"
               value={this.state.description}/>
             </FormGroup>
+            <Label>Tier List Type</Label>
             <Input
               type="select"
               name="list-type"
@@ -134,7 +144,7 @@ class EditTierListModal extends Component {
                 <option
                   value={type.id}
                   key={type.id}>
-                  {type.name}
+                  { type.name }
                 </option>
               )}
             </Input>
