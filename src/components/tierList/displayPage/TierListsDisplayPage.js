@@ -15,14 +15,32 @@ class TierListsDisplayPage extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props)
-    // this.props.fetchTierLists();
+    const { fetchTierListsByListType, routeParams } = this.props;
+    let list_type
+
+    switch (routeParams.list_type) {
+      default:
+      case "tournament":
+        list_type = 1;
+        break;
+      case "ladder":
+        list_type = 2;
+        break;
+      case "2v2":
+        list_type = 3;
+        break;
+      case "draft":
+        list_type = 4;
+        break;
+    }
+
+    fetchTierListsByListType(list_type);
   }
 
   renderTierLists() {
     const { tierLists } = this.props;
 
-    return tierLists.map((tierList, index) =>
+    return tierLists.lists.map((tierList, index) =>
       <TierListsDisplayItem
         tierList={tierList}
         key={index}

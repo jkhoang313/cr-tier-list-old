@@ -32,13 +32,12 @@ class TierListsDisplayItem extends Component {
     })
   }
 
-  goToTierList() {
-    // TODO
-    browserHistory.push('/tier-list/1')
+  goToTierList(tierId) {
+    browserHistory.push(`/tier-list/${tierId}`)
   }
 
   render() {
-    const { creator, name, description, date_modified } = this.props.tierList;
+    const { id, creator, title, description, updated_at } = this.props.tierList;
 
     return (
       <Row className="tier-list-item">
@@ -46,13 +45,13 @@ class TierListsDisplayItem extends Component {
           <Row className="header">
             <h3
               className="clickable"
-              onClick={() => this.goToTierList()}>{name}</h3>
+              onClick={() => this.goToTierList(id)}>{title}</h3>
             <h3
               className="right clickable">
-              {creator.name}
+              {creator.user_name}
             </h3>
             <h3 className="date-modified">
-              Date Modified: {date_modified}
+              Date Modified: {updated_at}
             </h3>
           </Row>
           <Row className="description">
