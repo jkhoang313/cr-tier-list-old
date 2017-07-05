@@ -3,12 +3,12 @@ import { Route }  from 'react-router';
 import App from './App';
 import TierListsDisplayPage from './tierList/displayPage/TierListsDisplayPage';
 import TierListEditPage from './tierList/editPage/TierListEditPage';
-import Tools from './toolsPage/Tools';
+import ToolsPage from './toolsPage/ToolsPage';
 
 export default (
   <Route path="/" component={App}>
-    <Route path="tools" component={Tools} />
-    <Route path="tier-lists" component={TierListsDisplayPage} />
+    <Route path="tools" component={ToolsPage} />
+    <Route path="tier-lists/:list_type" component={TierListsDisplayPage} />
     <Route path="tier-list/:id" component={TierListEditPage} />
   </Route>
 );

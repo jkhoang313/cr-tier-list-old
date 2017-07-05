@@ -10,16 +10,16 @@ export default class NavBar extends React.Component {
             <NavLink href="/">Home</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/tier-lists">Tournament</NavLink>
+            <NavLink href="/tier-lists/tournament">Tournament</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/tier-lists">Ladder</NavLink>
+            <NavLink href="/tier-lists/ladder">Ladder</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/tier-lists">2v2</NavLink>
+            <NavLink href="/tier-lists/2v2">2v2</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/tier-lists">Special Challenge</NavLink>
+            <NavLink href="/tier-lists/draft">Draft</NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="/tier-list/1">Edit</NavLink>

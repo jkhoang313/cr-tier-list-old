@@ -14,6 +14,11 @@ class TierListsDisplayPage extends Component {
     this.renderTierLists = this.renderTierLists.bind(this)
   }
 
+  componentWillMount() {
+    console.log(this.props)
+    // this.props.fetchTierLists();
+  }
+
   renderTierLists() {
     const { tierLists } = this.props;
 

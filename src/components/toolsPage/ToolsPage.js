@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 
 
-export default class Tools extends Component {
+export default class ToolsPage extends Component {
   render() {
     return(
       <Container className="body">
