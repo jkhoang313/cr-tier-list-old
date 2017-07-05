@@ -8,7 +8,7 @@ export default function(state = {
   id: "",
   creator: {},
   name: "",
-  list_type: "",
+  list_type: 1,
   description: "",
   date_modified: "",
   date_created: "",

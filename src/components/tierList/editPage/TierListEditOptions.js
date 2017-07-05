@@ -6,7 +6,8 @@ import ToggleButton from 'react-toggle-button';
 import { Button } from 'reactstrap';
 
 import * as actionCreators from '../../../state/actions';
-import EditTierListModal from './EditTierListModal'
+import { listTypes } from '../../../helpers/listTypes';
+import EditTierListModal from './EditTierListModal';
 
 
 class TierListEditOptions extends Component {
@@ -19,7 +20,7 @@ class TierListEditOptions extends Component {
   render() {
     const { handleAutoSaveToggle, handleHideUsedCardsToggle,
             handleEditModalState, tierList } = this.props;
-  const { autoSaveOn, usedCardsHidden} = tierList;
+    const { list_type, autoSaveOn, usedCardsHidden } = tierList;
 
     return (
       <div className="tier-list-edit-option">
@@ -29,6 +30,7 @@ class TierListEditOptions extends Component {
           outline>
           Edit Tier List
         </Button>
+        <h6>List Type: {listTypes[list_type].name}</h6>
         <ToggleButton
           onToggle={handleHideUsedCardsToggle}
           value={usedCardsHidden}
@@ -39,6 +41,7 @@ class TierListEditOptions extends Component {
           onToggle={handleAutoSaveToggle}
           value={autoSaveOn}
           />
+        { autoSaveOn ? null : <Button outline>Save</Button> }
         <span>Auto-save</span>
       </div>
     )

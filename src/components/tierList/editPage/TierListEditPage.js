@@ -13,7 +13,7 @@ import CardPoolContainer from './CardsRemainingContainer.js';
 class TierListEditPage extends Component {
   componentWillMount() {
     const { addCardToTier, moveCardBetweenTiers,
-            fetchTierList, routeParams } = this.props;
+            fetchTierList, routeParams, tierList } = this.props;
     const tierId = routeParams.id
 
     fetchTierList(tierId)

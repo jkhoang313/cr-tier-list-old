@@ -23,11 +23,11 @@
 }
 
 // 2v2
-// .body.edit-page.theme-3 {
-//   @include list_type_theme($maroon);
-// }
+.body.edit-page.theme-3 {
+  @include list_type_theme($maroon);
+}
 
 // Draft
-// .body.edit-page.theme-3 {
-//   @include list_type_theme($purple);
-// }
+.body.edit-page.theme-4 {
+  @include list_type_theme($purple);
+}

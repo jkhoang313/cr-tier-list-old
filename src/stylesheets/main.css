@@ -299,5 +299,23 @@ body .body.edit-page.theme-2 button.btn.btn-outline-secondary {
   background-color: #fff;
   color: #089a08; }
 
+body .body.edit-page.theme-3 button.btn {
+  background-color: #940404;
+  border-color: #940404;
+  color: #fff; }
+
+body .body.edit-page.theme-3 button.btn.btn-outline-secondary {
+  background-color: #fff;
+  color: #940404; }
+
+body .body.edit-page.theme-4 button.btn {
+  background-color: #800080;
+  border-color: #800080;
+  color: #fff; }
+
+body .body.edit-page.theme-4 button.btn.btn-outline-secondary {
+  background-color: #fff;
+  color: #800080; }
+
 .clickable {
   cursor: pointer; }

@@ -6,6 +6,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Form,
          FormGroup, Label, Input, FormText, Button } from 'reactstrap';
 
 import * as actionCreators from '../../../state/actions';
+import { listTypes } from '../../../helpers/listTypes';
 
 
 class EditTierListModal extends Component {
@@ -14,7 +15,8 @@ class EditTierListModal extends Component {
 
     this.state = {
       title: "",
-      description: ""
+      description: "",
+      list_type: ""
     }
 
     bindAll(this, ['handleInputChange', 'submitForm', 'addTier',
@@ -27,7 +29,8 @@ class EditTierListModal extends Component {
     if (tierList.isFetchingTierList && !nextProps.tierList.isFetchingTierList) {
       const initialState = {
         title: nextProps.tierList.title,
-        description: nextProps.tierList.description
+        description: nextProps.tierList.description,
+        list_type: nextProps.tierList.list_type
       }
       // set the state for the tier names and description
       // must create dynamically because tier list can have a variable number
@@ -44,7 +47,7 @@ class EditTierListModal extends Component {
   }
 
   currentNumberOfTiers() {
-    return Object.keys(this.state).length - 2;
+    return Object.keys(this.state).length - 3;
   }
 
   handleInputChange(event) {
@@ -122,12 +125,25 @@ class EditTierListModal extends Component {
               placeholder="Enter the tier list description"
               value={this.state.description}/>
             </FormGroup>
-          </ModalBody>
-          <ModalBody>
+            <Input
+              type="select"
+              name="list-type"
+              onChange={(event) => this.setState({list_type: event.target.value})}
+              value={this.state.list_type}>
+              { Object.values(listTypes).map((type) =>
+                <option
+                  value={type.id}
+                  key={type.id}>
+                  {type.name}
+                </option>
+              )}
+            </Input>
             { this.renderTierInputs() }
           </ModalBody>
           <ModalFooter>
-            <Button onClick={this.addTier}>Add A Tier</Button>
+            <Button onClick={this.addTier}>
+              Add A Tier
+            </Button>
             <Button onClick={this.submitForm}>Submit</Button>
             <Button onClick={handleEditModalState}>Cancel</Button>
           </ModalFooter>
