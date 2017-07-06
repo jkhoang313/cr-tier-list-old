@@ -37,10 +37,11 @@ class TierListsDisplayItem extends Component {
   }
 
   render() {
-    const { id, creator, title, description, updated_at } = this.props.tierList;
+    const { id, creator, title, list_type, description,
+            updated_at } = this.props.tierList;
 
     return (
-      <Row className="tier-list-item">
+      <Row className={`tier-list-item theme-${list_type}`}>
         <Col xs="12" md="12">
           <Row className="header">
             <h3

@@ -1,9 +1,31 @@
+@mixin list_type_theme($color-default) {
+  div.description {
+    background-color: $color-default;
+  }
+}
+
 div.tier-list-item {
   background-color: $white;
   border-radius: 5px;
   margin: 0;
   box-shadow: 0px 0px 3px $black;
   margin: 3rem 0;
+
+  &.theme-1 {
+    @include list_type_theme($blue);
+  }
+
+  &.theme-2 {
+    @include list_type_theme($green);
+  }
+
+  &.theme-3 {
+    @include list_type_theme($maroon);
+  }
+
+  &.theme-4 {
+    @include list_type_theme($purple);
+  }
 
   div.header {
     background-color: $black;
@@ -20,7 +42,7 @@ div.tier-list-item {
 
       &.clickable:hover {
         // TODO
-        color: blue;
+        color: $blue-green;
       }
 
       &.right {
