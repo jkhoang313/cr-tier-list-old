@@ -118,6 +118,7 @@ class EditTierListModal extends Component {
         toggle={handleEditModalState}>
         <Form>
           <ModalBody>
+            <i className="material-icons" onClick={handleEditModalState}>close</i>
             <FormGroup>
               <Label>Title</Label>
               <Input
