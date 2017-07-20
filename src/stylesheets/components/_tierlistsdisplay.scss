@@ -2,6 +2,32 @@
   div.description {
     background-color: $color-default;
   }
+
+  div.banner {
+    background-color: darken($color-default, 15%);
+  }
+}
+
+div.display-page {
+  div.banner {
+    height: 6rem;
+  }
+
+  &.theme-1 {
+    @include list_type_theme($blue);
+  }
+
+  &.theme-2 {
+    @include list_type_theme($green);
+  }
+
+  &.theme-3 {
+    @include list_type_theme($maroon);
+  }
+
+  &.theme-4 {
+    @include list_type_theme($purple);
+  }
 }
 
 div.tier-list-item {

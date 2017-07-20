@@ -11,30 +11,32 @@ class TierListsDisplayPage extends Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      list_type: this.getListType(props)
+    }
+
     this.renderTierLists = this.renderTierLists.bind(this)
   }
 
-  componentWillMount() {
-    const { fetchTierListsByListType, routeParams } = this.props;
+  getListType(props) {
+    const { routeParams } = this.props;
     let list_type
 
     switch (routeParams.list_type) {
       default:
       case "tournament":
-        list_type = 1;
-        break;
+        return list_type = 1;
       case "ladder":
-        list_type = 2;
-        break;
+        return list_type = 2;
       case "2v2":
-        list_type = 3;
-        break;
+        return list_type = 3;
       case "draft":
-        list_type = 4;
-        break;
+        return list_type = 4;
     }
+  }
 
-    fetchTierListsByListType(list_type);
+  componentWillMount() {
+    this.props.fetchTierListsByListType(this.state.list_type);
   }
 
   renderTierLists() {
@@ -43,13 +45,14 @@ class TierListsDisplayPage extends Component {
     return tierLists.lists.map((tierList, index) =>
       <TierListsDisplayItem
         tierList={tierList}
-        key={index}
-        />
+        key={index}/>
     )}
 
   render() {
     return (
-      <Container className="body">
+      <Container className={`body display-page theme-${this.state.list_type}`}>
+        <Row className="banner">
+        </Row>
         <Row>
           <Col xs="12" md={{ size: 10, push: 1, pull: 1}}>
             { this.renderTierLists() }
