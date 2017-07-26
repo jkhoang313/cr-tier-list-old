@@ -20,18 +20,17 @@ class TierListsDisplayPage extends Component {
 
   getListType(props) {
     const { routeParams } = this.props;
-    let list_type
 
     switch (routeParams.list_type) {
       default:
       case "tournament":
-        return list_type = 1;
+        return 1;
       case "ladder":
-        return list_type = 2;
+        return 2;
       case "2v2":
-        return list_type = 3;
+        return 3;
       case "draft":
-        return list_type = 4;
+        return 4;
     }
   }
 
