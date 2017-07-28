@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 
-import * as actionCreators from '../../../state/actions';
+import * as actionCreators from '../../../state/actions.js';
 import TierListContainer from './TierListContainer.js';
 import CardPoolContainer from './CardsRemainingContainer.js';
 

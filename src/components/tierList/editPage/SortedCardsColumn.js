@@ -3,7 +3,7 @@ import { Col } from 'reactstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actionCreators from '../../../state/actions'
+import * as actionCreators from '../../../state/actions.js'
 import Card from '../Card';
 
 

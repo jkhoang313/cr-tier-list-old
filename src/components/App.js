@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // import { slide as SideMenu } from 'react-burger-menu';
 
-import * as actionCreators from '../state/actions';
+import * as actionCreators from '../state/actions.js';
 import NavBar from './NavBar.js';
 
 

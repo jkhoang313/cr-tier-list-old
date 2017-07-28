@@ -1,4 +1,5 @@
-import callApi from '../../api';
+import callApi from '../middleware.js';
+
 
 export function fetchTierList(tierId) {
   const requestInfo = {

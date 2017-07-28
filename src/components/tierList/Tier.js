@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Row, Col } from 'reactstrap';
 import { bindAll } from 'lodash'
 
-import * as actionCreators from '../../state/actions';
+import * as actionCreators from '../../state/actions.js';
 import TierCards from './TierCards';
 
 

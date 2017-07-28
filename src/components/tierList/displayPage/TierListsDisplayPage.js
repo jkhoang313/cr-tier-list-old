@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Container, Row, Col } from 'reactstrap';
 
-import * as actionCreators from '../../../state/actions';
+import * as actionCreators from '../../../state/actions.js';
 import TierListsDisplayItem from './TierListsDisplayItem';
 
 

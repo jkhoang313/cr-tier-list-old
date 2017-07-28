@@ -5,7 +5,7 @@ import { bindAll } from 'lodash';
 import ToggleButton from 'react-toggle-button';
 import { Button } from 'reactstrap';
 
-import * as actionCreators from '../../../state/actions';
+import * as actionCreators from '../../../state/actions.js';
 import { listTypes } from '../../../helpers/listTypes';
 import EditTierListModal from './EditTierListModal';
 

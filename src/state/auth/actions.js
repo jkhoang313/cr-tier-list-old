@@ -1,4 +1,5 @@
-import callApi from '../../api';
+import callApi from '../middleware.js';
+
 
 export function login(params) {
   const requestInfo = {
@@ -10,4 +11,10 @@ export function login(params) {
     body: JSON.stringify(params)
   }
   return callApi(`/api/login`, "LOGIN", requestInfo)
+}
+
+export function handleLoginModal(boolean) {
+  return {
+    type: "HANDLE_LOGIN_MODAL"
+  }
 }

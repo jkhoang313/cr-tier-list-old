@@ -1,6 +1,7 @@
 import qs from 'qs';
 
-import callApi from '../../api';
+import callApi from '../middleware.js';
+
 
 export function fetchTierListsByListType(list_type) {
   const requestInfo = {
