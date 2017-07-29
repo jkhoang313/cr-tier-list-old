@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // import { Modal } from 'reactstrap';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Form,
-         FormGroup, Label, Input, FormText, Button } from 'reactstrap';
+import { Modal, ModalBody, Form, FormGroup, Label, Input, Button
+       } from 'reactstrap';
 import { bindAll } from 'lodash';
 // import { slide as SideMenu } from 'react-burger-menu';
 
