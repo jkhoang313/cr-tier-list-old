@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _, { bindAll } from 'lodash';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Form,
-         FormGroup, Label, Input, FormText, Button } from 'reactstrap';
+         FormGroup, Label, Input, FormText, Button
+       } from 'reactstrap';
 
 import * as actionCreators from '../../../state/actions.js';
 import { listTypes } from '../../../helpers/listTypes';

@@ -1,5 +1,7 @@
 export default function(state = {
-  user: {}
+  user: {},
+  loggedIn: !!sessionStorage.getItem("jwt"),
+  loginModalOpen: false
 }, action) {
   switch (action.type) {
     case "LOGIN_SUCCESS": {
@@ -7,7 +9,24 @@ export default function(state = {
 
       return {
         ...state,
-        user: action.payload.user
+        loggedIn: true,
+        loginModalOpen: false
+      }
+    }
+
+    case "LOGOUT": {
+      sessionStorage.setItem("jwt", "")
+
+      return {
+        ...state,
+        loggedIn: false
+      }
+    }
+
+    case "HANDLE_LOGIN_MODAL": {
+      return {
+        ...state,
+        loginModalOpen: action.payload
       }
     }
 

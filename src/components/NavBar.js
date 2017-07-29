@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as actionCreators from '../state/actions.js';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 
-export default class NavBar extends React.Component {
+
+class NavBar extends Component {
   render() {
+    const { loggedIn, logout, handleLoginModal } = this.props;
+
     return (
       <Nav>
         <NavItem>
@@ -23,17 +30,37 @@ export default class NavBar extends React.Component {
         <NavItem>
           <NavLink href="/tier-list/1">Edit</NavLink>
         </NavItem>
-        <NavItem className="right">
-          <NavLink
-            href="/logout"
-            onClick={() => this.props.handleLoginModal(true)}>
-            Login
-          </NavLink>
-        </NavItem>
-        <NavItem className="right">
-          <NavLink href="/logout">Sign Up</NavLink>
-        </NavItem>
+        { loggedIn ?
+          <NavItem className="right">
+            <NavLink onClick={logout}>
+              Logout
+            </NavLink>
+          </NavItem>
+          :
+          [<NavItem className="right" key={1}>
+            <NavLink onClick={() => handleLoginModal(true)}>
+              Login
+            </NavLink>
+          </NavItem>,
+          <NavItem className="right" key={2}>
+            <NavLink href="/logout">Sign Up</NavLink>
+          </NavItem>] }
       </Nav>
     )
   }
 };
+
+function mapStateToProps(state) {
+  return {
+    loggedIn: state.auth.loggedIn
+  }
+};
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NavBar);

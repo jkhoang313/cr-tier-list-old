@@ -6,7 +6,7 @@ import tierListsReducer from './tierLists/reducer';
 
 
 const rootReducer = combineReducers({
-  user: authReducer,
+  auth: authReducer,
   tierList: tierListReducer,
   tierLists: tierListsReducer
 });

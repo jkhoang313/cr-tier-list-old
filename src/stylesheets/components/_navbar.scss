@@ -11,6 +11,8 @@ ul.nav {
 
     a {
       border-bottom: solid $black 0.2rem;
+      color: $blue;
+      cursor: pointer;
 
       &:hover {
         color: $white;

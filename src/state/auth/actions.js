@@ -13,8 +13,14 @@ export function login(params) {
   return callApi(`/api/login`, "LOGIN", requestInfo)
 }
 
-export function handleLoginModal(boolean) {
+export function handleLoginModal(modalState) {
   return {
-    type: "HANDLE_LOGIN_MODAL"
+    type: "HANDLE_LOGIN_MODAL", payload: modalState
+  }
+}
+
+export function logout() {
+  return {
+    type: "LOGOUT"
   }
 }

@@ -5,6 +5,7 @@ import TierListsDisplayPage from './tierList/displayPage/TierListsDisplayPage';
 import TierListEditPage from './tierList/editPage/TierListEditPage';
 import ToolsPage from './toolsPage/ToolsPage';
 
+
 export default (
   <Route path="/" component={App}>
     <Route path="tools" component={ToolsPage} />
