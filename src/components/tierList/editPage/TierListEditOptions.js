@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { bindAll } from 'lodash';
 import ToggleButton from 'react-toggle-button';
 import { Button } from 'reactstrap';
 
-import * as actionCreators from '../../../state/actions.js';
+import { handleAutoSaveToggle, handleHideUsedCardsToggle, handleEditModalState
+       } from '../../../state/actions.js';
 import { listTypes } from '../../../helpers/listTypes';
 import EditTierListModal from './EditTierListModal';
 
 
 class TierListEditOptions extends Component {
-  constructor(props) {
-    super(props);
-
-    bindAll(this, [])
-  }
-
   render() {
     const { handleAutoSaveToggle, handleHideUsedCardsToggle,
             handleEditModalState, tierList } = this.props;
@@ -49,11 +43,17 @@ class TierListEditOptions extends Component {
 }
 
 function mapStateToProps(state) {
-  return state
+  return {
+    tierList: state.tierList
+  }
 };
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators(actionCreators, dispatch);
+  return bindActionCreators({
+    handleAutoSaveToggle,
+    handleHideUsedCardsToggle, 
+    handleEditModalState
+  }, dispatch);
 };
 
 export default connect(

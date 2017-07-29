@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actionCreators from '../../state/actions.js';
+import { removeCardFromTier } from '../../state/actions.js';
 import Card from './Card';
 
 
@@ -30,7 +30,7 @@ class TierCards extends Component {
         )
       })
     }
-  };
+  }
 
   render() {
     const { cards, index } = this.props;
@@ -50,8 +50,10 @@ function mapStateToProps(state) {
   }
 };
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators(actionCreators, dispatch);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    removeCardFromTier
+  }, dispatch);
 };
 
 export default connect(

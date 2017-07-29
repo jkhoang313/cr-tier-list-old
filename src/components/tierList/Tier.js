@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Row, Col } from 'reactstrap';
 import { bindAll } from 'lodash'
 
-import * as actionCreators from '../../state/actions.js';
 import TierCards from './TierCards';
 
 
-class Tier extends Component {
+export default class Tier extends Component {
   constructor(props) {
     super(props)
 
@@ -51,16 +48,3 @@ class Tier extends Component {
     )
   }
 };
-
-function mapStateToProps(state) {
-  return state
-};
-
-function mapDispatchToProps(dispatch){
-    return bindActionCreators(actionCreators, dispatch);
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Tier)

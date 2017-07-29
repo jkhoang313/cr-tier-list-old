@@ -14,14 +14,13 @@ export default class Card extends Component {
       return tiers.map((tier, index) => {
         return (
           <li key={index}>
-            <a onClick={ () =>
+            <a onClick={() =>
               disabled ? null : onClick({
                 tierId,
                 tierIndex: index,
                 cardName: name,
                 position: -1
-              })
-            }>{tier.name}</a>
+              })}>{tier.name}</a>
           </li>
         )
       })

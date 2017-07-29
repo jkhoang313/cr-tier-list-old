@@ -3,7 +3,7 @@ import { Col } from 'reactstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actionCreators from '../../../state/actions.js'
+import { addCardToTier } from '../../../state/actions.js'
 import Card from '../Card';
 
 
@@ -14,7 +14,7 @@ class SortedCardsColumn extends Component {
 
     if (cards.length < 1) {
       return (
-        <Card name={"MysteryCard"}/>
+        <Card name="MysteryCard"/>
       )
     } else {
       return cards.map((name, index) => {
@@ -71,7 +71,9 @@ function mapStateToProps(state) {
 };
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators(actionCreators, dispatch);
+  return bindActionCreators({
+    addCardToTier
+  }, dispatch);
 };
 
 export default connect(

@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { Row, Col, Collapse, CardBlock } from 'reactstrap';
 import { browserHistory } from 'react-router';
 
-// import * as actionCreators from '../../../state/actions';
 import Tier from '../Tier';
 
 
-class TierListsDisplayItem extends Component {
+export default class TierListsDisplayItem extends Component {
   constructor(props) {
     super(props)
 
@@ -56,7 +55,7 @@ class TierListsDisplayItem extends Component {
             </h3>
           </Row>
           <Row className="description">
-            <h6>{description}</h6>
+            <h6>{ description }</h6>
           </Row>
           <Row>
             <Collapse isOpen={this.state.tierListOpen}>
@@ -75,5 +74,3 @@ class TierListsDisplayItem extends Component {
     )
   }
 }
-
-export default TierListsDisplayItem

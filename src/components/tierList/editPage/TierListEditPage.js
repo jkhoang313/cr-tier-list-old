@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 
-import * as actionCreators from '../../../state/actions.js';
+import { addCardToTier, moveCardBetweenTiers, fetchTierList,
+       } from '../../../state/actions.js';
 import TierListContainer from './TierListContainer.js';
 import CardPoolContainer from './CardsRemainingContainer.js';
 
@@ -72,11 +73,17 @@ class TierListEditPage extends Component {
 };
 
 function mapStateToProps(state) {
-  return state
+  return {
+    tierList: state.tierList
+  }
 };
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators(actionCreators, dispatch);
+  return bindActionCreators({
+    addCardToTier,
+    moveCardBetweenTiers,
+    fetchTierList
+  }, dispatch);
 };
 
 export default connect(

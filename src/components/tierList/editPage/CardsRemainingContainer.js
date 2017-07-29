@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Row, Col, Button, ButtonGroup } from 'reactstrap';
+import { bindAll } from 'lodash';
 
-import * as actionCreators from '../../../state/actions.js'
 import SortedCardsColumn from './SortedCardsColumn';
 import cardFilter from '../../../helpers/cardFilter';
 
@@ -16,8 +15,7 @@ class CardsRemainingContainer extends Component {
       sortedBy: "Alphabetical"
     }
 
-    this.handleSorterChange = this.handleSorterChange.bind(this)
-    this.renderSorter = this.renderSorter.bind(this)
+    bindAll(this, "handleSorterChange", "renderSorter")
   }
 
   renderSortedColumns() {
@@ -131,11 +129,4 @@ function mapStateToProps(state) {
   }
 };
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators(actionCreators, dispatch);
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CardsRemainingContainer);
+export default connect(mapStateToProps)(CardsRemainingContainer);

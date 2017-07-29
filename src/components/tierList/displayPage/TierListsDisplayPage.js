@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Container, Row, Col } from 'reactstrap';
+import { bindAll } from 'lodash';
 
-import * as actionCreators from '../../../state/actions.js';
+import { fetchTierListsByListType } from '../../../state/actions.js';
 import TierListsDisplayItem from './TierListsDisplayItem';
 
 
@@ -15,7 +16,7 @@ class TierListsDisplayPage extends Component {
       list_type: this.getListType(props)
     }
 
-    this.renderTierLists = this.renderTierLists.bind(this)
+    bindAll(this, "renderTierLists")
   }
 
   getListType(props) {
@@ -51,6 +52,7 @@ class TierListsDisplayPage extends Component {
     return (
       <Container className={`body display-page theme-${this.state.list_type}`}>
         <Row className="banner">
+          <h3>{ this.props.routeParams.list_type } Tier Lists</h3>
         </Row>
         <Row>
           <Col xs="12" md={{ size: 10, push: 1, pull: 1}}>
@@ -69,7 +71,9 @@ function mapStateToProps(state) {
 };
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators(actionCreators, dispatch);
+  return bindActionCreators({
+    fetchTierListsByListType
+  }, dispatch);
 };
 
 export default connect(

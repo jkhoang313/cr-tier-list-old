@@ -6,7 +6,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Form,
          FormGroup, Label, Input, FormText, Button
        } from 'reactstrap';
 
-import * as actionCreators from '../../../state/actions.js';
+import { updateTierListDetails, handleEditModalState } from '../../../state/actions.js';
 import { listTypes } from '../../../helpers/listTypes';
 
 
@@ -166,11 +166,16 @@ class EditTierListModal extends Component {
 }
 
 function mapStateToProps(state) {
-  return state
+  return {
+    tierList: state.tierList
+  }
 };
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators(actionCreators, dispatch);
+  return bindActionCreators({
+    updateTierListDetails,
+    handleEditModalState
+  }, dispatch);
 };
 
 export default connect(

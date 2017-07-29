@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Row, Col } from 'reactstrap';
 
-import * as actionCreators from '../../../state/actions.js';
 import TierListEditOptions from './TierListEditOptions';
 import Tier from '../Tier';
 
@@ -48,11 +46,4 @@ function mapStateToProps(state) {
   }
 };
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators(actionCreators, dispatch);
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TierListContainer);
+export default connect(mapStateToProps)(TierListContainer);

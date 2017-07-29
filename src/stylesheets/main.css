@@ -177,6 +177,11 @@ body div.sorted-cards-container.row {
 body div.display-page div.banner {
   height: 6rem; }
 
+body div.display-page div.banner h3 {
+  color: #fff;
+  text-transform: capitalize;
+  margin: auto; }
+
 body div.display-page.theme-1 div.description {
   background-color: #0275d8; }
 

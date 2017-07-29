@@ -11,6 +11,12 @@
 div.display-page {
   div.banner {
     height: 6rem;
+
+    h3 {
+      color: $white;
+      text-transform: capitalize;
+      margin: auto;
+    }
   }
 
   &.theme-1 {
