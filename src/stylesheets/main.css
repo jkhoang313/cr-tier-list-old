@@ -272,11 +272,17 @@ body div.tier-list-item div.description h6 {
   font-size: 0.7rem;
   margin: 0; }
 
-body div.tier-list-item div.toggle-tier-list-item {
-  text-align: center; }
+body div.tier-list-item div.toggle-tier-list-item svg {
+  margin: auto;
+  font-size: 2rem;
+  transition: transform 0.25s; }
 
-body div.tier-list-item div.toggle-tier-list-item h6 {
-  width: 100%; }
+body div.tier-list-item div.toggle-tier-list-item svg.flipped {
+  -ms-transform: rotate(180deg);
+  /* IE 9 */
+  -webkit-transform: rotate(180deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(180deg); }
 
 body div.tier-list-item div.collapse.show, body div.tier-list-item div.collapsing {
   width: 100%; }

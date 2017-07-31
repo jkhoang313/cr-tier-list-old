@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col, Collapse, CardBlock } from 'reactstrap';
 import { browserHistory } from 'react-router';
+import cn from 'classnames';
+import MdKeyboardArrowDown from 'react-icons/lib/md/keyboard-arrow-down';
+import MdKeyboardArrowUp from 'react-icons/lib/md/keyboard-arrow-up';
 
 import Tier from '../Tier';
 
@@ -67,7 +70,10 @@ export default class TierListsDisplayItem extends Component {
           <Row
             className="toggle-tier-list-item"
             onClick={() => this.openTierList()}>
-            <h6>Click</h6>
+            <MdKeyboardArrowDown
+              className={cn({"flipped": this.state.tierListOpen})}/>
+            {/* { this.state.tierListOpen ?
+              <MdKeyboardArrowDown /> : <MdKeyboardArrowUp /> } */}
           </Row>
         </Col>
       </Row>

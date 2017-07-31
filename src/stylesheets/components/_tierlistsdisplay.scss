@@ -103,10 +103,16 @@ div.tier-list-item {
   }
 
   div.toggle-tier-list-item {
-    text-align: center;
+    svg {
+      margin: auto;
+      font-size: 2rem;
+      transition: transform 0.25s;
 
-    h6 {
-      width: 100%;
+      &.flipped {
+        -ms-transform: rotate(180deg); /* IE 9 */
+        -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+        transform: rotate(180deg);
+      }
     }
   }
 

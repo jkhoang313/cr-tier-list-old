@@ -19,6 +19,7 @@
     "react-dragula": "^1.1.17",
     "react-foundation": "^0.7.0",
     "react-foundation-components": "^0.12.0",
+    "react-icons": "^2.2.5",
     "react-menu": "0.0.10",
     "react-popover": "^0.4.8",
     "react-redux": "^5.0.4",
