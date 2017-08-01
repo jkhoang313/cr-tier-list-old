@@ -74,7 +74,7 @@ class TierListEditPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    tierList: state.tierList
+    tierList: state.tierList.selectedTierList
   }
 };
 

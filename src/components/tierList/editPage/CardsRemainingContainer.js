@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Row, Col, Button, ButtonGroup } from 'reactstrap';
 import { bindAll } from 'lodash';
 
@@ -123,10 +122,4 @@ class CardsRemainingContainer extends Component {
   }
 };
 
-function mapStateToProps(state) {
-  return {
-    tierList: state.tierList
-  }
-};
-
-export default connect(mapStateToProps)(CardsRemainingContainer);
+export default CardsRemainingContainer;

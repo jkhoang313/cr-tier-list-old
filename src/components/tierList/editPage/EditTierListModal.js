@@ -28,15 +28,16 @@ class EditTierListModal extends Component {
     const { tierList } = this.props;
 
     if (tierList.isFetchingTierList && !nextProps.tierList.isFetchingTierList) {
+      const { title, description, list_type, tiers } = nextProps.tierList.selectedTierList;
       const initialState = {
-        title: nextProps.tierList.title,
-        description: nextProps.tierList.description,
-        list_type: nextProps.tierList.list_type
+        title: title,
+        description: description,
+        list_type: list_type
       }
       // set the state for the tier names and description
       // must create dynamically because tier list can have a variable number
       // of tiers
-      nextProps.tierList.tiers.forEach((tier, index) => {
+      tiers.forEach((tier, index) => {
         initialState[`tier-${index}`] = {
           name: tier.name,
           description: tier.description
@@ -96,7 +97,7 @@ class EditTierListModal extends Component {
   submitForm() {
     const { updateTierListDetails, tierList } = this.props;
 
-    updateTierListDetails(tierList.id, this.state);
+    updateTierListDetails(tierList.selectedTierList.id, this.state);
   }
 
   addTier() {

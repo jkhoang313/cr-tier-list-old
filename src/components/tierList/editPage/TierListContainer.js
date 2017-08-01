@@ -28,7 +28,7 @@ class TierListContainer extends Component {
       <Row className="tier-list-container">
         <Col sm="12" md="10" className="panel">
           <Row className="tier-list-header">
-            <h3>{title}</h3>
+            <h3>{ title }</h3>
           </Row>
         { this.renderTiers() }
         </Col>
@@ -42,7 +42,7 @@ class TierListContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    tierList: state.tierList
+    tierList: state.tierList.selectedTierList
   }
 };
 

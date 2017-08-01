@@ -14,7 +14,7 @@ class TierListEditOptions extends Component {
   render() {
     const { handleHideUsedCardsToggle,
             handleEditModalState, tierList } = this.props;
-    const { list_type, usedCardsHidden } = tierList;
+    const { selectedTierList, usedCardsHidden } = tierList;
 
     return (
       <div className="tier-list-edit-option">
@@ -24,7 +24,9 @@ class TierListEditOptions extends Component {
           outline>
           Edit Tier List
         </Button>
-        <h6>List Type: {listTypes[list_type].name}</h6>
+        <h6>
+          List Type: {listTypes[selectedTierList.list_type].name}
+        </h6>
         <ToggleButton
           onToggle={handleHideUsedCardsToggle}
           value={usedCardsHidden}/>

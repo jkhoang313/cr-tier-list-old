@@ -6,14 +6,16 @@ export function addToTierListState(card, list, position) {
 }
 
 export default function(state = {
-  id: "",
-  creator: {},
-  name: "",
-  list_type: 1,
-  description: "",
-  date_modified: "",
-  date_created: "",
-  tiers: [],
+  selectedTierList: {
+    id: "",
+    creator: {},
+    name: "",
+    list_type: 1,
+    description: "",
+    date_modified: "",
+    date_created: "",
+    tiers: [],
+  },
   isFetchingTierList: false,
   usedCardsHidden: true,
   editModalOpen: false
@@ -29,8 +31,8 @@ export default function(state = {
     case "FETCH_TIER_LIST_SUCCESS": {
       return {
         ...state,
+        selectedTierList: action.payload.tier_list,
         isFetchingTierList: false,
-        ...action.payload.tier_list
       }
     }
 
@@ -40,18 +42,21 @@ export default function(state = {
 
       return {
         ...state,
-        tiers: state.tiers.map((tier, index) => {
-          if (index === tierIndex) {
-            position = position === -1 ? tier.cards.length : position;
+        selectedTierList: {
+          ...state.selectedTierList,
+          tiers: state.tiers.map((tier, index) => {
+            if (index === tierIndex) {
+              position = position === -1 ? tier.cards.length : position;
 
-            return {
-              ...tier,
-              cards: addToTierListState(cardName, tier.cards, position)
+              return {
+                ...tier,
+                cards: addToTierListState(cardName, tier.cards, position)
+              }
+            } else {
+              return tier
             }
-          } else {
-            return tier
-          }
-        })
+          })
+        }
       }
     }
 
@@ -61,22 +66,25 @@ export default function(state = {
 
       return {
         ...state,
-        tiers: state.tiers.map((tier, index) => {
-          // return the tier with the card removed first
-          let updatedTier = {
-            ...tier,
-            cards: _.reject(tier.cards, (card) => card === cardName)
-          }
-
-          // then return the tier with the card added
-          if (index === tierIndex) {
-            updatedTier = {
-              ...updatedTier,
-              cards: addToTierListState(cardName, updatedTier.cards, position)
+        selectedTierList: {
+          ...state.selectedTierList,
+          tiers: state.tiers.map((tier, index) => {
+            // return the tier with the card removed first
+            let updatedTier = {
+              ...tier,
+              cards: _.reject(tier.cards, (card) => card === cardName)
             }
-          }
-          return updatedTier
-        })
+
+            // then return the tier with the card added
+            if (index === tierIndex) {
+              updatedTier = {
+                ...updatedTier,
+                cards: addToTierListState(cardName, updatedTier.cards, position)
+              }
+            }
+            return updatedTier
+          })
+        }
       }
     }
 
@@ -85,7 +93,7 @@ export default function(state = {
     case "MOVE_CARD_BETWEEN_TIERS_SUCCESS": {
       return {
         ...state,
-        ...action.payload.tier_list
+        selectedTierList: action.payload.tier_list
       };
     }
 
@@ -100,7 +108,7 @@ export default function(state = {
     case "UPDATE_TIER_LIST_DETAILS_SUCCESS": {
       return {
         ...state,
-        ...action.payload.tier_list,
+        selectedTierList: action.payload.tier_list,
         isFetchingTierList: false,
         editModalOpen: false
       }
