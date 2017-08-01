@@ -10,7 +10,7 @@ import Card from '../Card';
 class SortedCardsColumn extends Component {
   renderCards() {
     const { cards, tierList, addCardToTier, usedCardsHidden } = this.props;
-    const { id, tiers, autoSaveOn } = tierList;
+    const { id, tiers } = tierList;
 
     if (cards.length < 1) {
       return (

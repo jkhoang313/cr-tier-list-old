@@ -2,10 +2,21 @@ const baseUrl = "http://localhost:3000"
 
 
 export default function callApi(url, actionType, requestInfo, params=null) {
+  const baseRequestInfo = {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+  }
+  const finalRequestInfo = {
+    ...baseRequestInfo,
+    requestInfo
+  }
+
   return function (dispatch) {
     dispatch(createRequest(actionType, params))
 
-    return fetch(baseUrl + url, requestInfo)
+    return fetch(baseUrl + url, finalRequestInfo)
       .then(
         response => response.json(),
         error => dispatch(createFailure(actionType))

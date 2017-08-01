@@ -16,7 +16,6 @@ export default function(state = {
   tiers: [],
   isFetchingTierList: false,
   usedCardsHidden: true,
-  autoSaveOn: true,
   editModalOpen: false
 }, action) {
   switch (action.type) {
@@ -118,13 +117,6 @@ export default function(state = {
       return {
         ...state,
         usedCardsHidden: !state.usedCardsHidden
-      }
-    }
-
-    case "SET_AUTO_SAVE": {
-      return {
-        ...state,
-        autoSaveOn: !state.autoSaveOn
       }
     }
 

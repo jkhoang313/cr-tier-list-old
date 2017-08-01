@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import ToggleButton from 'react-toggle-button';
 import { Button } from 'reactstrap';
 
-import { handleAutoSaveToggle, handleHideUsedCardsToggle, handleEditModalState
+import { handleHideUsedCardsToggle, handleEditModalState
        } from '../../../state/actions.js';
 import { listTypes } from '../../../helpers/listTypes';
 import EditTierListModal from './EditTierListModal';
@@ -12,7 +12,7 @@ import EditTierListModal from './EditTierListModal';
 
 class TierListEditOptions extends Component {
   render() {
-    const { handleAutoSaveToggle, handleHideUsedCardsToggle,
+    const { handleHideUsedCardsToggle,
             handleEditModalState, tierList } = this.props;
     const { list_type, usedCardsHidden } = tierList;
 
@@ -42,7 +42,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    handleAutoSaveToggle,
     handleHideUsedCardsToggle,
     handleEditModalState
   }, dispatch);
