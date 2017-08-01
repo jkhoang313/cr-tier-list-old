@@ -15,7 +15,7 @@ class CardsRemainingContainer extends Component {
       sortedBy: "Alphabetical"
     }
 
-    bindAll(this, "handleSorterChange", "renderSorter")
+    bindAll(this, "handleSorterChange")
   }
 
   renderSortedColumns() {

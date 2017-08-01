@@ -12,7 +12,7 @@
     }
 
     &.active {
-      background-color: #9f9797;
+      background-color: darken($color-default, 15%);
     }
 
     &.btn-outline-secondary {

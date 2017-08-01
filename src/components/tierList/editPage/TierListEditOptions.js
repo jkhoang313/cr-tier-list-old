@@ -14,7 +14,7 @@ class TierListEditOptions extends Component {
   render() {
     const { handleAutoSaveToggle, handleHideUsedCardsToggle,
             handleEditModalState, tierList } = this.props;
-    const { list_type, autoSaveOn, usedCardsHidden } = tierList;
+    const { list_type, usedCardsHidden } = tierList;
 
     return (
       <div className="tier-list-edit-option">
@@ -27,16 +27,8 @@ class TierListEditOptions extends Component {
         <h6>List Type: {listTypes[list_type].name}</h6>
         <ToggleButton
           onToggle={handleHideUsedCardsToggle}
-          value={usedCardsHidden}
-          />
+          value={usedCardsHidden}/>
         <span>Hide used cards</span>
-        <ToggleButton
-          labelRight="Auto-save"
-          onToggle={handleAutoSaveToggle}
-          value={autoSaveOn}
-          />
-        { autoSaveOn ? null : <Button outline>Save</Button> }
-        <span>Auto-save</span>
       </div>
     )
   }
@@ -51,7 +43,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
     handleAutoSaveToggle,
-    handleHideUsedCardsToggle, 
+    handleHideUsedCardsToggle,
     handleEditModalState
   }, dispatch);
 };

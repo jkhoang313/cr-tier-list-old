@@ -156,7 +156,7 @@ class EditTierListModal extends Component {
             <Button onClick={this.addTier}>
               Add A Tier
             </Button>
-            <Button onClick={this.submitForm}>Submit</Button>
+            <Button onClick={this.submitForm}>Save</Button>
             <Button onClick={handleEditModalState}>Cancel</Button>
           </ModalFooter>
         </Form>

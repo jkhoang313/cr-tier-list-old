@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 
-export function addCardToTierList(card, list, position) {
+export function addToTierListState(card, list, position) {
   return list.slice(0, position).concat([card], list.slice(position))
 }
 
@@ -28,7 +28,6 @@ export default function(state = {
     }
 
     case "FETCH_TIER_LIST_SUCCESS": {
-      console.log(action.payload)
       return {
         ...state,
         isFetchingTierList: false,
@@ -48,7 +47,7 @@ export default function(state = {
 
             return {
               ...tier,
-              cards: addCardToTierList(cardName, tier.cards, position)
+              cards: addToTierListState(cardName, tier.cards, position)
             }
           } else {
             return tier
@@ -74,7 +73,7 @@ export default function(state = {
           if (index === tierIndex) {
             updatedTier = {
               ...updatedTier,
-              cards: addCardToTierList(cardName, updatedTier.cards, position)
+              cards: addToTierListState(cardName, updatedTier.cards, position)
             }
           }
           return updatedTier
