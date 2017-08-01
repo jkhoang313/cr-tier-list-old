@@ -82,11 +82,14 @@ div.tier-list-item {
       }
 
       &.date-modified {
-        display: block;
         font-size: 0.7rem;
         font-style: italic;
         margin-top: .2rem;
       }
+    }
+
+    svg {
+      margin-left: 0.5em;
     }
   }
 

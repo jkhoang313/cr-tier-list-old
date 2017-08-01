@@ -43,7 +43,7 @@ class NavBar extends Component {
             </NavLink>
           </NavItem>,
           <NavItem className="right" key={2}>
-            <NavLink href="/logout">Sign Up</NavLink>
+            <NavLink>Sign Up</NavLink>
           </NavItem>] }
       </Nav>
     )
