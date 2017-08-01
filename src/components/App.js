@@ -51,7 +51,7 @@ class App extends Component {
           isOpen={loginModalOpen}
           toggle={() => handleLoginModal(!loginModalOpen)}>
           <ModalBody>
-            <Form>
+            <Form onSubmit={() => console.log('hi')}>
               <FormGroup>
                 <Label>Email:</Label>
                 <Input
@@ -65,7 +65,9 @@ class App extends Component {
                   name="password"
                   onChange={this.handlePasswordChange}
                   placeholder="Enter your email"/>
-                <Button onClick={this.handleLoginSubmit}>Submit</Button>
+                <Button
+                  type="submit"
+                  onClick={this.handleLoginSubmit}>Submit</Button>
               </FormGroup>
             </Form>
           </ModalBody>

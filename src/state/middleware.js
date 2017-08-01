@@ -10,7 +10,7 @@ export default function callApi(url, actionType, requestInfo, params=null) {
   }
   const finalRequestInfo = {
     ...baseRequestInfo,
-    requestInfo
+    ...requestInfo
   }
 
   return function (dispatch) {
