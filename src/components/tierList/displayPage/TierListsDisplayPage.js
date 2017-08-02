@@ -19,6 +19,10 @@ class TierListsDisplayPage extends Component {
     bindAll(this, "renderTierLists")
   }
 
+  componentWillMount() {
+    this.props.fetchTierListsByListType(this.state.list_type);
+  }
+
   getListType(props) {
     const { routeParams } = this.props;
 
@@ -35,10 +39,6 @@ class TierListsDisplayPage extends Component {
     }
   }
 
-  componentWillMount() {
-    this.props.fetchTierListsByListType(this.state.list_type);
-  }
-
   renderTierLists() {
     const { tierLists } = this.props;
 
@@ -50,7 +50,8 @@ class TierListsDisplayPage extends Component {
 
   render() {
     return (
-      <Container className={`body display-page theme-${this.state.list_type}`}>
+      <Container
+        className={`body display-page theme-${this.state.list_type}`}>
         <Row className="banner">
           <h3>{ this.props.routeParams.list_type } Tier Lists</h3>
         </Row>

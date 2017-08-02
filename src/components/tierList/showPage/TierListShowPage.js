@@ -8,7 +8,8 @@ import _ from 'lodash';
 import { addCardToTier, moveCardBetweenTiers, fetchTierList,
        } from '../../../state/actions.js';
 import TierListContainer from './TierListContainer.js';
-import CardPoolContainer from './CardsRemainingContainer.js';
+import CardsRemainingContainer from './CardsRemainingContainer.js';
+import CommentsContainer from './CommentsContainer.js';
 
 
 class TierListShowPage extends Component {
@@ -63,12 +64,15 @@ class TierListShowPage extends Component {
   }
 
   render() {
-    const isCreator = this.props.tierList.creator.id
+    const { tierList, user } = this.props;
+    const isCreator = user.id && tierList.creator.id === user.id
 
     return (
-      <Container className={`body edit-page theme-${this.props.tierList.list_type}`}>
-        <TierListContainer/>
-        <CardPoolContainer/>
+      <Container
+        className={`body edit-page theme-${tierList.list_type}`}>
+        <TierListContainer isCreator={isCreator}/>
+        { isCreator ?
+          <CardsRemainingContainer/> : <CommentsContainer/> }
       </Container>
     )
   }
@@ -76,7 +80,7 @@ class TierListShowPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth,
+    user: state.auth.user,
     tierList: state.tierList.selectedTierList
   }
 };

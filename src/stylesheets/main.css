@@ -85,27 +85,6 @@ body .dropdown__content ul li {
 body .dropdown--active .dropdown__content {
   display: block; }
 
-body .tier {
-  margin-bottom: .4rem; }
-
-body .tier .tier-name {
-  padding: .1rem;
-  position: relative; }
-
-body .tier .cards-container {
-  border-bottom: solid 0.05rem #9f9797;
-  padding-bottom: .4rem; }
-
-body .cards-remaining-container.row {
-  color: #000000;
-  display: block; }
-
-body .cards-remaining-container.row .title {
-  margin: auto; }
-
-body .cards-remaining-container.row div.col .cards-container {
-  padding: 1.5%; }
-
 body ul.nav {
   background-color: #000000;
   display: block; }
@@ -159,52 +138,16 @@ body .bm-item-list {
 body .bm-overlay {
   background: rgba(0, 0, 0, 0.3); }
 
-body div.tier-list-container.row div.col div.tier-list-header.row {
-  border-radius: .3rem;
-  margin-bottom: 1rem;
-  display: block;
-  text-align: center; }
+body .tier {
+  margin-bottom: .4rem; }
 
-body div.tier-list-container.row div.col button.btn {
-  display: block; }
+body .tier .tier-name {
+  padding: .1rem;
+  position: relative; }
 
-body div.tier-list-container.row div.col div.switch {
-  display: block; }
-
-body div.sorted-cards-container.row {
-  padding-top: 2%; }
-
-body div.display-page div.banner {
-  height: 6rem; }
-
-body div.display-page div.banner h3 {
-  color: #fff;
-  text-transform: capitalize;
-  margin: auto; }
-
-body div.display-page.theme-1 div.description {
-  background-color: #0275d8; }
-
-body div.display-page.theme-1 div.banner {
-  background-color: #014c8c; }
-
-body div.display-page.theme-2 div.description {
-  background-color: #089a08; }
-
-body div.display-page.theme-2 div.banner {
-  background-color: #045104; }
-
-body div.display-page.theme-3 div.description {
-  background-color: #940404; }
-
-body div.display-page.theme-3 div.banner {
-  background-color: #4a0202; }
-
-body div.display-page.theme-4 div.description {
-  background-color: #800080; }
-
-body div.display-page.theme-4 div.banner {
-  background-color: #340034; }
+body .tier .cards-container {
+  border-bottom: solid 0.05rem #9f9797;
+  padding-bottom: .4rem; }
 
 body div.tier-list-item {
   background-color: #fff;
@@ -216,26 +159,14 @@ body div.tier-list-item {
 body div.tier-list-item.theme-1 div.description {
   background-color: #0275d8; }
 
-body div.tier-list-item.theme-1 div.banner {
-  background-color: #014c8c; }
-
 body div.tier-list-item.theme-2 div.description {
   background-color: #089a08; }
-
-body div.tier-list-item.theme-2 div.banner {
-  background-color: #045104; }
 
 body div.tier-list-item.theme-3 div.description {
   background-color: #940404; }
 
-body div.tier-list-item.theme-3 div.banner {
-  background-color: #4a0202; }
-
 body div.tier-list-item.theme-4 div.description {
   background-color: #800080; }
-
-body div.tier-list-item.theme-4 div.banner {
-  background-color: #340034; }
 
 body div.tier-list-item div.header {
   background-color: #000000;
@@ -287,6 +218,26 @@ body div.tier-list-item div.toggle-tier-list-item svg.flipped {
 body div.tier-list-item div.collapse.show, body div.tier-list-item div.collapsing {
   width: 100%; }
 
+body div.display-page div.banner {
+  height: 6rem; }
+
+body div.display-page div.banner h3 {
+  color: #fff;
+  text-transform: capitalize;
+  margin: auto; }
+
+body div.display-page.theme-1 div.banner {
+  background-color: #014c8c; }
+
+body div.display-page.theme-2 div.banner {
+  background-color: #045104; }
+
+body div.display-page.theme-3 div.banner {
+  background-color: #4a0202; }
+
+body div.display-page.theme-4 div.banner {
+  background-color: #340034; }
+
 body .gu-mirror {
   position: fixed !important;
   margin: 0 !important;
@@ -321,7 +272,26 @@ body .cards-container > div.card-icon {
 body .cards-container > div.card-icon.display-only {
   cursor: default; }
 
-body .tier-list-edit-option div {
+body .cards-remaining-container.row {
+  color: #000000;
+  display: block; }
+
+body .cards-remaining-container.row .title {
+  margin: auto; }
+
+body .cards-remaining-container.row div.sorted-cards-container.row {
+  padding-top: 2%; }
+
+body div.col .cards-container {
+  padding: 1.5%; }
+
+body div.tier-list-container.row div.col div.tier-list-header.row {
+  border-radius: .3rem;
+  margin-bottom: 1rem;
+  display: block;
+  text-align: center; }
+
+body .tier-list-edit-option div, body .tier-list-edit-option button.btn {
   display: block; }
 
 body .body.edit-page.theme-1 button.btn {

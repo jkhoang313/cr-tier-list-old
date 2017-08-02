@@ -1,14 +1,5 @@
 // import sass files
-@import 'app';
-@import 'cardicon';
-@import 'tier';
-@import 'cardsremainingcontainer';
-@import 'cardscontainer';
-@import 'navbar';
-@import 'sidenav';
-@import 'tierlistcontainer';
-@import 'sortedcardscolumn';
-@import 'tierlistsdisplay';
-@import 'dragula';
-@import 'tierlisteditoptions';
-@import 'tierlistshowpage';
+@import 'base/index';
+@import 'display-page/index';
+@import 'generic/index';
+@import 'show-page/index';
