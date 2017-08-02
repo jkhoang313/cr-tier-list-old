@@ -11,7 +11,7 @@ import TierListContainer from './TierListContainer.js';
 import CardPoolContainer from './CardsRemainingContainer.js';
 
 
-class TierListEditPage extends Component {
+class TierListShowPage extends Component {
   componentWillMount() {
     const { addCardToTier, moveCardBetweenTiers,
             fetchTierList, routeParams } = this.props;
@@ -63,6 +63,8 @@ class TierListEditPage extends Component {
   }
 
   render() {
+    const isCreator = this.props.tierList.creator.id
+
     return (
       <Container className={`body edit-page theme-${this.props.tierList.list_type}`}>
         <TierListContainer/>
@@ -74,6 +76,7 @@ class TierListEditPage extends Component {
 
 function mapStateToProps(state) {
   return {
+    auth: state.auth,
     tierList: state.tierList.selectedTierList
   }
 };
@@ -89,4 +92,4 @@ function mapDispatchToProps(dispatch){
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TierListEditPage);
+)(TierListShowPage);

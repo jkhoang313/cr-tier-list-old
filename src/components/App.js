@@ -6,7 +6,8 @@ import { Modal, ModalBody, Form, FormGroup, Label, Input, Button
 import { bindAll } from 'lodash';
 // import { slide as SideMenu } from 'react-burger-menu';
 
-import * as actionCreators from '../state/actions.js';
+import { fetchUser, handleLoginModal, login
+       } from '../state/actions.js';
 import NavBar from './NavBar.js';
 
 
@@ -20,6 +21,12 @@ class App extends Component {
     }
 
     bindAll(this, "handleEmailChange", "handlePasswordChange", "handleLoginSubmit")
+  }
+
+  componentWillMount() {
+    if (this.props.loggedIn) {
+      this.props.fetchUser();
+    }
   }
 
   handleEmailChange(event) {
@@ -51,7 +58,7 @@ class App extends Component {
           isOpen={loginModalOpen}
           toggle={() => handleLoginModal(!loginModalOpen)}>
           <ModalBody>
-            <Form onSubmit={() => console.log('hi')}>
+            <Form>
               <FormGroup>
                 <Label>Email:</Label>
                 <Input
@@ -80,12 +87,17 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    loginModalOpen: state.auth.loginModalOpen
+    loginModalOpen: state.auth.loginModalOpen,
+    loggedIn: state.auth.loggedIn
   }
 };
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actionCreators, dispatch);
+  return bindActionCreators({
+    fetchUser,
+    login,
+    handleLoginModal
+  }, dispatch);
 };
 
 export default connect(

@@ -6,6 +6,7 @@ export default function callApi(url, actionType, requestInfo, params=null) {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'Auth-Token': sessionStorage.getItem('jwt')
     },
   }
   const finalRequestInfo = {

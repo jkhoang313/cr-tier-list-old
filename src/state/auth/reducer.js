@@ -9,6 +9,7 @@ export default function(state = {
 
       return {
         ...state,
+        user: action.payload.user,
         loggedIn: true,
         loginModalOpen: false
       }
@@ -20,6 +21,13 @@ export default function(state = {
       return {
         ...state,
         loggedIn: false
+      }
+    }
+
+    case "FETCH_USER_SUCCESS": {
+      return {
+        ...state,
+        user: action.payload.user
       }
     }
 
