@@ -30,4 +30,12 @@ div.display-page {
   &.theme-4 {
     @include list_type_theme($purple);
   }
+
+  .pagination {
+    justify-content: center;
+    
+    .page-item {
+      cursor: pointer;
+    }
+  }
 }

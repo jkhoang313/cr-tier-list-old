@@ -238,6 +238,12 @@ body div.display-page.theme-3 div.banner {
 body div.display-page.theme-4 div.banner {
   background-color: #340034; }
 
+body div.display-page .pagination {
+  justify-content: center; }
+
+body div.display-page .pagination .page-item {
+  cursor: pointer; }
+
 body .gu-mirror {
   position: fixed !important;
   margin: 0 !important;
